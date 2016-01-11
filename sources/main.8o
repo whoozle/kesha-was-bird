@@ -1,6 +1,8 @@
 : main
 	hires
 	plane 3
+	clear
+
 	va := 10
 	vb := 3
 	vc := text_intro
