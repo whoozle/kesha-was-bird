@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-def generate(name, file, font_height = 5):
+def generate(name, file, font_height = 5, space_width = 3):
 	source = ": data_%s\n" %name
 	with open(file) as fontsource:
 		font = {}
@@ -68,12 +68,17 @@ def generate(name, file, font_height = 5):
 				shift += height - font_height
 				glyph += 1
 			else:
-				index_source += "0 -1 0 3 0 "
+				index_source += "0 -1 0 %d 0 " %space_width
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
-	source += """: draw_{name}_char
-	if vc < {min} then return
-	if vc > {max} then return
+	source += """
+: draw_{name}_char_error
+	v0 := {space_width}
+	return
+
+: draw_{name}_char
+	if vc < {min} then jump draw_{name}_char_error
+	if vc > {max} then jump draw_{name}_char_error
 
 	vc += -{min}
 	v0 := vc
@@ -83,6 +88,7 @@ def generate(name, file, font_height = 5):
 	i += v0
 	i += vc
 	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend * 2
+	if v1 == -1 then jump draw_{name}_char_error
 
 	i := draw_{name}_char_sprite_instruction
 	ve := 0xb0
@@ -105,7 +111,7 @@ def generate(name, file, font_height = 5):
 	v0 := v3
 	return
 
-""".format(min = cmin, max = cmax, name = name)
+""".format(min = cmin, max = cmax, name = name, space_width = space_width)
 	return source
 
 import argparse
