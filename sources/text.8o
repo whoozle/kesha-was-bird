@@ -1,4 +1,28 @@
 : draw_text
-	va += va
-	:breakpoint text
-	return
+	i := data_text_index
+	i += vc
+	i += vc
+	load v2 - v3
+	:unpack 0x0a, data_text
+	v1 += v2
+	v0 += vf
+	v0 += v3
+	i := draw_text_instruction
+	save v1
+
+: draw_text_instruction
+	i := 0
+	load vc - vc
+
+	if vc == 0 then return
+
+	draw_font_char
+	va += v0
+
+	i := draw_text_instruction
+	load v1
+	v1 += 1
+	v0 += vf
+	i := draw_text_instruction
+	save v1
+	jump draw_text_instruction
