@@ -75,20 +75,16 @@ def generate(name, file, font_height = 5):
 	if vc < {min} then return
 	if vc > {max} then return
 
-    vc += -{min}
-	ve := vc
-	ve += ve
-	ve += ve
-	i := data_{name}_index
-	i += ve #*4
-	i += vc #*1 = *5
+	vc += -{min}
+	v0 := vc
+	v0 += vc
+	i := data_font_index
+	i += v0
+	i += v0
+	i += vc
 	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend * 2
 
-#patch sprite instruction with glyph height
-
 	i := draw_{name}_char_sprite_instruction
-	ve := 1 #add label expressions
-	i += ve
 	ve := 0xb0
 	v0 |= ve
 	save v0
@@ -104,7 +100,7 @@ def generate(name, file, font_height = 5):
 	i += ve
 	vb += v4
 
-: draw_{name}_char_sprite_instruction
+:next draw_{name}_char_sprite_instruction
 	sprite va vb 0
 	v0 := v3
 	return
