@@ -70,17 +70,48 @@ def generate(name, file):
 				index_source += "0 0 3 0 "
 	source += "\n\n"
 	source += ": %s_index\n%s\n\n" %(name, index_source)
-	source += ": draw_%s_char\n" %name
-	source += "\tif v0 < %d then return\n" %cmin
-	source += "\tif v0 > %d then return\n" %cmax
-	source += "\tv0 += %d\n" %-cmin
-	source += "\tv0 += v0\n"
-	source += "\ti := %s_index\n"
-	source += "\ti += v0\n"
-	source += "\ti += v0\n"
-	source += "\ti += v0\n"
-	source += "\ti += v0\n"
-	source += "\n"
+	source += """: draw_%{name}_char
+	if vc < {min} then return
+	if vc > {max} then return
+	vc += -{min}
+	vc += vc
+	i := font_index
+	i += vc
+	i += vc
+	load v3
+
+#patch sprite instruction with glyph height
+
+	i := draw_font_char_sprite_instruction
+	ve := 1 #add label expressions
+	i += ve
+	ve := 0xb0
+	v0 |= vf
+	save v0
+
+	i := font_data
+	i += vc
+	i += vc
+	i += vc
+	i += vc
+	i += vc
+	i += v1
+	i += v1
+
+: draw_font_char_sprite_instruction
+	sprite va vb 0
+	v0 := v2
+	return
+
+: main
+	hires
+	plane 3
+	va := 10
+	vb := 3
+	vc := 35
+	draw_font_char
+	return source
+""".format(min = cmin, max = cmax, name = font)
 	return source
 
 import argparse
