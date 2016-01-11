@@ -62,7 +62,7 @@ def generate(name, file):
 					if index > 255:
 						print "invalid index offset"
 
-				index_source += "%d %d %d %d " %(height, index, width, descent)
+				index_source += "%d %d %d %d " %(height, index, width, (256 - descent) & 0xff)
 				#print key, font[key]
 				if height != 5:
 					index += height - 5
@@ -86,7 +86,7 @@ def generate(name, file):
 	ve := 1 #add label expressions
 	i += ve
 	ve := 0xb0
-	v0 |= vf
+	v0 |= ve
 	save v0
 
 	i := data_{name}
