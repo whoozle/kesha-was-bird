@@ -1,0 +1,6 @@
+[submodule "Octo"]
+	path = Octo
+	url = https://github.com/JohnEarnest/Octo.git
+[submodule "octo"]
+	path = octo
+	url = https://github.com/JohnEarnest/Octo.git
