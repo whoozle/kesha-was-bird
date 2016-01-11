@@ -1,2 +1,4 @@
-: draw_font
+: draw_text
+	va += va
+	:breakpoint text
 	return

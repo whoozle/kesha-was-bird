@@ -3,5 +3,5 @@
 	plane 3
 	va := 10
 	vb := 3
-	vc := 35
-	draw_font_char
+	vc := text_intro
+	draw_text
