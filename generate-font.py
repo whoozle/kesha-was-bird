@@ -63,7 +63,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 					if shift > 255:
 						print "invalid shift offset, increase avg height"
 
-				index_source += "%d %d %d %d %d " %(height, glyph, shift, width, (256 - descent * 2) & 0xff)
+				index_source += "%d %d %d %d %d " %(height, glyph, shift, width, (256 - descent) & 0xff)
 				#print key, font[key]
 				shift += height - font_height
 				glyph += 1
@@ -87,7 +87,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	i += v0
 	i += v0
 	i += vc
-	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend * 2
+	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend
 	if v1 == -1 then jump draw_{name}_char_error
 
 	i := draw_{name}_char_sprite_instruction
