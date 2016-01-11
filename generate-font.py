@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 def generate(name, file):
-	source = ": %s_data\n" %name
+	source = ": data_%s\n" %name
 	with open(file) as fontsource:
 		font = {}
 		while True:
@@ -69,27 +69,27 @@ def generate(name, file):
 			else:
 				index_source += "0 0 3 0 "
 	source += "\n\n"
-	source += ": %s_index\n%s\n\n" %(name, index_source)
-	source += """: draw_%{name}_char
+	source += ": data_%s_index\n%s\n\n" %(name, index_source)
+	source += """: draw_{name}_char
 	if vc < {min} then return
 	if vc > {max} then return
 	vc += -{min}
 	vc += vc
-	i := font_index
+	i := data_{name}_index
 	i += vc
 	i += vc
 	load v3
 
 #patch sprite instruction with glyph height
 
-	i := draw_font_char_sprite_instruction
+	i := draw_{name}_char_sprite_instruction
 	ve := 1 #add label expressions
 	i += ve
 	ve := 0xb0
 	v0 |= vf
 	save v0
 
-	i := font_data
+	i := data_{name}
 	i += vc
 	i += vc
 	i += vc
