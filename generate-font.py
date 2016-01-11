@@ -90,7 +90,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend
 	if v1 == -1 then jump draw_{name}_char_error
 
-	i := draw_{name}_char_sprite_instruction
+	i := draw_{name}_char_sprite_index
 	ve := 0xb0
 	v0 |= ve
 	save v0
@@ -106,8 +106,9 @@ def generate(name, file, font_height = 5, space_width = 3):
 	i += ve
 	vb += v4
 
-:next draw_{name}_char_sprite_instruction
+:next draw_{name}_char_sprite_index
 	sprite va vb 0
+	vb -= v4
 	v0 := v3
 	return
 
