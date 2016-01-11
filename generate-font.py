@@ -103,7 +103,7 @@ def generate(name, file):
 	v0 := v2
 	return
 
-""".format(min = cmin, max = cmax, name = font)
+""".format(min = cmin, max = cmax, name = name)
 	return source
 
 import argparse
