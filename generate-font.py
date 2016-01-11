@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-def generate(name, file):
+def generate(name, file, font_height = 5):
 	source = ": data_%s\n" %name
 	with open(file) as fontsource:
 		font = {}
@@ -46,7 +46,8 @@ def generate(name, file):
 		chars = [ord(x) for x in font.keys()]
 		cmin, cmax = min(chars), max(chars)
 
-		index = 0
+		shift = 0
+		glyph = 0
 		index_source = ""
 		for ch in xrange(cmin, cmax + 1):
 			key = chr(ch)
@@ -59,48 +60,53 @@ def generate(name, file):
 							if row[i]:
 								value |= (0x80 >> i)
 						source += "0x%02x " %value
-					if index > 255:
-						print "invalid index offset"
+					if shift > 255:
+						print "invalid shift offset, increase avg height"
 
-				index_source += "%d %d %d %d " %(height, index, width, (256 - descent) & 0xff)
+				index_source += "%d %d %d %d %d " %(height, glyph, shift, width, (256 - descent * 2) & 0xff)
 				#print key, font[key]
-				if height != 5:
-					index += height - 5
+				shift += height - font_height
+				glyph += 1
 			else:
-				index_source += "0 0 3 0 "
+				index_source += "0 -1 0 3 0 "
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
 	source += """: draw_{name}_char
 	if vc < {min} then return
 	if vc > {max} then return
-	vc += -{min}
-	vc += vc
-	i := data_{name}_index
-	i += vc
-	i += vc
-	load v3
+
+    vc += -{min}
+	ve := vc
+	ve += ve
+	ve += ve
+	i := data_font_index
+	i += ve #*4
+	i += vc #*1 = *5
+	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend * 2
 
 #patch sprite instruction with glyph height
 
-	i := draw_{name}_char_sprite_instruction
+	i := draw_font_char_sprite_instruction
 	ve := 1 #add label expressions
 	i += ve
 	ve := 0xb0
 	v0 |= ve
 	save v0
 
-	i := data_{name}
-	i += vc
-	i += vc
-	i += vc
-	i += vc
-	i += vc
-	i += v1
-	i += v1
+	i := data_font
+	ve := v1
+	ve += ve
+	ve += ve
+	ve += v1
+	ve += ve
+	i += v2
+	i += v2
+	i += ve
+	vb += v4
 
 : draw_font_char_sprite_instruction
 	sprite va vb 0
-	v0 := v2
+	v0 := v3
 	return
 
 """.format(min = cmin, max = cmax, name = name)
