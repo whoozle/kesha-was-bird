@@ -12,7 +12,7 @@ offsets = []
 data = []
 for key, value in messages.iteritems():
 	offsets.append(len(data))
-	print ": const text_%s %d\n" %(key, len(offsets)),
+	print ":const text_%s %d\n" %(key, len(offsets)),
 	for ch in value:
 		data.append(ord(ch))
 	data.append(0)
