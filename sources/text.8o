@@ -25,4 +25,10 @@
 	v0 += vf
 	i := draw_text_instruction
 	save v1
+
+	i := data_font #font data lol
+	audio
+	vf := 10
+	buzzer := vf
+
 	jump draw_text_instruction
