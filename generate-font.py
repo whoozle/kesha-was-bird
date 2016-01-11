@@ -79,14 +79,14 @@ def generate(name, file, font_height = 5):
 	ve := vc
 	ve += ve
 	ve += ve
-	i := data_font_index
+	i := data_{name}_index
 	i += ve #*4
 	i += vc #*1 = *5
 	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend * 2
 
 #patch sprite instruction with glyph height
 
-	i := draw_font_char_sprite_instruction
+	i := draw_{name}_char_sprite_instruction
 	ve := 1 #add label expressions
 	i += ve
 	ve := 0xb0
@@ -104,7 +104,7 @@ def generate(name, file, font_height = 5):
 	i += ve
 	vb += v4
 
-: draw_font_char_sprite_instruction
+: draw_{name}_char_sprite_instruction
 	sprite va vb 0
 	v0 := v3
 	return
