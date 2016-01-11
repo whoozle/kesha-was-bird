@@ -103,14 +103,6 @@ def generate(name, file):
 	v0 := v2
 	return
 
-: main
-	hires
-	plane 3
-	va := 10
-	vb := 3
-	vc := 35
-	draw_font_char
-	return source
 """.format(min = cmin, max = cmax, name = font)
 	return source
 
