@@ -5,3 +5,14 @@
 		if vf != 0 then
 	again
 	return
+
+: audio_play_sync
+	vf := 2
+	audio
+	buzzer := vf
+	delay := vf
+	loop
+		vf := delay
+		if vf != 0 then
+	again
+	return

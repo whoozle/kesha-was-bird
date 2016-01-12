@@ -28,8 +28,6 @@
 	save v1
 
 	i := data_font #font data lol
-	audio
-	vf := 10
-	buzzer := vf
+	audio_play_sync
 
 	jump draw_text_instruction
