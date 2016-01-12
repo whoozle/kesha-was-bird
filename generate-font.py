@@ -46,7 +46,6 @@ def generate(name, file, font_height = 5, space_width = 3):
 		chars = [ord(x) for x in font.keys()]
 		cmin, cmax = min(chars), max(chars)
 
-		shift = 0
 		glyph = 0
 		font_data = []
 		index_source = ""
@@ -54,6 +53,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 			key = chr(ch)
 			if key in font:
 				height, width, descent, rows, shadow = font[key]
+				offset = len(font_data)
 				assert height == len(rows)
 				assert height == len(shadow)
 				for data in [rows, shadow]:
@@ -63,16 +63,12 @@ def generate(name, file, font_height = 5, space_width = 3):
 							if row[i]:
 								value |= (0x80 >> i)
 						font_data.append(value)
-					if shift > 255:
-						print "invalid shift offset, increase avg height"
 
-				index_source += "%d %d %d %d %d " %(height, glyph, shift, width, (256 - descent) & 0xff)
+				index_source += "%d 0x%02x 0x%02x %d %d " %(height, offset & 0xff, offset >> 8, width, (256 - descent) & 0xff)
 				#print key, font[key]
-				shift += height - font_height
 				glyph += 1
-				assert 2 * (glyph * font_height + shift) == len(font_data)
 			else:
-				index_source += "0 -1 0 %d 0 " %space_width
+				index_source += "0 0xff 0xff %d 0 " %space_width
 	source += " ".join(["0x%02x" %x for x in font_data])
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
@@ -93,7 +89,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	i += v0
 	i += v0
 	i += vc
-	load v4 #v0 height v1 glyph v2 height shift v3 width v4 ascend
+	load v4 #v0 height v1 v2 offset v3 width v4 ascend
 	if v1 == -1 then jump draw_{name}_char_error
 
 	i := draw_{name}_char_sprite_index
@@ -102,27 +98,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	save v0
 
 	v5 := v1
-	v6 := 0
-	v7 := 0
-
-	#v6:v5 = glyph * 5
-	v5 += v5 #*2 no overflow
-
-	v5 += v5 #*4
-	v7 += vf
-	v6 += v6
-
-	v5 += v1 #*5
-	v6 += vf
-
-	# * 2 + height shift
-	v5 += v2
-	v6 += vf
-
-	v5 += v5
-	v7 += vf
-	v6 += v6
-	v6 += v7
+	v6 := v2
 
 	:unpack 0x0a, data_font
 	i := draw_{name}_load_glyph_addr
