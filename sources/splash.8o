@@ -22,8 +22,12 @@
 	vf := key
 	plane 3
 
-	va := 10
-	vb := 10
+	va := 20
+	vb := 50
 	vc := text_title
 	draw_text
+
+	va := 90
+	sleep
 	clear
+	return
