@@ -9,6 +9,7 @@
 	v0 += v3
 	i := draw_text_instruction
 	save v1
+	vd := 1
 
 : draw_text_instruction
 	i := 0
@@ -21,7 +22,7 @@
 
 	i := draw_text_instruction
 	load v1
-	v1 += 1
+	v1 += vd
 	v0 += vf
 	i := draw_text_instruction
 	save v1
