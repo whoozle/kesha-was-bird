@@ -1,0 +1,7 @@
+: sleep
+	delay := va
+	loop
+		vf := delay
+		if vf != 0 then
+	again
+	return
