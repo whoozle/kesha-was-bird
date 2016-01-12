@@ -101,15 +101,39 @@ def generate(name, file, font_height = 5, space_width = 3):
 	v0 |= ve
 	save v0
 
-	i := data_font
-	ve := v1
-	ve += ve
-	ve += ve
-	ve += v1
-	ve += ve
-	i += v2
-	i += v2
-	i += ve
+	v5 := v1
+	v6 := 0
+	v7 := 0
+
+	#v6:v5 = glyph * 5
+	v5 += v5 #*2 no overflow
+
+	v5 += v5 #*4
+	v7 += vf
+	v6 += v6
+
+	v5 += v1 #*5
+	v6 += vf
+
+	# * 2 + height shift
+	v5 += v2
+	v6 += vf
+
+	v5 += v5
+	v7 += vf
+	v6 += v6
+	v6 += v7
+
+	:unpack 0x0a, data_font
+	i := draw_{name}_load_glyph_addr
+	v1 += v5
+	v0 += vf
+	v0 += v6
+	save v1
+
+: draw_{name}_load_glyph_addr
+	i := 0
+
 	vb += v4
 
 :next draw_{name}_char_sprite_index
