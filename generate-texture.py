@@ -6,6 +6,7 @@ import png
 parser = argparse.ArgumentParser(description='Compile font.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
+parser.add_argument('planes', type=int, help='planes (1/2)')
 args = parser.parse_args()
 
 tex = png.Reader(args.source)
@@ -34,7 +35,7 @@ for ty in xrange(0, ny):
 	for tx in xrange(0, nx):
 		basex = tx * tw
 		print "\n" + label("_%d_%d" %(ty, tx))
-		for plane in xrange(0, 2):
+		for plane in xrange(0, args.planes):
 			for y in xrange(0, th):
 				for x in xrange(0, tw / 8):
 					byte = 0
