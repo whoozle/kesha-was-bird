@@ -21,3 +21,9 @@
 
 	vf := key
 	plane 3
+
+	va := 10
+	vb := 10
+	vc := text_title
+	draw_text
+	clear
