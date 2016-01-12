@@ -76,6 +76,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	source += " ".join(["0x%02x" %x for x in font_data])
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
+	source += "#glyphs: %d, size: %d\n\n" %(glyph, len(font_data))
 	source += """
 : draw_{name}_char_error
 	v0 := {space_width}
