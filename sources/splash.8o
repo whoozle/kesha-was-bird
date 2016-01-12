@@ -1,8 +1,10 @@
 : draw_splash
+	clear
+	plane 1
 	i := data_splash_data
 
 	vb := 0
-	vc := 64
+	vc := 32
 
 	loop
 		va := 32
@@ -18,3 +20,4 @@
 	again
 
 	vf := key
+	plane 3
