@@ -48,6 +48,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 
 		shift = 0
 		glyph = 0
+		font_data = []
 		index_source = ""
 		for ch in xrange(cmin, cmax + 1):
 			key = chr(ch)
@@ -61,7 +62,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 						for i in xrange(0, width):
 							if row[i]:
 								value |= (0x80 >> i)
-						source += "0x%02x " %value
+						font_data.append(value)
 					if shift > 255:
 						print "invalid shift offset, increase avg height"
 
@@ -69,8 +70,10 @@ def generate(name, file, font_height = 5, space_width = 3):
 				#print key, font[key]
 				shift += height - font_height
 				glyph += 1
+				assert 2 * (glyph * font_height + shift) == len(font_data)
 			else:
 				index_source += "0 -1 0 %d 0 " %space_width
+	source += " ".join(["0x%02x" %x for x in font_data])
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
 	source += """
