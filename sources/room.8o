@@ -1,4 +1,5 @@
 : room_draw
+	clear
 	va := 0
 	vb := 0
 	vc := 16
@@ -32,4 +33,65 @@
 
 : room_loop
 	vf := key
+	return
+
+: room_intro
+	i := audio_phone_ring
+	audio
+
+	v0 := 15
+	v1 := 4
+	loop
+		buzzer := v0
+		va := 20
+		sleep
+		buzzer := v0
+		va := 90
+		sleep
+		v1 += -1
+	if v1 != 0 then
+		again
+
+	i := audio_click
+	audio_play_sync
+
+	va := 8
+	vb := 9
+	vc := text_room_intro_0
+	draw_text
+
+	va := 30
+	sleep
+
+	va := 20
+	vb := 15
+	vc := text_room_intro_1
+	draw_text
+
+	va := 30
+	sleep
+
+	va := 20
+	vb := 21
+	vc := text_room_intro_2
+	draw_text
+
+	va := 30
+	sleep
+
+	va := 20
+	vb := 27
+	vc := text_room_intro_3
+	draw_text
+
+	i := audio_phone_tone
+	audio
+
+	va := 30
+	sleep
+
+	va := 160
+	buzzer := va
+	sleep
+
 	return

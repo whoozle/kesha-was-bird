@@ -1,7 +1,8 @@
 : main
 	hires
 	plane 3
-	clear
 
 	splash_draw
+	room_draw
+	room_intro
 	room_draw

@@ -29,5 +29,4 @@
 
 	va := 90
 	sleep
-	clear
 	return

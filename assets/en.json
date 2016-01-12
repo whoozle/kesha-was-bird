@@ -1,13 +1,7 @@
 {
 	"title": "N E U R O M A N C E R",
-	"intro_0": "Look at you, hacker!",
-	"intro_1": "A pathetic creature",
-	"intro_2": "Of meat and bones",
-	"intro_3": "panting and sweating",
-	"intro_4": "as you run through my corridors.",
-	"intro_5": "How can you challenge",
-	"intro_6": "A PERFECT, IMMORTAL MACHINE?",
-	"shop": "Welcome to my shop, my dear friend!",
-	"shop_thanks": "Thanks for visiting my shop!",
-	"final": "Thanks for the playing!"
+	"room_intro_0": "Whazup, it's 3 am",
+	"room_intro_1": "Hello, D, no time to explain",
+	"room_intro_2": "Please hurry to our den",
+	"room_intro_3": "Please, D..."
 }
