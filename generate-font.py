@@ -53,6 +53,8 @@ def generate(name, file, font_height = 5, space_width = 3):
 			key = chr(ch)
 			if key in font:
 				height, width, descent, rows, shadow = font[key]
+				assert height == len(rows)
+				assert height == len(shadow)
 				for data in [rows, shadow]:
 					for row in data:
 						value = 0
