@@ -9,7 +9,6 @@ parser.add_argument('name', help='name')
 parser.add_argument('planes', type=int, help='planes (1/2)')
 parser.add_argument('tile-size', type=int, help='tile size (8/16)')
 args = parser.parse_args()
-print args
 
 tex = png.Reader(args.source)
 w, h, pixels, metadata = tex.read_flat()
