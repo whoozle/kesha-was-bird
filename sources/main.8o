@@ -3,4 +3,5 @@
 	plane 3
 	clear
 
-	draw_splash
+	splash_draw
+	room_draw

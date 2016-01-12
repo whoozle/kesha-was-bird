@@ -30,4 +30,6 @@
 
 	return
 
-: room_
+: room_loop
+	vf := key
+	return
