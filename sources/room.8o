@@ -1,0 +1,33 @@
+: room_draw
+	va := 0
+	vb := 0
+	vc := 16
+	i := tile_wall_data
+	draw_hline_8
+
+	va := 0
+	vb := 56
+	vc := 16
+	i := tile_wall_data
+	draw_hline_8
+
+	va := 0
+	vb := 8
+	vc := 6
+	i := tile_wall_data
+	draw_vline_8
+
+	va := 120
+	vb := 8
+	vc := 6
+	i := tile_wall_data
+	draw_vline_8
+
+	i := tile_bed_data
+	va := 80
+	vb := 20
+	draw_tile_32x32
+
+	return
+
+: room_
