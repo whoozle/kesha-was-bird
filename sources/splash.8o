@@ -1,0 +1,20 @@
+: draw_splash
+	i := data_splash_data
+
+	vb := 0
+	vc := 64
+
+	loop
+		va := 32
+		loop
+			#:breakpoint blit
+			sprite va vb 0
+			va += 16
+			i += vc
+			if va < 96 then
+		again
+		vb += 16
+		if vb < 64 then
+	again
+
+	vf := key

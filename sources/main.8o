@@ -2,3 +2,5 @@
 	hires
 	plane 3
 	clear
+
+	draw_splash
