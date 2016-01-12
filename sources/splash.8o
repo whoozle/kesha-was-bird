@@ -1,7 +1,7 @@
 : draw_splash
 	clear
 	plane 1
-	i := data_splash_data
+	i := tile_splash_data
 
 	vb := 0
 	vc := 32

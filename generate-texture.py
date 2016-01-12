@@ -14,7 +14,7 @@ w, h, pixels, metadata = tex.read_flat()
 tw, th = 16, 16
 
 def label(name):
-	return ": data_%s_%s" %(args.name, name)
+	return ": tile_%s_%s" %(args.name, name)
 
 nx = (w + tw - 1) / tw
 ny = (h + th - 1) / th
