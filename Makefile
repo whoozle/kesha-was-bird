@@ -5,11 +5,11 @@ all: assets/font/5.font sources/main.8o
 		cat sources/text.8o >> game.8o
 		cat sources/splash.8o >> game.8o
 		cat sources/main.8o >> game.8o
-		./generate-texture.py assets/tiles/bed.png bed 2 >> game.8o
-		./generate-texture.py assets/tiles/sink.png sink 2 >> game.8o
-		./generate-texture.py assets/tiles/wall.png wall 2 >> game.8o
-		./generate-texture.py assets/tiles/wc.png wc 2 >> game.8o
-		./generate-texture.py assets/splash.png splash 1 >> game.8o
+		./generate-texture.py assets/tiles/bed.png bed 2 16 >> game.8o
+		./generate-texture.py assets/tiles/sink.png sink 2 16 >> game.8o
+		./generate-texture.py assets/tiles/wall.png wall 2 16 >> game.8o
+		./generate-texture.py assets/tiles/wc.png wc 2 16 >> game.8o
+		./generate-texture.py assets/splash.png splash 1 16 >> game.8o
 
 game.bin:
 	./octo/octo game.8o game.bin

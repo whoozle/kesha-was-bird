@@ -7,11 +7,16 @@ parser = argparse.ArgumentParser(description='Compile font.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
 parser.add_argument('planes', type=int, help='planes (1/2)')
+parser.add_argument('tile-size', type=int, help='tile size (8/16)')
 args = parser.parse_args()
+print args
 
 tex = png.Reader(args.source)
 w, h, pixels, metadata = tex.read_flat()
-tw, th = 16, 16
+tile_size = getattr(args, 'tile-size')
+if tile_size != 8 and tile_size != 16:
+	raise Exception("invalid tile size %d" %tile_size)
+tw, th = tile_size, tile_size
 
 def label(name):
 	return ": tile_%s_%s" %(args.name, name)
