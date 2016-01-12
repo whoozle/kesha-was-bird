@@ -40,5 +40,5 @@ for ty in xrange(0, ny):
 				for x in xrange(0, tw / 8):
 					byte = 0
 					for bit in xrange(0, 8):
-						byte |= get_pixel(basex + x + bit, basey + y, plane) << (7 - bit)
+						byte |= get_pixel(basex + x * 8 + bit, basey + y, plane) << (7 - bit)
 					print "0x%02x" %byte ,
