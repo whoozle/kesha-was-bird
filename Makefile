@@ -1,11 +1,12 @@
 all: game.8o
-game.8o: assets/font/5.font sources/*.8o assets/tiles/* assets/*
+game.8o: assets/font/5.font sources/*.8o assets/tiles/* assets/* *.py
 		./generate-font.py assets/font/5.font > game.8o
 		./generate-text.py assets/en.json >> game.8o
 		cat sources/utils.8o >> game.8o
 		cat sources/text.8o >> game.8o
 		cat sources/tiles.8o >> game.8o
 		cat sources/room.8o >> game.8o
+		cat sources/dialogs.8o >> game.8o
 		cat sources/splash.8o >> game.8o
 		cat sources/audio.8o >> game.8o
 		cat sources/main.8o >> game.8o

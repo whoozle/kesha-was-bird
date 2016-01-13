@@ -1,7 +1,6 @@
 {
 	"title": "N E U R O M A N C E R",
-	"room_intro_0": "Ugh, damn, it's 3 am...",
-	"room_intro_1": "Hi, D, no time to explain",
-	"room_intro_2": "Please hurry to our den",
-	"room_intro_3": "Please, D..."
+	"dialog_kesha_0": "Who is this?",
+	"dialog_galya_0": "It's Galina. We need to talk",
+	"dialog_kesha_0": "No way, I got to drink first"
 }
