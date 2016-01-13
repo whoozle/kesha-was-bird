@@ -38,7 +38,7 @@ for ty in xrange(0, ny):
 	print "\n" + label("row_%d" %ty)
 	for tx in xrange(0, nx):
 		basex = tx * tw
-		print "\n" + label("_%d_%d" %(ty, tx))
+		print "\n" + label("%d_%d" %(ty, tx))
 		for plane in xrange(0, args.planes):
 			for y in xrange(0, th):
 				for x in xrange(0, tw / 8):
