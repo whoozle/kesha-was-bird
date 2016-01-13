@@ -30,61 +30,40 @@
 	i := tile_wall_data
 	draw_vline_8
 
-	i := tile_galya_v2_data
-	va := 90
-	vb := 40
+	i := tile_bed_data
+	va := 80
+	vb := 20
+	draw_tile_32x32
+
+	i := tile_sink_data
+	va := 8
+	vb := 30
 	sprite va vb 0
 
-	i := tile_galya_data
+	i := tile_wc_data
+	va := 40
+	vb := 41
+	sprite va vb 0
+
+	i := tile_bottle_h_data
+	va := 62
+	vb := 23
+	sprite va vb 8
+
+	i := tile_bottle_v_data
 	va := 70
-	vb := 40
-	sprite va vb 0
+	vb := 23
+	sprite va vb 8
 
-	i := tile_kesha_data
-	va := 30
-	vb := 40
-	sprite va vb 0
+	i := tile_up_door1_data
+	va := 40
+	vb := 0
+	sprite va vb 8
 
-	i := tile_kesha_o_data
-	va := 50
-	vb := 40
-	sprite va vb 0
-
-
-####i := tile_bed_data
-####va := 80
-####vb := 20
-####draw_tile_32x32
-
-####i := tile_sink_data
-####va := 8
-####vb := 30
-####sprite va vb 0
-
-####i := tile_wc_data
-####va := 40
-####vb := 41
-####sprite va vb 0
-
-####i := tile_bottle_h_data
-####va := 62
-####vb := 23
-####sprite va vb 8
-
-####i := tile_bottle_v_data
-####va := 70
-####vb := 23
-####sprite va vb 8
-
-####i := tile_up_door1_data
-####va := 40
-####vb := 0
-####sprite va vb 8
-
-####i := tile_up_door2_data
-####va := 48
-####vb := 0
-####sprite va vb 8
+	i := tile_up_door2_data
+	va := 48
+	vb := 0
+	sprite va vb 8
 
 	return
 
