@@ -14,6 +14,12 @@ all: assets/font/5.font sources/main.8o
 		./generate-texture.py assets/tiles/up_door1.png up_door1 2 8 >> game.8o
 		./generate-texture.py assets/tiles/up_door2.png up_door2 2 8 >> game.8o
 		./generate-texture.py assets/tiles/wc.png wc 2 16 >> game.8o
+		./generate-texture.py assets/tiles/bottle_v.png bottle_v 2 8 >> game.8o
+		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> game.8o
+		./generate-texture.py assets/tiles/kesha_v1.png kesha 2 16 >> game.8o
+		./generate-texture.py assets/tiles/galya.png galya 2 16 >> game.8o
+		./generate-texture.py assets/tiles/galya_v2.png galya_v2 2 16 >> game.8o
+		./generate-texture.py assets/tiles/kesha_v1_open.png kesha_o 2 16 >> game.8o
 		./generate-texture.py assets/splash.png splash 1 16 >> game.8o
 
 game.bin:

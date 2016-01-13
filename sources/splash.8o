@@ -1,4 +1,5 @@
 : splash_draw
+	return
 	clear
 	plane 1
 	i := tile_splash_data
