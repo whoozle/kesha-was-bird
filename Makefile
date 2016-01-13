@@ -1,4 +1,5 @@
-all: assets/font/5.font sources/main.8o
+all: game.8o
+game.8o: assets/font/5.font sources/*.8o
 		./generate-font.py assets/font/5.font > game.8o
 		./generate-text.py assets/en.json >> game.8o
 		cat sources/utils.8o >> game.8o
@@ -22,5 +23,5 @@ all: assets/font/5.font sources/main.8o
 		./generate-texture.py assets/tiles/kesha_v1_open.png kesha_o 2 16 >> game.8o
 		./generate-texture.py assets/splash.png splash 1 16 >> game.8o
 
-game.bin:
+game.bin: game.8o
 	./octo/octo game.8o game.bin
