@@ -1,4 +1,5 @@
 : panel_draw
+	clear
 	va := 0
 	vb := 0
 	i := tile_frame_0_0
@@ -31,6 +32,60 @@
 	sprite va vb 8
 	return
 
-: dialog_day_1
+:const dialog_head_left 9
+:const dialog_text_left 28
+
+:const dialog_head_right 100
+:const dialog_text_right 26
+
+: dialog_kesha_head_1
+	va := dialog_head_left
+	vb := 10
+	i := tile_kesha_data
+	sprite va vb 0
+	return
+
+: dialog_galya_head_2
+	va := dialog_head_right
+	vb := 20
+	i := tile_galya_data
+	sprite va vb 0
+	return
+
+: dialog_day_2
 	panel_draw
+	dialog_kesha_head_1
+	dialog_galya_head_2
+
+	va := dialog_text_left
+	vb := 10
+	vc := text_dialog_day_2_1_0
+	draw_text
+
+	va := 60 sleep
+
+	va := dialog_text_right
+	vb := 24
+	vc := text_dialog_day_2_1_1
+	draw_text
+
+	va := 30 sleep
+
+	va := dialog_text_right
+	vb := 34
+	vc := text_dialog_day_2_1_2
+	draw_text
+
+	va := 60 sleep
+
+	va := dialog_head_left
+	vb := 48
+	vc := text_dialog_day_2_1_3
+	draw_text
+
+	va := 30 sleep
+
+	i := audio_phone_tone
+	audio_play_sync
+
 	return

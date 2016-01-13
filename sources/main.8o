@@ -6,6 +6,6 @@
 #	room_draw
 #	room_intro
 #	room_draw
-	dialog_day_1
+	dialog_day_2
 	loop
 	again
