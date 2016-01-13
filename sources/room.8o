@@ -2,7 +2,13 @@
 	clear
 	va := 0
 	vb := 0
-	vc := 16
+	vc := 5
+	i := tile_wall_data
+	draw_hline_8
+
+	va := 56
+	vb := 0
+	vc := 9
 	i := tile_wall_data
 	draw_hline_8
 
@@ -28,6 +34,26 @@
 	va := 80
 	vb := 20
 	draw_tile_32x32
+
+	i := tile_sink_data
+	va := 9
+	vb := 30
+	sprite va vb 0
+
+	i := tile_wc_data
+	va := 40
+	vb := 41
+	sprite va vb 0
+
+	i := tile_up_door1_data
+	va := 40
+	vb := 0
+	sprite va vb 8
+
+	i := tile_up_door2_data
+	va := 48
+	vb := 0
+	sprite va vb 8
 
 	return
 
