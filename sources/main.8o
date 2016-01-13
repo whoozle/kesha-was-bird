@@ -2,7 +2,7 @@
 	hires
 	plane 3
 
-	splash_draw
-	room_draw
-	room_intro
+#	splash_draw
+#	room_draw
+#	room_intro
 	room_draw
