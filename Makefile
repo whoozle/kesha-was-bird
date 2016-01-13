@@ -1,5 +1,5 @@
 all: game.8o
-game.8o: assets/font/5.font sources/*.8o
+game.8o: assets/font/5.font sources/*.8o assets/tiles/*
 		./generate-font.py assets/font/5.font > game.8o
 		./generate-text.py assets/en.json >> game.8o
 		cat sources/utils.8o >> game.8o
@@ -9,6 +9,7 @@ game.8o: assets/font/5.font sources/*.8o
 		cat sources/splash.8o >> game.8o
 		cat sources/audio.8o >> game.8o
 		cat sources/main.8o >> game.8o
+		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 >> game.8o
 		./generate-texture.py assets/tiles/bed.png bed 2 16 >> game.8o
 		./generate-texture.py assets/tiles/sink.png sink 2 16 >> game.8o
 		./generate-texture.py assets/tiles/wall.png wall 2 8 >> game.8o
@@ -25,3 +26,5 @@ game.8o: assets/font/5.font sources/*.8o
 
 game.bin: game.8o
 	./octo/octo game.8o game.bin
+clean:
+		rm game.bin game.8o

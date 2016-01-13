@@ -6,3 +6,5 @@
 #	room_draw
 #	room_intro
 	room_draw
+	loop
+	again
