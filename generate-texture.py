@@ -35,10 +35,12 @@ def get_pixel(x, y, plane):
 print label("data"),
 for ty in xrange(0, ny):
 	basey = ty * th
-	print "\n" + label("row_%d" %ty)
+	if nx > 1 or ny > 1:
+		print "\n" + label("row_%d" %ty)
 	for tx in xrange(0, nx):
 		basex = tx * tw
-		print "\n" + label("%d_%d" %(ty, tx))
+		if nx > 1 or ny > 1:
+			print "\n" + label("%d_%d" %(ty, tx))
 		for plane in xrange(0, args.planes):
 			for y in xrange(0, th):
 				for x in xrange(0, tw / 8):
