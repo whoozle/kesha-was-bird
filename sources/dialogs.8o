@@ -45,6 +45,13 @@
 	sprite va vb 0
 	return
 
+: dialog_kesha_o_head_1
+	va := dialog_head_left
+	vb := 10
+	i := tile_kesha_o_data
+	sprite va vb 0
+	return
+
 : dialog_galya_head_2
 	va := dialog_head_right
 	vb := 20
@@ -77,6 +84,9 @@
 	draw_text
 
 	va := 60 sleep
+
+	dialog_kesha_head_1
+	dialog_kesha_o_head_1
 
 	va := dialog_head_left
 	vb := 48
