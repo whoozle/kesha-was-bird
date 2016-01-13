@@ -36,7 +36,7 @@
 	draw_tile_32x32
 
 	i := tile_sink_data
-	va := 9
+	va := 8
 	vb := 30
 	sprite va vb 0
 
