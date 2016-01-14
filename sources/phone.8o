@@ -16,13 +16,13 @@
 
 : phone_number
 : phone_number_0
-	1
+	-1
 : phone_number_1
-	2
+	-1
 : phone_number_2
-	3
+	-1
 : phone_number_3
-	4
+	-1
 
 : phone_draw_digit
 	vc += 48
@@ -54,6 +54,26 @@
 	va += phone_number_step
 	phone_draw_digit
 
+	return
+
+: phone_next_digit
+	i := phone_number
+	load v1 - v4
+
+	i := phone_number
+	v0 := 1
+	if v1 == -1 then return
+	i += v0
+	if v2 == -1 then return
+	i += v0
+	if v3 == -1 then return
+	i += v0
+	v0 := 0
+	return
+
+: phone_dial_digit
+	phone_next_digit
+	save va - va
 	return
 
 : phone_call
@@ -97,12 +117,44 @@
 
 	phone_draw_number
 
-	loop
-		v0 := key
-		if v0 >= 10 then return
-		if v0 != 0 begin
-			:breakpoint key
-		end
-	again
+: phone_loop_poll_key
+	vd := key
+	if vd >= 10 then return
+	if vd == 0 then jump phone_loop_poll_key
+
+	phone_draw_number
+	va := vd
+	phone_dial_digit
+	vd := v0
+	phone_draw_number
+	if vd == 1 then jump phone_loop_poll_key
+
+	phone_draw_number
+	i := audio_phone_ring
+	audio_play_sync
+	phone_draw_number
+	va := 30
+	sleep
+
+	phone_draw_number
+	i := audio_phone_ring
+	audio_play_sync
+	phone_draw_number
+	va := 30
+	sleep
+
+	phone_draw_number
+	i := audio_phone_ring
+	audio_play_sync
+	phone_draw_number
+	va := 30
+	sleep
+
+	i := phone_number
+	v0 := -1
+	save v0
+	save v0
+	save v0
+	save v0
 
 	return
