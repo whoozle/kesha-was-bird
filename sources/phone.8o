@@ -10,6 +10,52 @@
 :const phone_row_1 37
 :const phone_row_2 49
 
+:const phone_number_x 11
+:const phone_number_y 14
+:const phone_number_step 7
+
+: phone_number
+: phone_number_0
+	1
+: phone_number_1
+	2
+: phone_number_2
+	3
+: phone_number_3
+	4
+
+: phone_draw_digit
+	vc += 48
+	draw_font_char
+	return
+
+: phone_draw_number
+	i := phone_number_0
+	load vc - vc
+	va := phone_number_x
+	vb := phone_number_y
+	phone_draw_digit
+
+	i := phone_number_1
+	load vc - vc
+	if vc == -1 then return
+	va += phone_number_step
+	phone_draw_digit
+
+	i := phone_number_2
+	load vc - vc
+	if vc == -1 then return
+	va += phone_number_step
+	phone_draw_digit
+
+	i := phone_number_3
+	load vc - vc
+	if vc == -1 then return
+	va += phone_number_step
+	phone_draw_digit
+
+	return
+
 : phone_call
 	panel_draw
 
@@ -49,9 +95,14 @@
 	va := phone_col_2
 	sprite va vb 0
 
+	phone_draw_number
+
 	loop
 		v0 := key
-		if v0 == 0 then
+		if v0 >= 10 then return
+		if v0 != 0 begin
+			:breakpoint key
+		end
 	again
 
 	return
