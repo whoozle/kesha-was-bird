@@ -9,6 +9,7 @@ from fractions import gcd
 parser = argparse.ArgumentParser(description='Convert audio.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
+parser.add_argument('-o', '--output', help = 'dump audio as wav file')
 args = parser.parse_args()
 
 wav = wave.open(args.source)
@@ -29,6 +30,7 @@ bit, byte = 0, 0
 source = ""
 source += ": audio_%s\n" %args.name
 
+data = bytes()
 for i in xrange(0, n):
 	buf = []
 
@@ -42,8 +44,10 @@ for i in xrange(0, n):
 	if x >= qe:
 		byte |= (0x80 >> bit)
 		y = 1
+		data += struct.pack('<h', 16384)
 	else:
 		y = -1
+		data += struct.pack('<h', -16384)
 	qe = y - x + qe
 
 	bit += 1
@@ -65,3 +69,12 @@ print
 size /= 16 #loop count
 #print ":const audio_%s_size %d"  %(args.name, size)
 print ": audio_%s_size\n\t0x%02x 0x%02x\n%s"  %(args.name, size & 0xff, size >> 8, source)
+
+if args.output:
+	out = wave.open('out.wav', 'w')
+	out.setnchannels(1)
+	out.setsampwidth(2)
+	out.setframerate(wav.getframerate())
+	out.setnframes(len(data) / 2)
+	out.writeframes(data)
+	out.close() #no __exit__
