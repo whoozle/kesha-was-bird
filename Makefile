@@ -11,6 +11,7 @@ game.8o: Makefile assets/* assets/*/* sources/*.8o *.py
 		cat sources/phone.8o >> game.8o
 		cat sources/splash.8o >> game.8o
 		cat sources/audio.8o >> game.8o
+		cat sources/game-logic.8o >> game.8o
 		cat sources/main.8o >> game.8o
 		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 >> game.8o
 		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 >> game.8o

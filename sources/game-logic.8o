@@ -1,0 +1,11 @@
+: day_number
+	1
+
+: day_intertitle
+	panel_draw
+	va := 50 #128 - 27 / 2
+	vb := 28
+	vc := text_day
+	draw_text
+	:breakpoint t
+	return
