@@ -6,6 +6,7 @@ game.8o: Makefile assets/* assets/*/* sources/*.8o *.py
 		cat sources/text.8o >> game.8o
 		cat sources/tiles.8o >> game.8o
 		cat sources/room.8o >> game.8o
+		cat sources/panel.8o >> game.8o
 		cat sources/dialogs.8o >> game.8o
 		cat sources/phone.8o >> game.8o
 		cat sources/splash.8o >> game.8o

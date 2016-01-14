@@ -1,0 +1,33 @@
+: panel_draw
+	clear
+	va := 0
+	vb := 0
+	i := tile_frame_0_0
+	sprite va vb 8
+	va += 8
+	vc := 14
+	i := tile_frame_0_1
+	draw_hline_8
+	i := tile_frame_0_2
+	sprite va vb 8
+	va := 0
+	vb := 8
+	vc := 6
+	i := tile_frame_1_0
+	draw_vline_8
+	va := 120
+	vb := 8
+	vc := 6
+	i := tile_frame_1_2
+	draw_vline_8
+	va := 0
+	vb := 56
+	i := tile_frame_2_0
+	sprite va vb 8
+	va += 8
+	vc := 14
+	i := tile_frame_2_1
+	draw_hline_8
+	i := tile_frame_2_2
+	sprite va vb 8
+	return
