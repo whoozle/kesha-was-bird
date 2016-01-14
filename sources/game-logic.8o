@@ -49,3 +49,12 @@
 	sleep
 
 	return
+
+: day_increment
+	i := day_number
+	load v0
+	if v0 == 255 then return
+	v0 += 1
+	i := day_number
+	save v0
+	return
