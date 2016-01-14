@@ -1,5 +1,5 @@
 all: game.8o
-game.8o: Makefile assets/font/5.font sources/*.8o assets/tiles/* assets/* *.py
+game.8o: Makefile assets/* assets/*/* sources/*.8o *.py
 		./generate-font.py assets/font/5.font > game.8o
 		./generate-text.py assets/en.json >> game.8o
 		cat sources/utils.8o >> game.8o
