@@ -25,6 +25,46 @@
 	sprite va vb 0
 	return
 
+: dialog_day_1
+	panel_draw
+	dialog_kesha_head_1
+
+	va := dialog_text_left
+	vb := 10
+	vc := text_dialog_day_1_1_0
+	draw_text
+
+	va := 60 sleep
+
+	va := dialog_text_right
+	vb := 20
+	vc := text_dialog_day_1_1_1
+	draw_text
+
+	va := 30 sleep
+
+	va := dialog_text_right
+	vb := 30
+	vc := text_dialog_day_1_1_2
+	draw_text
+
+	va := 60 sleep
+
+	dialog_kesha_head_1
+	dialog_kesha_o_head_1
+
+	va := dialog_head_left
+	vb := 50
+	vc := text_dialog_day_1_1_3
+	draw_text
+
+	va := 30 sleep
+
+	i := audio_phone_tone
+	audio_play_sync
+
+	return
+
 : dialog_day_2
 	panel_draw
 	dialog_kesha_head_1

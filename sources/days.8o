@@ -1,0 +1,9 @@
+: day_1
+	va := 30 sleep
+	dialog_day_1
+	va := key
+	if key != 15 then jump day_1
+
+	# Drinking VODKA animation!!! And going to sleep
+
+	return

@@ -1,6 +1,11 @@
 {
-	"title": "N E U R O M A N C E R",
+	"title": "A L C O M A N C E R",
 	"day": "DAY ",
+  "dialog_day_1_1_0": "Ugh.. My head hurts..",
+  "dialog_day_1_1_1": "I need a drink..",
+  "dialog_day_1_1_2": "There was some vodka",
+  "dialog_day_1_1_3": "(Press \"V\")",
+
 	"dialog_day_2_1_0": "Hello! Who is this?",
 	"dialog_day_2_1_1": "It's Galina.",
 	"dialog_day_2_1_2": "We need to talk",
