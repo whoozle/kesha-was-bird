@@ -9,7 +9,7 @@
 : day_buffer_2
 	0 0
 
-:const intertitle_delay 120
+:const intertitle_delay 180
 
 : day_intertitle
 	panel_draw
