@@ -7,10 +7,14 @@ game.8o: Makefile assets/font/5.font sources/*.8o assets/tiles/* assets/* *.py
 		cat sources/tiles.8o >> game.8o
 		cat sources/room.8o >> game.8o
 		cat sources/dialogs.8o >> game.8o
+		cat sources/phone.8o >> game.8o
 		cat sources/splash.8o >> game.8o
 		cat sources/audio.8o >> game.8o
 		cat sources/main.8o >> game.8o
 		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 >> game.8o
+		./generate-texture.py assets/tiles/phone_button.png phone_button 2 16 >> game.8o
+		./generate-texture.py assets/tiles/phone_0a.png phone_0a 2 16 >> game.8o
+		./generate-texture.py assets/tiles/phone_0b.png phone_0b 2 16 >> game.8o
 		./generate-texture.py assets/tiles/bed.png bed 2 16 >> game.8o
 		./generate-texture.py assets/tiles/sink.png sink 2 16 >> game.8o
 		./generate-texture.py assets/tiles/wall.png wall 2 8 >> game.8o

@@ -1,0 +1,57 @@
+:const phone_x 10
+
+:const phone_display_x 8
+:const phone_col_0 7
+:const phone_col_1 19
+:const phone_col_2 31
+
+:const phone_display_y 8
+:const phone_row_0 25
+:const phone_row_1 37
+:const phone_row_2 49
+
+: phone_call
+	panel_draw
+
+	va := phone_display_x
+	vb := phone_display_y
+	i := tile_phone_0a_data
+	sprite va vb 0
+
+	va += 16
+	i := tile_phone_0b_data
+	sprite va vb 0
+
+	va := phone_col_0
+	vb := phone_row_0
+	i := tile_phone_button_data
+	sprite va vb 0
+	va := phone_col_1
+	sprite va vb 0
+	va := phone_col_2
+	sprite va vb 0
+
+	va := phone_col_0
+	vb := phone_row_1
+	i := tile_phone_button_data
+	sprite va vb 0
+	va := phone_col_1
+	sprite va vb 0
+	va := phone_col_2
+	sprite va vb 0
+
+	va := phone_col_0
+	vb := phone_row_2
+	i := tile_phone_button_data
+	sprite va vb 0
+	va := phone_col_1
+	sprite va vb 0
+	va := phone_col_2
+	sprite va vb 0
+
+	loop
+		v0 := key
+		if v0 == 0 then
+	again
+
+	return

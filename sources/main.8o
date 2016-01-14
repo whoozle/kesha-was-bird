@@ -6,6 +6,7 @@
 #	room_draw
 #	room_intro
 #	room_draw
+	phone_call
 	dialog_day_2
 	loop
 	again
