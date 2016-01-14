@@ -119,7 +119,7 @@
 
 : phone_loop_poll_key
 	vd := key
-	if vd >= 10 then return
+	if vd >= 10 then jump phone_call_exit
 	if vd == 0 then jump phone_loop_poll_key
 
 	phone_draw_number
@@ -150,6 +150,7 @@
 	va := 30
 	sleep
 
+: phone_call_exit
 	i := phone_number
 	v0 := -1
 	save v0
