@@ -32,6 +32,7 @@ game.8o: Makefile assets/* assets/*/* sources/*.8o *.py
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> game.8o
 		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> game.8o
 		./generate-texture.py assets/splash.png splash 1 16 >> game.8o
+		cat sources/audio_data.8o >> game.8o
 		cat sources/splash_audio.8o >> game.8o
 
 game.bin: game.8o
