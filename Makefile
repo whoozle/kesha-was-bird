@@ -25,6 +25,7 @@ game.8o: Makefile assets/* assets/*/* sources/*.8o *.py
 		./generate-texture.py assets/tiles/wc.png wc 2 16 >> game.8o
 		./generate-texture.py assets/tiles/bottle_v.png bottle_v 2 8 >> game.8o
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> game.8o
+		./generate-texture.py assets/tiles/letter.png letter 2 8 >> game.8o
 		./generate-texture.py assets/heads/kesha_v2.png kesha 2 16 >> game.8o
 		./generate-texture.py assets/heads/kesha_v2_open.png kesha_o 2 16 >> game.8o
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> game.8o
