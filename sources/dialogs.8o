@@ -52,25 +52,17 @@
 	sprite va vb 0
 	return
 
-: dialog_galya_head_2
+: dialog_cow_head
 	va := dialog_head_right
 	vb := 20
-	i := tile_galya_data
-	sprite va vb 0
-	return
-
-: dialog_duche_head
-	va := dialog_head_right
-	vb := 20
-	i := tile_duche_data
+	i := tile_cow_data
 	sprite va vb 0
 	return
 
 : dialog_day_2
 	panel_draw
 	dialog_kesha_head_1
-	#dialog_galya_head_2 WE NEED TO REDRAW GALYA - she is ugly as f.
-	dialog_duche_head
+	dialog_cow_head
 
 	va := dialog_text_left
 	vb := 10

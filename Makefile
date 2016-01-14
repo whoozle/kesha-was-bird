@@ -24,11 +24,9 @@ game.8o: Makefile assets/font/5.font sources/*.8o assets/tiles/* assets/* *.py
 		./generate-texture.py assets/tiles/bottle_v.png bottle_v 2 8 >> game.8o
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> game.8o
 		./generate-texture.py assets/tiles/kesha_v2.png kesha 2 16 >> game.8o
-		./generate-texture.py assets/tiles/galya.png galya 2 16 >> game.8o
-		./generate-texture.py assets/tiles/galya_v2.png galya_v2 2 16 >> game.8o
 		./generate-texture.py assets/tiles/kesha_v2_open.png kesha_o 2 16 >> game.8o
 		./generate-texture.py assets/tiles/kesha_v2_excited.png kesha_e 2 16 >> game.8o
-		./generate-texture.py assets/tiles/duche.png duche 2 16 >> game.8o
+		./generate-texture.py assets/tiles/cow.png cow 2 16 >> game.8o
 		./generate-texture.py assets/splash.png splash 1 16 >> game.8o
 
 game.bin: game.8o
