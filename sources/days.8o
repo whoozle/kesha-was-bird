@@ -1,9 +1,53 @@
 : day_1
-	va := 30 sleep
+	# Day 1
+	day_intertitle
+	# Show room
+	room_draw
+
+	va := 90 sleep
+	# Kesha wakes up and want to drink
 	dialog_day_1
-	va := key
-	if key != 15 then jump day_1
+	ve := key
+	if ve != 15 then jump day_1
 
 	# Drinking VODKA animation!!! And going to sleep
 
+	day_increment
+	return
+
+: day_2
+	# Day 2
+	day_intertitle
+	# Show room
+	room_draw
+
+	v0 := 44
+	v1 := 0
+	i := tile_letter_data
+
+	# Letter slides under the door
+	loop
+		sprite v0 v1 8
+		vf := 3
+		delay := vf
+		if v1 != 19 then sprite v0 v1 8
+		v1 += 1
+		if v1 != 20 then
+	again
+
+	va := 60 sleep
+
+	# Show letter
+	dialog_day_2_0
+
+	va := 60 sleep
+
+	# Show phone
+	clear
+	phone_call
+
+	va := 60 sleep
+	# If phone right – show dialog 2
+	dialog_day_2_1
+	day_increment
 	return

@@ -3,12 +3,11 @@
 	plane 3
 
 #	splash_draw
-	day_intertitle
-	room_draw
 	day_1
 #	room_intro
 #	room_draw
 #	phone_call
 #	dialog_day_2
 	loop
+		day_2
 	again

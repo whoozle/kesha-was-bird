@@ -4,7 +4,11 @@
   "dialog_day_1_1_0": "Ugh.. My head hurts..",
   "dialog_day_1_1_1": "I need a drink..",
   "dialog_day_1_1_2": "There was some vodka",
-  "dialog_day_1_1_3": "(Press \"V\")",
+  "dialog_day_1_1_3": "Press V",
+
+	"dialog_day_2_0_0": "We really need to talk",
+	"dialog_day_2_0_1": "1113. Galina",
+	"dialog_day_2_0_2": "Press any key",
 
 	"dialog_day_2_1_0": "Hello! Who is this?",
 	"dialog_day_2_1_1": "It's Galina.",

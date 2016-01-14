@@ -65,7 +65,31 @@
 
 	return
 
-: dialog_day_2
+: dialog_day_2_0
+	panel_draw
+
+	va := dialog_text_right
+	vb := 10
+	vc := text_dialog_day_2_0_0
+	draw_text
+
+	va := 30 sleep
+
+	va := dialog_text_right
+	vb := 20
+	vc := text_dialog_day_2_0_1
+	draw_text
+
+	va := 60 sleep
+
+	va := dialog_text_right
+	vb := 50
+	vc := text_dialog_day_2_0_2
+	draw_text
+
+	return
+
+: dialog_day_2_1
 	panel_draw
 	dialog_kesha_head_1
 	dialog_cow_head
