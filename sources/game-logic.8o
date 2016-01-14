@@ -1,11 +1,51 @@
 : day_number
 	1
 
+: day_buffer
+: day_buffer_0
+	0
+: day_buffer_1
+	0
+: day_buffer_2
+	0 0
+
+:const intertitle_delay 120
+
 : day_intertitle
 	panel_draw
+
+	i := day_number
+	load v0
+	i := day_buffer
+	bcd v0
+
 	va := 50 #128 - 27 / 2
 	vb := 28
 	vc := text_day
 	draw_text
-	:breakpoint t
+
+	i := day_buffer_0
+	load vc - vc
+	if vc != 0 begin
+		vc += 48
+		draw_font_char
+		va += v0
+	end
+
+	i := day_buffer_1
+	load vc - vc
+	if vc != 0 begin
+		vc += 48
+		draw_font_char
+		va += v0
+	end
+
+	i := day_buffer_2
+	load vc - vc
+	vc += 48
+	draw_font_char
+
+	va := intertitle_delay
+	sleep
+
 	return
