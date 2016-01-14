@@ -1,28 +1,24 @@
 #!/usr/bin/env python
 
 FREQ = 4000
+from math import sin, pi, floor
 
 def osc(t, freq):
-	x = (t * freq) % 1
-	return x < 0.5
+	return sin(t * 2 * pi * freq)
 
 def pulse(freq):
-	buf = bytes()
+	buf = []
 	byte = 0
 	bit = 0
-	for i in xrange(0, 256):
-		byte |= (0x80 if osc(i * 1.0 / FREQ, freq) else 0) >> bit
-		bit += 1
-		if bit == 8:
-			buf += chr(byte)
-			byte = 0
-			bit = 0
+	for i in xrange(0, 128):
+		v = osc(i * 1.0 / FREQ, freq)
+		buf.append(v)
 	return buf
 
 def mix(a, b):
-	c = bytes()
-	for i in xrange(0, 16):
-		c += chr(ord(a[i]) ^ ord(b[i]))
+	c = []
+	for i in xrange(0, 128):
+		c.append(a[i] + b[i])
 	return c
 
 cols = (pulse(1209), pulse(1336), pulse(1477), pulse(1633))
@@ -36,9 +32,28 @@ mapping = (
 )
 
 print ": audio_phone_tones"
+byte = 0
+bit = 0
 for row in xrange(0, 4):
 	for col in xrange(0, 4):
 		idx = row * 4 + col
 		#print row, col, mapping[idx]
 		tone = mix(rows[row], cols[col])
-		print " ".join(["0x%02x" %ord(x) for x in tone])
+		#print tone
+
+		qe = 0
+		for i in xrange(0, 128):
+			x = tone[i]
+			if x >= qe:
+				byte |= (0x80 >> bit)
+				y = 1
+			else:
+				y = -1
+			qe = y - x + qe
+
+			bit += 1
+			if bit == 8:
+				print "0x%02x" %byte,
+				bit = 0
+				byte = 0
+		print
