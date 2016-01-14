@@ -19,6 +19,9 @@
 		if vb < 64 then
 	again
 
+#	i := long audio_splash
+#	audio_play_stream
+
 	vf := key
 	plane 3
 
