@@ -53,6 +53,7 @@ def text(text, sleep = 30):
 	va := dialog_line_{line}_x
 	vb := dialog_line_{line}_y
 	vc := text_{id}
+	draw_text
 
 	va := {sleep}
 	sleep
