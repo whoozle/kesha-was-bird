@@ -62,6 +62,14 @@ def text(text, sleep = 30):
 	_line += 1
 	_texts[id] = text
 
+def call(name, *args):
+	global _source
+	if len(args) > 4:
+		raise Exception("only 4 arguments supported")
+	regs = ['va', 'vb', 'vc', 'vd']
+	_source += '\n'.join(["\t%s := %s" %(reg, arg) for reg, arg in zip(regs, args)])
+	_source += '\n\t%s\n\n' %name
+
 day(1, 1)
 head(1, 'kesha')
 text("Ugh.. My head hurts..")
@@ -69,6 +77,7 @@ text("I need a drink..")
 text("There was some vodka")
 head(1, 'kesha_e')
 text("Press V (F)")
+#call('drink_vodka', arg1, arg2)
 
 day(2, 1)
 text("We really need to talk")
