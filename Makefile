@@ -1,5 +1,5 @@
 PREFIX := .compiled
-all: $(PREFIX)/game.8o
+all: game.8o
 $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		@echo ":const heads_kesha 0" > $@
 		@echo ":const heads_kesha_open 1" >> $@
@@ -11,7 +11,7 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $@
 		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> $@
 
-$(PREFIX)/game.8o: Makefile $(PREFIX)/heads.8o assets/* assets/*/* sources/*.8o generate-texture.py generate-dtmf.py
+game.8o: Makefile $(PREFIX)/heads.8o assets/* assets/*/* sources/*.8o generate-texture.py generate-dtmf.py
 		./generate-font.py assets/font/5.font > $@
 		./generate-text.py assets/en.json >> $@
 		cat sources/utils.8o >> $@
@@ -44,8 +44,8 @@ $(PREFIX)/game.8o: Makefile $(PREFIX)/heads.8o assets/* assets/*/* sources/*.8o 
 		./generate-dtmf.py >> $@
 		cat sources/splash_audio.8o >> $@
 
-game.bin: $(PREFIX)/game.8o
-	./octo/octo $(PREFIX)game.8o $@
+game.bin: game.8o
+	./octo/octo game.8o $@
 
 clean:
-		rm game.bin game.8o
+		rm -f game.bin game.8o
