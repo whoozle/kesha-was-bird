@@ -1,19 +1,25 @@
 PREFIX := .compiled
 all: game.8o
-$(PREFIX)/heads.8o: Makefile assets/heads/* generate-*.py
+$(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		./generate-texture.py assets/heads/kesha_v2.png kesha 2 16 > $@
 		./generate-texture.py assets/heads/kesha_v2_open.png kesha_o 2 16 >> $@
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $@
 		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> $@
 
-$(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-*.py
+$(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
+		./generate-dtmf.py >> $@
+
+$(PREFIX)/font.8o: Makefile generate-font.py
+		./generate-font.py assets/font/5.font > $@
+
+$(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
 
-$(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-*.py
+$(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
 		./generate-text.py assets/en.json $(PREFIX)/dialogs.json > $@
 
-game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o assets/* assets/*/* sources/*.8o generate-*.py
-		./generate-font.py assets/font/5.font > $@
+game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
+		cat $(PREFIX)/font.8o > $@
 		cat $(PREFIX)/texts.8o >> $@
 		cat $(PREFIX)/dialogs.8o >> $@
 		cat sources/utils.8o >> $@
@@ -41,8 +47,8 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o assets/* assets/*/* sour
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
 		./generate-texture.py assets/splash.png splash 1 16 >> $@
-		./generate-dtmf.py >> $@
 		cat $(PREFIX)/heads.8o >> $@
+		cat $(PREFIX)/dtmf.8o >> $@
 		cat sources/splash_audio.8o >> $@
 
 game.bin: game.8o
