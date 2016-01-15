@@ -6,8 +6,7 @@
 
 	va := 90 sleep
 	# Kesha wakes up and want to drink
-	i := dialog_day_1_1
-	dialog_draw
+	dialog_day_1_1
 
 : day_1_key
 	ve := key
@@ -41,8 +40,7 @@
 	va := 60 sleep
 
 	# Show letter
-	i := dialog_day_2_1
-	dialog_draw
+	dialog_day_2_1
 
 	# Show phone
 	clear
@@ -50,7 +48,6 @@
 
 	va := 60 sleep
 	# If phone right – show dialog 2
-	i := dialog_day_2_2
-	dialog_draw
+	dialog_day_2_2
 	day_increment
 	return

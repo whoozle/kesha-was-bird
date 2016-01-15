@@ -16,7 +16,7 @@ _texts = {}
 _line = 0
 
 def day(day, dialog):
-	global _first_day, _source, _day, _dialog, _heads
+	global _first_day, _source, _day, _dialog, _heads, _line
 	_day, _dialog, _line = day, dialog, 1
 	if _first_day:
 		_first_day = False
@@ -35,14 +35,14 @@ def head(idx, name):
 : heads_draw_{name}_{idx}
 	v0 := dialog_head_{idx}_x
 	v1 := dialog_head_{idx}_y
-	i := tile_{name}_data
+	i := long tile_{name}_data
 	sprite v0 v1 0
 	return\n\n""".format(name = name, idx = idx)
 		_draw_heads.add(key)
 	if _heads[idx]:
-		_source += '\tdraw_%s_%d\n' %(_heads[idx], idx) #erase old head
+		_source += '\theads_draw_%s_%d\n' %(_heads[idx], idx) #erase old head
 	_heads[idx] = name
-	_source += '\tdraw_%s_%d\n' %(name, idx) #erase old head
+	_source += '\theads_draw_%s_%d\n' %(name, idx) #erase old head
 	pass
 
 def text(text, sleep = 30):
@@ -50,9 +50,9 @@ def text(text, sleep = 30):
 	id = 'dialog_%d_%d_%d' %(_day, _dialog, _line)
 
 	_source += """
-	va := dialogs_line_{line}_x
-	vb := dialogs_line_{line}_y
-	vc := {id}
+	va := dialog_line_{line}_x
+	vb := dialog_line_{line}_y
+	vc := text_{id}
 
 	va := {sleep}
 	sleep
@@ -90,15 +90,10 @@ _source += '\treturn\n\n'
 prefix = args.prefix
 with open(os.path.join(prefix, 'dialogs.8o'), 'w') as f:
 	_source = """\
-:const dialog_line_1_left 28
-:const dialog_line_2_left 28
-:const dialog_line_3_left 28
-:const dialog_line_4_left 28
-
-:const dialog_line_1_right 26
-:const dialog_line_2_right 26
-:const dialog_line_3_right 26
-:const dialog_line_4_right 26
+:const dialog_line_1_x 28
+:const dialog_line_2_x 26
+:const dialog_line_3_x 26
+:const dialog_line_4_x 24
 
 :const dialog_line_1_y 10
 :const dialog_line_2_y 20
