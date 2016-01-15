@@ -47,5 +47,8 @@ game.8o: Makefile $(PREFIX)/heads.8o assets/* assets/*/* sources/*.8o generate-t
 game.bin: game.8o
 	./octo/octo game.8o $@
 
+xclip: game.8o
+	cat game.8o | xclip
+
 clean:
 		rm -f game.bin game.8o
