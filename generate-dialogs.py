@@ -93,6 +93,14 @@ text("We need to talk")
 head(1, 'kesha_e')
 text("I'll have a drink first")
 
+day(3, 1)
+head(1, 'kesha_o')
+text("Hi, it's Kesha")
+head(2, 'cow')
+text("Can we talk now?")
+text("You need to find me")
+text("Save me please")
+
 import os.path
 import json
 
