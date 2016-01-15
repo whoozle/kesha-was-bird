@@ -1,7 +1,6 @@
 PREFIX := .compiled
 all: game.8o
 $(PREFIX)/heads.8o: Makefile assets/heads/* generate-*.py
-		@echo ": heads_data" > $@
 		./generate-texture.py assets/heads/kesha_v2.png kesha 2 16 >> $@
 		./generate-texture.py assets/heads/kesha_v2_open.png kesha_o 2 16 >> $@
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $@
