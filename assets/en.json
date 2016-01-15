@@ -1,18 +1,5 @@
 {
 	"title": "PRESS 1 TO START",
 
-	"day": "DAY ",
-
-	"dialog_day_1_1_1": "Ugh.. My head hurts..",
-	"dialog_day_1_1_2": "I need a drink..",
-	"dialog_day_1_1_3": "There was some vodka",
-	"dialog_day_1_1_4": "Press V",
-
-	"dialog_day_2_1_1": "We really need to talk",
-	"dialog_day_2_1_2": "1113. Galina",
-
-	"dialog_day_2_2_1": "Hello! Who is this?",
-	"dialog_day_2_2_2": "It's Galina.",
-	"dialog_day_2_2_3": "We need to talk",
-	"dialog_day_2_2_4": "I'll have a drink first"
+	"day": "DAY "
 }
