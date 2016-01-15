@@ -1,7 +1,7 @@
 : splash_draw
 	clear
 	plane 1
-	i := tile_splash_data
+	i := long tile_splash_data
 
 	vb := 0
 	vc := 32
@@ -19,8 +19,10 @@
 		if vb < 64 then
 	again
 
-#	i := long audio_splash
-#	audio_play_stream
+	i := long audio_splash_size
+	load va - vb
+	i := long audio_splash
+	audio_play_stream
 
 	vf := key
 	plane 3
