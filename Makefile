@@ -1,19 +1,24 @@
 PREFIX := .compiled
 all: game.8o
-$(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
-		@echo ":const heads_kesha 0" > $@
+$(PREFIX)/heads.8o: Makefile assets/heads/* generate-*.py
+		@echo ":const no_head 0xff" > $@
+		@echo ":const heads_kesha 0" >> $@
 		@echo ":const heads_kesha_open 1" >> $@
 		@echo ":const heads_kesha_excited 2" >> $@
 		@echo ":const heads_squirell 3" >> $@
-		@echo ": heads_data" >> $@
-		./generate-texture.py assets/heads/kesha_v2.png kesha 2 16 >> $@
-		./generate-texture.py assets/heads/kesha_v2_open.png kesha_o 2 16 >> $@
-		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $@
-		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> $@
+		@echo ": heads_data" > $(PREFIX)/heads_data.8o
+		./generate-texture.py assets/heads/kesha_v2.png kesha 2 16 >> $(PREFIX)/heads_data.8o
+		./generate-texture.py assets/heads/kesha_v2_open.png kesha_o 2 16 >> $(PREFIX)/heads_data.8o
+		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $(PREFIX)/heads_data.8o
+		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> $(PREFIX)/heads_data.8o
 
-game.8o: Makefile $(PREFIX)/heads.8o assets/* assets/*/* sources/*.8o generate-texture.py generate-dtmf.py
-		./generate-font.py assets/font/5.font > $@
+$(PREFIX)/texts.8o: Makefile generate-*.py
 		./generate-text.py assets/en.json >> $@
+
+game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o assets/* assets/*/* sources/*.8o generate-*.py
+		./generate-font.py assets/font/5.font > $@
+		cat $(PREFIX)/heads.8o >> $@
+		cat $(PREFIX)/texts.8o >> $@
 		cat sources/utils.8o >> $@
 		cat sources/text.8o >> $@
 		cat sources/tiles.8o >> $@
@@ -40,8 +45,8 @@ game.8o: Makefile $(PREFIX)/heads.8o assets/* assets/*/* sources/*.8o generate-t
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
 		./generate-texture.py assets/splash.png splash 1 16 >> $@
-		cat $(PREFIX)/heads.8o >> $@
 		./generate-dtmf.py >> $@
+		cat $(PREFIX)/heads_data.8o >> $@
 		cat sources/splash_audio.8o >> $@
 
 game.bin: game.8o
