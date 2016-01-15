@@ -6,9 +6,12 @@
 
 	va := 90 sleep
 	# Kesha wakes up and want to drink
-	dialog_day_1
+	i := dialog_day_1_1
+	dialog_draw
+
+: day_1_key
 	ve := key
-	if ve != 15 then jump day_1
+	if ve != 15 then jump day_1_key
 
 	# Drinking VODKA animation!!! And going to sleep
 
@@ -38,9 +41,8 @@
 	va := 60 sleep
 
 	# Show letter
-	dialog_day_2_0
-
-	va := 60 sleep
+	i := dialog_day_2_1
+	dialog_draw
 
 	# Show phone
 	clear
@@ -48,6 +50,7 @@
 
 	va := 60 sleep
 	# If phone right – show dialog 2
-	dialog_day_2_1
+	i := dialog_day_2_2
+	dialog_draw
 	day_increment
 	return

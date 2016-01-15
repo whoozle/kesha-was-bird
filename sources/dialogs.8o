@@ -1,131 +1,44 @@
-:const dialog_head_left 9
-:const dialog_text_left 28
+:const dialog_line_1_left 28
+:const dialog_line_2_left 28
+:const dialog_line_3_left 28
+:const dialog_line_4_left 28
 
-:const dialog_head_right 100
-:const dialog_text_right 26
+:const dialog_line_1_right 26
+:const dialog_line_2_right 26
+:const dialog_line_3_right 26
+:const dialog_line_4_right 26
 
-: dialog_kesha_head_1
-	va := dialog_head_left
-	vb := 10
-	i := tile_kesha_data
-	sprite va vb 0
-	return
+:const dialog_line_1_y 10
+:const dialog_line_2_y 20
+:const dialog_line_3_y 30
+:const dialog_line_4_y 40
 
-: dialog_kesha_o_head_1
-	va := dialog_head_left
-	vb := 10
-	i := tile_kesha_e_data
-	sprite va vb 0
-	return
+:const dialog_head_1_x 9
+:const dialog_head_1_y 10
 
-: dialog_cow_head
-	va := dialog_head_right
-	vb := 20
-	i := tile_cow_data
-	sprite va vb 0
-	return
+:const dialog_head_2_x 100
+:const dialog_head_2_y 20
 
-: dialog_day_1
-	panel_draw
-	dialog_kesha_head_1
-
-	va := dialog_text_left
-	vb := 10
-	vc := text_dialog_day_1_1_0
-	draw_text
-
-	va := 60 sleep
-
-	va := dialog_text_right
-	vb := 20
-	vc := text_dialog_day_1_1_1
-	draw_text
-
-	va := 30 sleep
-
-	va := dialog_text_right
-	vb := 30
-	vc := text_dialog_day_1_1_2
-	draw_text
-
-	va := 60 sleep
-
-	dialog_kesha_head_1
-	dialog_kesha_o_head_1
-
-	va := dialog_head_left
-	vb := 50
-	vc := text_dialog_day_1_1_3
-	draw_text
-
-	va := 30 sleep
-
-	i := audio_phone_tone
-	audio_play_sync
-
-	return
-
-: dialog_day_2_0
-	panel_draw
-
-	va := dialog_text_right
-	vb := 10
-	vc := text_dialog_day_2_0_0
-	draw_text
-
-	va := 30 sleep
-
-	va := dialog_text_right
-	vb := 20
-	vc := text_dialog_day_2_0_1
-	draw_text
-
-	va := 60 sleep
-
-	va := dialog_text_right
-	vb := 50
-	vc := text_dialog_day_2_0_2
-	draw_text
-
-	return
+: dialog_day_1_1
+	4
+	heads_kesha no_head text_dialog_day_1_1_1
+	heads_kesha no_head text_dialog_day_1_1_2
+	heads_kesha_excited no_head text_dialog_day_1_1_3
+	heads_kesha_excited no_head text_dialog_day_1_1_4
 
 : dialog_day_2_1
-	panel_draw
-	dialog_kesha_head_1
-	dialog_cow_head
+	2
+	no_head no_head text_dialog_day_2_1_1
+	no_head no_head text_dialog_day_2_1_2
 
-	va := dialog_text_left
-	vb := 10
-	vc := text_dialog_day_2_1_0
-	draw_text
+: dialog_day_2_2
+	4
+	heads_kesha no_head text_dialog_day_2_2_1
+	heads_kesha heads_squirell text_dialog_day_2_2_2
+	heads_kesha_excited heads_squirell text_dialog_day_2_2_3
+	heads_kesha_excited heads_squirell text_dialog_day_2_2_4
 
-	va := 60 sleep
-
-	va := dialog_text_right
-	vb := 24
-	vc := text_dialog_day_2_1_1
-	draw_text
-
-	va := 30 sleep
-
-	va := dialog_text_right
-	vb := 34
-	vc := text_dialog_day_2_1_2
-	draw_text
-
-	va := 60 sleep
-
-	dialog_kesha_head_1
-	dialog_kesha_o_head_1
-
-	va := dialog_head_left
-	vb := 48
-	vc := text_dialog_day_2_1_3
-	draw_text
-
-	va := 30 sleep
-
-	i := audio_phone_tone
-	audio_play_sync
-
+: dialog_draw
 	return
+
+
