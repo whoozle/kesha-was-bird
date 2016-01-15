@@ -21,7 +21,18 @@
 	v2 := 16
 	v3 := 1
 	v4 := 2
+
+	v5 := va
+	v5 |= vb
+	if v5 == 0 then return
+
 	loop
+		audio
+		buzzer := v4
+		delay := v4
+
+		i += v2
+
 		v5 := va
 		v5 |= vb
 		if v5 == 0 then return
@@ -29,10 +40,6 @@
 		vf ^= v3 #0 on borrow
 		vb -= vf
 
-		audio
-		delay := v4
-		buzzer := v4
-		i += v2
 		loop
 			v6 := delay
 			if v6 != 0 then
