@@ -7,7 +7,7 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-*.py
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $@
 		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> $@
 
-$(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile
+$(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-*.py
 		./generate-dialogs.py $(PREFIX)
 
 $(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-*.py
@@ -16,6 +16,7 @@ $(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generat
 game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o assets/* assets/*/* sources/*.8o generate-*.py
 		./generate-font.py assets/font/5.font > $@
 		cat $(PREFIX)/texts.8o >> $@
+		cat $(PREFIX)/dialogs.8o >> $@
 		cat sources/utils.8o >> $@
 		cat sources/text.8o >> $@
 		cat sources/tiles.8o >> $@
