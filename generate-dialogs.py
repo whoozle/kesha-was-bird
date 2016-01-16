@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description='generate dialogs')
 parser.add_argument('prefix', help='target directory')
 args = parser.parse_args()
 
-_day, _dialog = 0, 0
+_dialog, _dialog_idx = 0, 0
 _heads = None
 _draw_heads = set()
 _source = ''
@@ -21,16 +21,16 @@ def clear_state():
 	_line = 1
 	_heads = {1: '', 2: ''}
 
-def day(day, dialog):
-	global _first_day, _source, _day, _dialog, _text
-	_day, _dialog, _text = day, dialog, 1
+def dialog(dialog, idx):
+	global _first_day, _source, _dialog, _dialog_idx, _text
+	_dialog, _dialog_idx, _text = dialog, idx, 1
 	if _first_day:
 		_first_day = False
 	else:
 		_source += '\treturn\n\n'
 
 	clear_state()
-	_source += ': dialog_day_%d_%d\n\tpanel_draw\n' %(day, dialog)
+	_source += ': dialog_%s_%d\n\tpanel_draw\n' %(dialog, idx)
 
 def head(idx, name):
 	global _heads_source, _heads, _source
@@ -51,8 +51,8 @@ def head(idx, name):
 	pass
 
 def text(text, sleep = 30):
-	global _source, _texts, _day, _dialog, _line, _text
-	id = 'dialog_%d_%d_%d' %(_day, _dialog, _text)
+	global _source, _texts, _dialog, _dialog_idx, _line, _text
+	id = 'dialog_%s_%d_%d' %(_dialog, _dialog_idx, _text)
 
 	_source += """
 	va := dialog_line_{line}_x
@@ -84,7 +84,11 @@ def clear():
 	clear_state()
 	call('panel_draw')
 
-day(1, 1)
+dialog('no_answer', 1)
+head(1, 'kesha')
+text("Hmm.. No answer", 60)
+
+dialog('kesha', 1)
 head(1, 'kesha')
 text("Ugh.. My head hurts..")
 text("I need a drink..")
@@ -93,11 +97,11 @@ head(1, 'kesha_e')
 text("Press V (F)")
 #call('drink_vodka', arg1, arg2)
 
-day(2, 1)
+dialog('galina', 1)
 text("We really need to talk")
 text("1113. Galina")
 
-day(2, 2)
+dialog('galina', 2)
 head(1, 'kesha')
 text("Hello! Who is this?")
 head(2, 'cow')
@@ -107,12 +111,12 @@ text("We need to talk")
 head(1, 'kesha_e')
 text("I'll have a drink first")
 
-day(3, 1)
+dialog('galina', 3)
 head(1, 'kesha_o')
 text("Hi, it's Kesha")
 head(2, 'cow')
 text("Can we talk now?")
-text("You need to", 0)
+text("You need to find", 0)
 
 clear()
 
@@ -122,7 +126,7 @@ text('interruption, lovebirds...')
 text('but I need Galina', 0)
 text('RIGHT NOW!!!')
 
-day(4, 1)
+dialog('galina', 4)
 head(1, 'kesha_o')
 text("Hi, it's me again")
 
@@ -135,8 +139,15 @@ head(1, 'ninja')
 text('Pardon me')
 text('I\'d like to help you')
 text('Call me, 1337') #leet :D
-
 text('N I N J A')
+
+dialog('galina', 5)
+head(1, 'kesha_o')
+text("Hi, it's Kesha")
+head(2, 'cow')
+text("Quick, you need to find me")
+text("I will explain")
+text("everything later")
 
 
 import os.path
