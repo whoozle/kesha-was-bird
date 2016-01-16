@@ -60,12 +60,24 @@
 #generating pin first time
 	v0 := random 0xf
 	if v0 > 9 then v0 += -6
+
+: lab_pin_number_2
 	v1 := random 0xf
 	if v1 > 9 then v1 += -6
+	if v1 == v0 then jump lab_pin_number_2
+
+: lab_pin_number_3
 	v2 := random 0xf
 	if v2 > 9 then v2 += -6
+	if v2 == v0 then jump lab_pin_number_3
+	if v2 == v1 then jump lab_pin_number_3
+
+: lab_pin_number_4
 	v3 := random 0xf
 	if v3 > 9 then v3 += -6
+	if v3 == v0 then jump lab_pin_number_4
+	if v3 == v1 then jump lab_pin_number_4
+	if v3 == v2 then jump lab_pin_number_4
 
 #	v0 := 1
 #	v1 := 2
