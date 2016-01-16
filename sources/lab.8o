@@ -32,6 +32,7 @@
 	v4 += 1
 	i := lab_stats_bulls
 	save v4 - v4
+	return
 
 : lab_update_cows
 	i := lab_stats_cows
@@ -112,12 +113,7 @@
 	again
 
 	va := 10
-
-	i := lab_stats
-	load v1
-	v1 -= v0 #sub bulls from cows
-	i := lab_stats
-	save v1
+	vd := va
 
 : lab_display_bulls
 
