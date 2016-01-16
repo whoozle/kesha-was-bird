@@ -14,18 +14,23 @@ _heads_source = ''
 _first_day = True
 _texts = {}
 _line = 0
+_text = 0
+
+def clear_state():
+	global _line, _heads
+	_line = 1
+	_heads = {1: '', 2: ''}
 
 def day(day, dialog):
-	global _first_day, _source, _day, _dialog, _heads, _line
-	_day, _dialog, _line = day, dialog, 1
+	global _first_day, _source, _day, _dialog, _text
+	_day, _dialog, _text = day, dialog, 1
 	if _first_day:
 		_first_day = False
 	else:
 		_source += '\treturn\n\n'
 
-	_heads = {1: '', 2: ''}
+	clear_state()
 	_source += ': dialog_day_%d_%d\n\tpanel_draw\n' %(day, dialog)
-	pass
 
 def head(idx, name):
 	global _heads_source, _heads, _source
@@ -46,8 +51,8 @@ def head(idx, name):
 	pass
 
 def text(text, sleep = 30):
-	global _source, _texts, _day, _dialog, _line
-	id = 'dialog_%d_%d_%d' %(_day, _dialog, _line)
+	global _source, _texts, _day, _dialog, _line, _text
+	id = 'dialog_%d_%d_%d' %(_day, _dialog, _text)
 
 	_source += """
 	va := dialog_line_{line}_x
@@ -55,11 +60,16 @@ def text(text, sleep = 30):
 	vc := text_{id}
 	draw_text
 
+""".format(line = _line, id = id)
+	if sleep > 0:
+		_source += """
 	va := {sleep}
 	sleep
 
-""".format(line = _line, id = id, sleep = sleep)
+""".format(sleep = sleep)
+
 	_line += 1
+	_text += 1
 	_texts[id] = text
 
 def call(name, *args):
@@ -69,6 +79,10 @@ def call(name, *args):
 	regs = ['va', 'vb', 'vc', 'vd']
 	_source += '\n'.join(["\t%s := %s" %(reg, arg) for reg, arg in zip(regs, args)])
 	_source += '\n\t%s\n\n' %name
+
+def clear():
+	clear_state()
+	call('panel_draw')
 
 day(1, 1)
 head(1, 'kesha')
