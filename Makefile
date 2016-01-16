@@ -11,8 +11,8 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
 		./generate-dtmf.py > $@
 
-$(PREFIX)/font.8o: Makefile generate-font.py assets/font/5.font
-		./generate-font.py assets/font/5.font > $@
+$(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
+		./generate-font.py assets/font/5.font font $(PREFIX)
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
@@ -49,6 +49,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREF
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
 		./generate-texture.py assets/splash.png splash 1 16 >> $@
+		cat $(PREFIX)/font_data.8o >> $@
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
 		cat sources/splash_audio.8o >> $@

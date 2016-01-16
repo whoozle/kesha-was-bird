@@ -73,7 +73,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
 	source += "#glyphs: %d, size: %d\n\n" %(glyph, len(font_data))
-	source += """
+	header = """
 : draw_{name}_char_error
 	v0 := {space_width}
 	return
@@ -85,7 +85,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	vc += -{min}
 	v0 := vc
 	v0 += vc
-	i := data_font_index
+	i := long data_font_index
 	i += v0
 	i += v0
 	i += vc
@@ -100,15 +100,16 @@ def generate(name, file, font_height = 5, space_width = 3):
 	v5 := v1
 	v6 := v2
 
-	:unpack 0x0a, data_font
+	:unpack 0x00, data_font
 	i := draw_{name}_load_glyph_addr
 	v1 += v5
 	v0 += vf
 	v0 += v6
 	save v1
 
+	0xf0 0x00
 : draw_{name}_load_glyph_addr
-	i := 0
+	0x00 0x00
 
 	vb += v4
 
@@ -119,13 +120,21 @@ def generate(name, file, font_height = 5, space_width = 3):
 	return
 
 """.format(min = cmin, max = cmax, name = name, space_width = space_width)
-	return source
+	return header, source
 
 import argparse
+import os.path
 
 parser = argparse.ArgumentParser(description='Compile font.')
 parser.add_argument('source', help='input file')
+parser.add_argument('name', help='input file')
+parser.add_argument('target', help='target directory')
 args = parser.parse_args()
 
+decl, defn = generate(args.name, args.source)
+with open(os.path.join(args.target, args.name + ".8o"), "w") as f:
+	f.write(decl)
 
-print generate('font', args.source)
+with open(os.path.join(args.target, args.name + "_data.8o"), "w") as f:
+	f.write(defn)
+
