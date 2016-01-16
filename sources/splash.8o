@@ -19,15 +19,19 @@
 		if vb < 64 then
 	again
 
-	i := long audio_splash_size
-	load va - vb
-	i := long audio_splash
-	audio_play_stream
-
 	va := 24
 	vb := 54
 	vc := text_title
 	draw_text
 
-	vf := key
+	loop
+		i := long audio_splash_size
+		load va - vb
+		i := long audio_splash
+		audio_play_stream
+
+		v0 := 1
+		if v0 -key then
+	again
+
 	return

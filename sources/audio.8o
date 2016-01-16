@@ -27,7 +27,9 @@
 	v5 |= vb
 	if v5 == 0 then return
 
+	v0 := 1
 	loop
+		if v0 key then return
 		audio
 		buzzer := v4
 		delay := v4
