@@ -1,0 +1,33 @@
+: dispatch_call
+
+	i := phone_number
+	load v3
+
+	if v3 == -1 then return #no number/incomplete
+
+	i := day_number
+	load va - va
+	if v0 == 1 then jump dispatch_call_1
+
+	return
+
+: dispatch_call_1
+	if v1 == 1 then jump dispatch_call_1_1
+	if v1 == 3 then jump dispatch_call_1_3
+	return
+
+: dispatch_call_1_1
+	if v2 == 1 then jump dispatch_call_1_1_1
+	return
+
+: dispatch_call_1_3
+	if v2 == 3 then jump dispatch_call_1_3_3
+	return
+
+: dispatch_call_1_1_1
+	if v3 == 3 then jump call_galina
+	return
+
+: dispatch_call_1_3_3
+	if v3 == 7 then jump call_ninja
+	return

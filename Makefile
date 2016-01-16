@@ -47,6 +47,9 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREF
 		cat sources/room.8o >> $@
 		cat sources/panel.8o >> $@
 		cat sources/phone.8o >> $@
+		cat sources/dispatch_call.8o >> $@
+		cat sources/call_galina.8o >> $@
+		cat sources/call_ninja.8o >> $@
 		cat sources/splash.8o >> $@
 		cat sources/audio.8o >> $@
 		cat sources/game-logic.8o >> $@
