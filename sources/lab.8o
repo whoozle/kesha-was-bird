@@ -1,0 +1,2 @@
+: lab_enter_pin
+	return
