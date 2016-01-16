@@ -12,12 +12,37 @@
 : lab_stats_cows
 0
 
+
+# va == key, vd == index
 : lab_update_stats
 	i := lab_pin
+	load v3
 	i := lab_stats_bulls
-	v0 := 3
-	save v0
-	save v0
+	load v4 - v4
+	v5 <<= vd
+	v5 <<= v5
+	v5 <<= v5
+	v5 <<= v5
+	i := lab_bull_index
+	save v5 - v5
+
+:next lab_bull_index
+	if va != v0 then jump lab_update_cows
+
+	v4 += 1
+	i := lab_stats_bulls
+	save v4 - v4
+
+: lab_update_cows
+	i := lab_stats_cows
+	load v4 - v4
+	if va == v0 then v4 += 1
+	if va == v1 then v4 += 1
+	if va == v2 then v4 += 1
+	if va == v3 then v4 += 1
+	i := lab_stats_cows
+	save v4 - v4
+
 	return
 
 : lab_enter_pin
@@ -41,6 +66,11 @@
 	if v2 > 9 then v2 += -6
 	v3 := random 0xf
 	if v3 > 9 then v3 += -6
+
+	v0 := 1
+	v1 := 2
+	v2 := 3
+	v3 := 4
 	i := lab_pin
 	save v3
 
@@ -71,6 +101,12 @@
 
 	va := 10
 
+	i := lab_stats
+	load v1
+	v1 -= v0 #sub bulls from cows
+	i := lab_stats
+	save v1
+
 : lab_display_bulls
 
 	i := lab_stats_bulls
@@ -97,11 +133,13 @@
 
 : lab_display_cows
 	va := vd
+	i := lab_stats
 
 : lab_display_cows_loop
 
 	i := lab_stats_cows
 	load v0
+
 	if v0 == 0 then jump lab_enter_pin_exit
 	v0 += -1
 	i := lab_stats_cows
