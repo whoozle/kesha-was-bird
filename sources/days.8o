@@ -25,7 +25,7 @@
 
 	v0 := 44
 	v1 := 0
-	i := tile_letter_data
+	i := long tile_letter_data
 
 	# Letter slides under the door
 	loop

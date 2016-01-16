@@ -122,6 +122,21 @@ text('interruption, lovebirds...')
 text('but I need Galina', 0)
 text('RIGHT NOW!!!')
 
+day(4, 1)
+head(1, 'kesha_o')
+text("Hi, it's me again")
+
+head(2, 'cow')
+text("Can we", 0)
+
+clear()
+
+head(1, 'ninja')
+text('Pardon me')
+text('I\'d like to help you')
+text('Call me, 1337') #leet :D
+
+
 import os.path
 import json
 

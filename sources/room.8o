@@ -3,64 +3,64 @@
 	va := 0
 	vb := 0
 	vc := 5
-	i := tile_wall_data
+	i := long tile_wall_data
 	draw_hline_8
 
 	va := 56
 	vb := 0
 	vc := 9
-	i := tile_wall_data
+	i := long tile_wall_data
 	draw_hline_8
 
 	va := 0
 	vb := 56
 	vc := 16
-	i := tile_wall_data
+	i := long tile_wall_data
 	draw_hline_8
 
 	va := 0
 	vb := 8
 	vc := 6
-	i := tile_wall_data
+	i := long tile_wall_data
 	draw_vline_8
 
 	va := 120
 	vb := 8
 	vc := 6
-	i := tile_wall_data
+	i := long tile_wall_data
 	draw_vline_8
 
-	i := tile_bed_data
+	i := long tile_bed_data
 	va := 80
 	vb := 20
 	draw_tile_32x32
 
-	i := tile_sink_data
+	i := long tile_sink_data
 	va := 8
 	vb := 30
 	sprite va vb 0
 
-	i := tile_wc_data
+	i := long tile_wc_data
 	va := 40
 	vb := 41
 	sprite va vb 0
 
-	i := tile_bottle_h_data
+	i := long tile_bottle_h_data
 	va := 62
 	vb := 23
 	sprite va vb 8
 
-	i := tile_bottle_v_data
+	i := long tile_bottle_v_data
 	va := 70
 	vb := 23
 	sprite va vb 8
 
-	i := tile_up_door1_data
+	i := long tile_up_door1_data
 	va := 40
 	vb := 0
 	sprite va vb 8
 
-	i := tile_up_door2_data
+	i := long tile_up_door2_data
 	va := 48
 	vb := 0
 	sprite va vb 8
