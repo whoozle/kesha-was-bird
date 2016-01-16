@@ -9,6 +9,7 @@
 	loop
 		phone_call
 		dispatch_call
+		day_end
 	again
 
 	loop again

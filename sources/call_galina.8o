@@ -1,2 +1,18 @@
+: galina_calls
+	0
+
 : call_galina
+	i := galina_calls
+	load v0
+	v0 += 1
+	i := galina_calls
+	save v0
+
+	if v0 != 0 then jump call_galina_1
+	dialog_day_2_2
+	return
+
+: call_galina_1
+	dialog_day_3_1
+
 	return

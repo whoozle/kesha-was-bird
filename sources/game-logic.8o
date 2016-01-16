@@ -58,3 +58,8 @@
 	i := day_number
 	save v0
 	return
+
+: day_end
+	day_increment
+	day_intertitle
+	return
