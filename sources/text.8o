@@ -1,33 +1,39 @@
 : draw_text
-	i := data_text_index
+	i := long data_text_index
 	i += vc
 	i += vc
 	load v2 - v3
-	:unpack 0x0a, data_text
+
+	v0 := data_text_hi
+	v1 := data_text_lo
+
 	v1 += v2
 	v0 += vf
 	v0 += v3
-	i := draw_text_instruction
+
+	i := draw_text_instruction_addr
 	save v1
 	vd := 1
 
-: draw_text_instruction
-	i := 0
-	load vc - vc
+: draw_text_loop
+	0xf0 0x00 #i := long XXXX
+: draw_text_instruction_addr
+	0 0
 
+	load vc - vc
 	if vc == 0 then return
 
 	draw_font_char
 	va += v0
 
-	i := draw_text_instruction
+	i := draw_text_instruction_addr
 	load v1
-	v1 += vd
+	v1 += vd #+1
 	v0 += vf
-	i := draw_text_instruction
+	i := draw_text_instruction_addr
 	save v1
 
 	i := audio_phone_ring
 	audio_play_sync
 
-	jump draw_text_instruction
+	jump draw_text_loop
