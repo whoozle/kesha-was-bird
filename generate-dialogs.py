@@ -34,20 +34,22 @@ def dialog(dialog, idx):
 
 def head(idx, name):
 	global _heads_source, _heads, _source
-	key = (idx, name)
-	if key not in _draw_heads:
-		_heads_source += """\
+	if name:
+		key = (idx, name)
+		if key not in _draw_heads:
+			_heads_source += """\
 : heads_draw_{name}_{idx}
 	v0 := dialog_head_{idx}_x
 	v1 := dialog_head_{idx}_y
 	i := long tile_{name}_data
 	sprite v0 v1 0
 	return\n\n""".format(name = name, idx = idx)
-		_draw_heads.add(key)
+			_draw_heads.add(key)
 	if _heads[idx]:
 		_source += '\theads_draw_%s_%d\n' %(_heads[idx], idx) #erase old head
 	_heads[idx] = name
-	_source += '\theads_draw_%s_%d\n' %(name, idx) #erase old head
+	if name:
+		_source += '\theads_draw_%s_%d\n' %(name, idx) #erase old head
 	pass
 
 def text(text, sleep = 30):
@@ -108,8 +110,9 @@ head(2, 'cow')
 text("It's Galina.")
 head(1, 'kesha_o')
 text("We need to talk")
+head(2, '')
 head(1, 'kesha_e')
-text("I'll have a drink first")
+text("I'll have a drink first") #remove galina head here
 
 dialog('galina', 3)
 head(1, 'kesha_o')
