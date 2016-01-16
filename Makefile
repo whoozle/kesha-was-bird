@@ -29,7 +29,7 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 		./generate-texture.py assets/tiles/bottle_v.png bottle_v 2 8 >> $@
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
-		./generate-texture.py assets/splash.png splash 1 16 >> $@
+		./generate-texture.py assets/splash.png splash 2 16 >> $@
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)

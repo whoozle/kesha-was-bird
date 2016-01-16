@@ -1,19 +1,19 @@
 : splash_draw
 	clear
-	plane 1
+	plane 3
 	i := long tile_splash_data
 
 	vb := 0
-	vc := 32
+	vc := 64
 
 	loop
-		va := 32
+		va := 0
 		loop
 			#:breakpoint blit
 			sprite va vb 0
 			va += 16
 			i += vc
-			if va < 96 then
+			if va < 128 then
 		again
 		vb += 16
 		if vb < 64 then
@@ -24,14 +24,10 @@
 	i := long audio_splash
 	audio_play_stream
 
-	vf := key
-	plane 3
-
-	va := 20
-	vb := 50
+	va := 24
+	vb := 54
 	vc := text_title
 	draw_text
 
-	va := 90
-	sleep
+	vf := key
 	return
