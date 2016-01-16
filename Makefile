@@ -34,12 +34,12 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
 
-$(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
-		./generate-text.py assets/en.json $(PREFIX)/dialogs.json > $@
+$(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
+		./generate-text.py $(PREFIX) assets/en.json $(PREFIX)/dialogs.json
 
-game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
-		cat $(PREFIX)/font.8o > $@
-		cat $(PREFIX)/texts.8o >> $@
+game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
+		cat $(PREFIX)/texts.8o > $@
+		cat $(PREFIX)/font.8o >> $@
 		cat $(PREFIX)/dialogs.8o >> $@
 		cat sources/utils.8o >> $@
 		cat sources/text.8o >> $@
@@ -60,6 +60,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREF
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
 		cat sources/splash_audio.8o >> $@
+		cat $(PREFIX)/texts_data.8o >> $@
 
 game.bin: game.8o
 	./octo/octo game.8o $@
