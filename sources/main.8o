@@ -2,14 +2,15 @@
 	hires
 	plane 3
 
-#	splash_draw
-#	room_intro
-#	room_draw
+	splash_draw
+	day_1
+	day_2
 
 	loop
+		day_intertitle
 		phone_call
 		dispatch_call
-		day_end
+		day_increment
 	again
 
 	loop again

@@ -6,7 +6,7 @@
 
 	va := 90 sleep
 	# Kesha wakes up and want to drink
-	dialog_day_1_1
+	dialog_kesha_1
 
 : day_1_key
 	ve := key
@@ -37,17 +37,10 @@
 		if v1 != 20 then
 	again
 
-	va := 60 sleep
+	va := 90 sleep
 
-	# Show letter
-	dialog_day_2_1
-
-	# Show phone
-	clear
-	phone_call
+	dialog_galina_1
 
 	va := 60 sleep
-	# If phone right – show dialog 2
-	dialog_day_2_2
 	day_increment
 	return

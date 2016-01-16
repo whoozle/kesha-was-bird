@@ -146,7 +146,7 @@ head(1, 'kesha_o')
 text("Hi, it's Kesha")
 head(2, 'cow')
 text("Quick, you need to find me")
-text("I will explain")
+text("I will explain", 0)
 text("everything later")
 
 

@@ -53,7 +53,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat sources/splash.8o >> $@
 		cat sources/audio.8o >> $@
 		cat sources/game-logic.8o >> $@
-#		cat sources/days.8o >> $@ #this logic must be in call_xxxxx files
+		cat sources/days.8o >> $@
 		cat sources/main.8o >> $@
 		cat $(PREFIX)/tiles.8o >> $@
 		cat $(PREFIX)/font_data.8o >> $@
