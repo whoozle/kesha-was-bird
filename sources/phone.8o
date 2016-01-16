@@ -90,6 +90,13 @@
 	return
 
 : phone_call
+	i := phone_number
+	v0 := -1
+	save v0
+	save v0
+	save v0
+	save v0
+
 	va := phone_display_x
 	vb := phone_display_y
 	i := tile_phone_0a_data
@@ -160,7 +167,7 @@
 
 : phone_loop_poll_key
 	vd := key
-	if vd >= 10 then jump phone_call_exit
+	if vd >= 10 then return #exit
 	if vd == 0 then jump phone_loop_poll_key
 
 	phone_draw_number
@@ -175,13 +182,5 @@
 
 	phone_call_dial_effect
 	phone_call_dial_effect
-
-: phone_call_exit
-	i := phone_number
-	v0 := -1
-	save v0
-	save v0
-	save v0
-	save v0
 
 	return
