@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-def generate(name, file, font_height = 5, space_width = 3):
-	source = ": data_%s\n" %name
+def generate(name, file, addr, font_height = 5, space_width = 3):
+	source = ":org 0x%04x\n" %addr
+	source += ": font_%s_data\n" %name
 	with open(file) as fontsource:
 		font = {}
 		while True:
@@ -100,11 +101,12 @@ def generate(name, file, font_height = 5, space_width = 3):
 	v5 := v1
 	v6 := v2
 
-	:unpack 0x00, data_font
-	i := draw_{name}_load_glyph_addr
+	v0 := {addrh}
+	v1 := {addrl}
 	v1 += v5
 	v0 += vf
 	v0 += v6
+	i := draw_{name}_load_glyph_addr
 	save v1
 
 	0xf0 0x00
@@ -119,7 +121,7 @@ def generate(name, file, font_height = 5, space_width = 3):
 	v0 := v3
 	return
 
-""".format(min = cmin, max = cmax, name = name, space_width = space_width)
+""".format(min = cmin, max = cmax, name = name, space_width = space_width, addrh = addr >> 8, addrl = addr & 0xff)
 	return header, source
 
 import argparse
@@ -128,10 +130,12 @@ import os.path
 parser = argparse.ArgumentParser(description='Compile font.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='input file')
+parser.add_argument('segment', help='font data address in high mem (e.g. f000)')
 parser.add_argument('target', help='target directory')
 args = parser.parse_args()
+addr = int(args.segment, 16)
 
-decl, defn = generate(args.name, args.source)
+decl, defn = generate(args.name, args.source, addr)
 with open(os.path.join(args.target, args.name + ".8o"), "w") as f:
 	f.write(decl)
 

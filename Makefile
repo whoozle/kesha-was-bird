@@ -12,7 +12,7 @@ $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
 		./generate-dtmf.py > $@
 
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
-		./generate-font.py assets/font/5.font font $(PREFIX)
+		./generate-font.py assets/font/5.font font 4000 $(PREFIX)
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)

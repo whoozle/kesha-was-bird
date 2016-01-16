@@ -27,7 +27,7 @@
 	i := draw_text_instruction
 	save v1
 
-	i := data_font #font data lol
+	i := audio_phone_ring
 	audio_play_sync
 
 	jump draw_text_instruction
