@@ -82,11 +82,10 @@
 : phone_call_dial_effect
 	phone_draw_number
 	i := audio_phone_ring
-	va := 10
-	vb := 0
-	audio_play_stream
+	vf := 30
+	audio_play_sync_vf
 	phone_draw_number
-	va := 15
+	va := 20
 	sleep
 	return
 
@@ -174,7 +173,6 @@
 	phone_draw_number
 	if vd == 1 then jump phone_loop_poll_key
 
-	phone_call_dial_effect
 	phone_call_dial_effect
 	phone_call_dial_effect
 

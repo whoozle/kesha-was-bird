@@ -7,6 +7,7 @@
 
 : audio_play_sync
 	vf := 2
+: audio_play_sync_vf
 	audio
 	buzzer := vf
 	delay := vf
