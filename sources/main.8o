@@ -2,10 +2,13 @@
 	hires
 	plane 3
 
+	jump main_skip
+
 	splash_draw
 	day_1
 	day_2
 
+: main_skip
 	loop
 		day_intertitle
 		phone_call
