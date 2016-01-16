@@ -99,6 +99,7 @@
 	return
 
 : phone_call
+	clear
 	phone_clear_number
 
 	va := phone_display_x
