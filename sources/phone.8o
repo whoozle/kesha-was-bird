@@ -79,6 +79,17 @@
 	save va - va
 	return
 
+: phone_call_dial_effect
+	phone_draw_number
+	i := audio_phone_ring
+	va := 10
+	vb := 0
+	audio_play_stream
+	phone_draw_number
+	va := 15
+	sleep
+	return
+
 : phone_call
 	va := phone_display_x
 	vb := phone_display_y
@@ -163,26 +174,9 @@
 	phone_draw_number
 	if vd == 1 then jump phone_loop_poll_key
 
-	phone_draw_number
-	i := audio_phone_ring
-	audio_play_sync
-	phone_draw_number
-	va := 30
-	sleep
-
-	phone_draw_number
-	i := audio_phone_ring
-	audio_play_sync
-	phone_draw_number
-	va := 30
-	sleep
-
-	phone_draw_number
-	i := audio_phone_ring
-	audio_play_sync
-	phone_draw_number
-	va := 30
-	sleep
+	phone_call_dial_effect
+	phone_call_dial_effect
+	phone_call_dial_effect
 
 : phone_call_exit
 	i := phone_number
