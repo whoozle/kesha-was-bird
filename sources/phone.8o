@@ -89,13 +89,17 @@
 	sleep
 	return
 
-: phone_call
+: phone_clear_number
 	i := phone_number
 	v0 := -1
 	save v0
 	save v0
 	save v0
 	save v0
+	return
+
+: phone_call
+	phone_clear_number
 
 	va := phone_display_x
 	vb := phone_display_y
@@ -167,7 +171,7 @@
 
 : phone_loop_poll_key
 	vd := key
-	if vd >= 10 then return #exit
+	if vd >= 10 then jump phone_clear_number #exit
 	if vd == 0 then jump phone_loop_poll_key
 
 	phone_draw_number
