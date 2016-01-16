@@ -168,6 +168,11 @@ text("I need to infiltrate", 0)
 text("PROFESSOR'S lab")
 text("And you my only key")
 
+dialog('lab_security', 1)
+head(1, 'lab')
+text("WELCOME TO EXTRA", 0)
+text("SECURE LABORATORY")
+text("ENTER PIN")
 
 import os.path
 import json
