@@ -60,8 +60,8 @@
 	if vf != 0 then jump audio_play_dtmf_inc
 
 : audio_play_dtmf_play
+	va := 10
 	audio
-	buzzer := vb
-	va := vb
+	buzzer := va
 	sleep
 	return
