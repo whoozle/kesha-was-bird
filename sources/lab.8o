@@ -67,10 +67,10 @@
 	v3 := random 0xf
 	if v3 > 9 then v3 += -6
 
-	v0 := 1
-	v1 := 2
-	v2 := 3
-	v3 := 4
+#	v0 := 1
+#	v1 := 2
+#	v2 := 3
+#	v3 := 4
 	i := lab_pin
 	save v3
 
