@@ -136,6 +136,8 @@ text('Pardon me')
 text('I\'d like to help you')
 text('Call me, 1337') #leet :D
 
+text('N I N J A')
+
 
 import os.path
 import json
