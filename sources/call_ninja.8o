@@ -1,2 +1,2 @@
 : call_ninja
-	return
+	jump dialog_ninja_1

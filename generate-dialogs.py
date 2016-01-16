@@ -150,6 +150,22 @@ text("I will explain")
 text("everything later")
 
 
+dialog('ninja', 1)
+head(1, 'kesha_o')
+text("Hi, you intercept", 0)
+text("my calls, why?")
+
+head(2, 'ninja')
+text("Sorry, I have no choice")
+text("I wanted to help you")
+
+clear()
+head(1, 'ninja')
+text("I need to infiltrate", 0)
+text("PROFESSOR'S lab")
+text("And you my only key")
+
+
 import os.path
 import json
 
