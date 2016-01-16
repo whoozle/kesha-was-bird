@@ -59,8 +59,8 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat $(PREFIX)/font_data.8o >> $@
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
-		cat sources/splash_audio.8o >> $@
 		cat $(PREFIX)/texts_data.8o >> $@
+		cat sources/splash_audio.8o >> $@
 
 game.bin: game.8o
 	./octo/octo game.8o $@
