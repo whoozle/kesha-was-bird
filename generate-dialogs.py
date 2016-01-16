@@ -168,6 +168,13 @@ text("I need to infiltrate", 0)
 text("PROFESSOR'S lab")
 text("And you my only key")
 
+
+dialog('ninja', 99)
+text('Thanks for the info!')
+text('Finally I get lab\'s', 0)
+text('number, 8555')
+
+#FINAL PUZZLE
 dialog('lab_security', 1)
 head(1, 'lab')
 text("WELCOME TO EXTRA", 0)
