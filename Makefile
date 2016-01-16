@@ -9,9 +9,9 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		./generate-texture.py assets/heads/ninja.png ninja 2 16 >> $@
 
 $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
-		./generate-dtmf.py >> $@
+		./generate-dtmf.py > $@
 
-$(PREFIX)/font.8o: Makefile generate-font.py
+$(PREFIX)/font.8o: Makefile generate-font.py assets/font/5.font
 		./generate-font.py assets/font/5.font > $@
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
