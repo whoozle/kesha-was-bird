@@ -14,27 +14,8 @@ $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
 		./generate-font.py assets/font/5.font font 4000 $(PREFIX)
 
-$(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
-		./generate-dialogs.py $(PREFIX)
-
-$(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
-		./generate-text.py assets/en.json $(PREFIX)/dialogs.json > $@
-
-game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
-		cat $(PREFIX)/font.8o > $@
-		cat $(PREFIX)/texts.8o >> $@
-		cat $(PREFIX)/dialogs.8o >> $@
-		cat sources/utils.8o >> $@
-		cat sources/text.8o >> $@
-		cat sources/tiles.8o >> $@
-		cat sources/room.8o >> $@
-		cat sources/panel.8o >> $@
-		cat sources/phone.8o >> $@
-		cat sources/splash.8o >> $@
-		cat sources/audio.8o >> $@
-		cat sources/game-logic.8o >> $@
-		cat sources/days.8o >> $@
-		cat sources/main.8o >> $@
+$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/splash.png
+		@echo -n > $@
 		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 >> $@
 		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 >> $@
 		./generate-texture.py assets/phone/phone_0a.png phone_0a 2 16 >> $@
@@ -49,6 +30,29 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREF
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
 		./generate-texture.py assets/splash.png splash 1 16 >> $@
+
+$(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
+		./generate-dialogs.py $(PREFIX)
+
+$(PREFIX)/texts.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
+		./generate-text.py assets/en.json $(PREFIX)/dialogs.json > $@
+
+game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
+		cat $(PREFIX)/font.8o > $@
+		cat $(PREFIX)/texts.8o >> $@
+		cat $(PREFIX)/dialogs.8o >> $@
+		cat sources/utils.8o >> $@
+		cat sources/text.8o >> $@
+		cat sources/tiles.8o >> $@
+		cat sources/room.8o >> $@
+		cat sources/panel.8o >> $@
+		cat sources/phone.8o >> $@
+		cat sources/splash.8o >> $@
+		cat sources/audio.8o >> $@
+		cat sources/game-logic.8o >> $@
+		cat sources/days.8o >> $@
+		cat sources/main.8o >> $@
+		cat $(PREFIX)/tiles.8o >> $@
 		cat $(PREFIX)/font_data.8o >> $@
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
