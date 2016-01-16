@@ -159,4 +159,5 @@
 	jump lab_display_cows_loop
 
 : lab_enter_pin_exit
+	va := 120 sleep
 	return
