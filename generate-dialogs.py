@@ -112,8 +112,15 @@ head(1, 'kesha_o')
 text("Hi, it's Kesha")
 head(2, 'cow')
 text("Can we talk now?")
-text("You need to find me")
-text("Save me please")
+text("You need to", 0)
+
+clear()
+
+head(1, 'professor')
+text('Excuse me for my', 0)
+text('interruption, lovebirds...')
+text('but I need Galina', 0)
+text('RIGHT NOW!!!')
 
 import os.path
 import json
