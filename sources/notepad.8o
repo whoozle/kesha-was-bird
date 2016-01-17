@@ -22,16 +22,16 @@
 	va := 56
 	vb := 10
 	vc := text_note_galya
-	draw_text
+	draw_text_ns
 
 	va := 56
 	vb := 20
 	vc := text_note_ninja
-	draw_text
+	draw_text_ns
 
 	va := 56
 	vb := 30
 	vc := text_note_secret_lab
-	draw_text
+	draw_text_ns
 
 	return
