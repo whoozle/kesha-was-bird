@@ -11,6 +11,7 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		./generate-texture.py assets/heads/ninja2.png ninja 2 16 >> $@
 		./generate-texture.py assets/heads/ninja_kesha.png ninja_kesha 2 16 >> $@
 		./generate-texture.py assets/heads/lab.png lab 2 16 >> $@
+		./generate-texture.py assets/heads/disabled.png disabled 2 16 >> $@
 
 $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
 		./generate-dtmf.py > $@
