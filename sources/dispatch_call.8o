@@ -9,39 +9,40 @@
 	load va - va
 	if v0 == 1 then jump dispatch_call_1
 	if v0 == 8 then jump dispatch_call_8
-
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_1
 	if v1 == 1 then jump dispatch_call_1_1
 	if v1 == 3 then jump dispatch_call_1_3
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_8
 	if v1 == 5 then jump dispatch_call_8_5
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_1_1
 	if v2 == 1 then jump dispatch_call_1_1_1
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_1_3
 	if v2 == 3 then jump dispatch_call_1_3_3
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_8_5
 	if v2 == 5 then jump dispatch_call_8_5_5
-	return
-
+	jump dispatch_invalid_number
 
 : dispatch_call_1_1_1
 	if v3 == 3 then jump call_galina
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_1_3_3
 	if v3 == 7 then jump call_ninja
-	return
+	jump dispatch_invalid_number
 
 : dispatch_call_8_5_5
 	if v3 == 5 then jump lab_enter_pin
+	jump dispatch_invalid_number
+
+: dispatch_invalid_number
 	return
