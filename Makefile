@@ -18,9 +18,8 @@ $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
 		./generate-font.py assets/font/5.font font 4000 $(PREFIX)
 
-$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/splash.png assets/drinking.png
-		@echo -n > $@
-		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 >> $@
+$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/splash.png
+		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 > $@
 		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 >> $@
 		./generate-texture.py assets/phone/phone_0a.png phone_0a 2 16 >> $@
 		./generate-texture.py assets/phone/phone_0b.png phone_0b 2 16 >> $@
