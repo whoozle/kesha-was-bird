@@ -19,14 +19,19 @@
 		if vb < 64 then
 	again
 
-	va := 54
+	va := 56
 	vb := 10
-	vc := text_day
+	vc := text_note_galya
 	draw_text
 
-	va := 54
+	va := 56
 	vb := 20
-	vc := text_title
+	vc := text_note_ninja
+	draw_text
+
+	va := 56
+	vb := 30
+	vc := text_note_secret_lab
 	draw_text
 
 	return

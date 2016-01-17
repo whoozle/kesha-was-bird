@@ -2,7 +2,7 @@
 	"title": "PRESS 1 TO START",
 
 	"day": "DAY ",
-  "galya": "Galya - 1113",
-  "ninja": "Ninja - 1337",
-  "secret_lab": "Sikret - 8555"
+	"note_galya": "Galya - 1113",
+	"note_ninja": "Ninja - 1337",
+	"note_secret_lab": "Sikret - 8555"
 }
