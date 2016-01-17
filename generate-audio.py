@@ -58,7 +58,9 @@ for i in xrange(0, n):
 		y = -1
 		data += struct.pack('<h', -16384)
 
-	qe = y - x + qe
+	if enc == 'pdm':
+		qe = y - x + qe
+		assert qe >= -1 and qe <= 1
 
 	bit += 1
 	if bit == 8:
