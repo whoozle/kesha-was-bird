@@ -17,6 +17,14 @@ _texts = {}
 _line = 0
 _text = 0
 
+for i in xrange(1, 5):
+	_heads_source += """\
+: dialog_setup_line_{line}
+	va := dialog_line_{line}_x
+	vb := dialog_line_{line}_y
+	return
+""".format(line = i)
+
 def clear_state():
 	global _line, _heads
 	_line = 1
@@ -73,8 +81,7 @@ def text(text, delay = 60):
 	id = 'dialog_%s_%d_%d' %(_dialog, _dialog_idx, _text)
 
 	_source += """
-	va := dialog_line_{line}_x
-	vb := dialog_line_{line}_y
+	dialog_setup_line_{line}
 	vc := text_{id}
 	draw_text
 
@@ -123,7 +130,7 @@ sleep(60)
 clear()
 head(1, 'kesha')
 text("Ugh.. My head hurts..")
-text("Just one fix")
+text("...just one fix")
 text("Ok, what do we have here?")
 
 head(1, 'kesha_e')
