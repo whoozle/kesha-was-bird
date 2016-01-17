@@ -61,7 +61,7 @@ def sleep(delay):
 
 """.format(delay = delay)
 
-def text(text, delay = 30):
+def text(text, delay = 60):
 	global _source, _texts, _dialog, _dialog_idx, _line, _text
 	id = 'dialog_%s_%d_%d' %(_dialog, _dialog_idx, _text)
 
