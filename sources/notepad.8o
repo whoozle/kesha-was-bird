@@ -26,7 +26,7 @@
 
 	va := 54
 	vb := 20
-	i := text_title
+	vc := text_title
 	draw_text
 
 	return
