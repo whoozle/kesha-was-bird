@@ -1,0 +1,5 @@
+: call_invalid_1
+	jump dialog_no_answer_1
+
+: call_invalid_2
+	return
