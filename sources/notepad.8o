@@ -21,7 +21,7 @@
 
 	va := 54
 	vb := 10
-	i := text_day
+	vc := text_day
 	draw_text
 
 	va := 54
