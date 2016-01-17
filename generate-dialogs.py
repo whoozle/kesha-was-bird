@@ -179,6 +179,24 @@ text('Thanks for the info!')
 text('Finally I get lab\'s', 0)
 text('number, 8555')
 
+dialog('glitch', 1)
+head(1, 'glitch')
+text(': dialog_kesha_1', 0)
+text('panel_draw', 0)
+text('heads_draw_kesha_1', 0)
+
+clear()
+head(1, 'glitch')
+text('va := dialog_line_1_x', 0)
+text('vb := dialog_line_1_y', 0)
+text('vc := text_dialog_kesha_1_1', 0)
+text('draw_text')
+
+clear()
+head(1, 'kesha')
+text('What was that???')
+
+
 #FINAL PUZZLE
 dialog('lab_security', 1)
 head(1, 'lab')
