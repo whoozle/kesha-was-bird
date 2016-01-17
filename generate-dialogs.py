@@ -61,7 +61,7 @@ def sleep(delay):
 			_heads_source += """\
 : sleep_{delay}
 		va := {delay}
-		sleep
+		jump sleep
 """.format(delay = delay)
 
 		_source += """\
