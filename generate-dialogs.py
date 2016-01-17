@@ -197,12 +197,23 @@ text('vc := text_dialog_kesha_1_1', 0)
 text('draw_text', 0)
 call('glitch_fill')
 call('glitch_voice')
-sleep(90)
+sleep(60)
 
 clear()
 head(1, 'kesha')
 text('What was that???')
 
+dialog('glitch', 2)
+head(1, 'glitch')
+
+text('if lab_opened then kesha_dies')
+call('glitch_voice')
+text('if lab_opened then kesha_dies')
+call('glitch_voice_next')
+text('if lab_opened then kesha_dies')
+call('glitch_voice_next')
+text('if lab_opened then kesha_dies')
+call('glitch_voice_next')
 
 #FINAL PUZZLE
 dialog('lab_security', 1)
@@ -220,8 +231,8 @@ with open(os.path.join(prefix, 'dialogs.8o'), 'w') as f:
 	_source = """\
 :const dialog_line_1_x 28
 :const dialog_line_2_x 26
-:const dialog_line_3_x 26
-:const dialog_line_4_x 24
+:const dialog_line_3_x 10
+:const dialog_line_4_x 10
 
 :const dialog_line_1_y 10
 :const dialog_line_2_y 20

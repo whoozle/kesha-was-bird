@@ -18,6 +18,9 @@
 
 : glitch_voice
 	i := tile_glitch_data
+: glitch_voice_next
 	va := 50
 	vb := 0
-	jump audio_play_stream
+	audio_play_stream
+	va := 60
+	jump sleep
