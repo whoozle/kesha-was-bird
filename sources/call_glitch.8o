@@ -1,5 +1,5 @@
 : glitch_fill
-	vd := 120
+	vd := 60
 	loop
 		i := glitch_fill
 		i += vd
@@ -15,3 +15,9 @@
 	again
 
 	return
+
+: glitch_voice
+	i := tile_glitch_data
+	va := 50
+	vb := 0
+	jump audio_play_stream
