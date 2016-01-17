@@ -1,11 +1,22 @@
 : glitch_fill
 	vd := 60
 	loop
+		v0 := random 0x0f
+		v1 := 0xb0
+		v0 |= v1
+		i := glitch_fill_height
+		save v0
+
 		i := glitch_fill
-		i += vd
 		va := random 0x7f
 		vb := random 0x3f
-		sprite va vb 4
+
+		i += va
+		i += vb
+		i += v0
+
+:next glitch_fill_height
+		sprite va vb 0
 
 		i := audio_phone_ring
 		audio_play_sync
