@@ -1,0 +1,32 @@
+: notepad_draw
+	clear
+	plane 3
+	i := long tile_notepad_data
+
+	vb := 0
+	vc := 64
+
+	loop
+		va := 48
+		loop
+			#:breakpoint blit
+			sprite va vb 0
+			va += 16
+			i += vc
+			if va < 128 then
+		again
+		vb += 16
+		if vb < 64 then
+	again
+
+	va := 54
+	vb := 10
+	i := text_day
+	draw_text
+
+	va := 54
+	vb := 20
+	i := text_title
+	draw_text
+
+	return
