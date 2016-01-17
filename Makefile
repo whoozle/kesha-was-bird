@@ -67,6 +67,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat sources/days.8o >> $@
 		cat sources/lab.8o >> $@
 		cat sources/main.8o >> $@
+		echo ":org 0x1000" >> $@
 		cat $(PREFIX)/tiles.8o >> $@
 		cat $(PREFIX)/font_data.8o >> $@
 		cat $(PREFIX)/heads.8o >> $@

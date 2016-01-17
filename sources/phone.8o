@@ -104,16 +104,16 @@
 
 	va := phone_display_x
 	vb := phone_display_y
-	i := tile_phone_0a_data
+	i := long tile_phone_0a_data
 	sprite va vb 0
 
 	va += 16
-	i := tile_phone_0b_data
+	i := long tile_phone_0b_data
 	sprite va vb 0
 
 	va := phone_col_0
 	vb := phone_row_0
-	i := tile_phone_button_data
+	i := long tile_phone_button_data
 	sprite va vb 0
 	va := phone_col_1
 	sprite va vb 0
@@ -132,7 +132,7 @@
 
 	va := phone_col_0
 	vb := phone_row_1
-	i := tile_phone_button_data
+	i := long tile_phone_button_data
 	sprite va vb 0
 	va := phone_col_1
 	sprite va vb 0
@@ -151,7 +151,7 @@
 
 	va := phone_col_0
 	vb := phone_row_2
-	i := tile_phone_button_data
+	i := long tile_phone_button_data
 	sprite va vb 0
 	va := phone_col_1
 	sprite va vb 0
