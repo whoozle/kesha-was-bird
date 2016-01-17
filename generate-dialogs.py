@@ -19,10 +19,10 @@ _text = 0
 
 for i in xrange(1, 5):
 	_heads_source += """\
-: dialog_setup_line_{line}
+: dialog_draw_line_{line}
 	va := dialog_line_{line}_x
 	vb := dialog_line_{line}_y
-	return
+	jump draw_text
 """.format(line = i)
 
 def clear_state():
@@ -81,9 +81,8 @@ def text(text, delay = 60):
 	id = 'dialog_%s_%d_%d' %(_dialog, _dialog_idx, _text)
 
 	_source += """
-	dialog_setup_line_{line}
 	vc := text_{id}
-	draw_text
+	dialog_draw_line_{line}
 
 """.format(line = _line, id = id)
 	sleep(delay)
