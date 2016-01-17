@@ -15,23 +15,6 @@
 	save v1
 	vd := 1
 
-: draw_text_no_sound
-	i := long data_text_index
-	i += vc
-	i += vc
-	load v2 - v3
-
-	v0 := data_text_hi
-	v1 := data_text_lo
-
-	v1 += v2
-	v0 += vf
-	v0 += v3
-
-	i := draw_text_instruction_addr_no_sound
-	save v1
-	vd := 1
-
 : draw_text_loop
 	0xf0 0x00 #i := long XXXX
 : draw_text_instruction_addr
@@ -52,23 +35,5 @@
 
 	i := audio_phone_ring
 	audio_play_sync
-
-	jump draw_text_loop
-
-: draw_text_instruction_addr_no_sound
-	0 0
-
-	load vc - vc
-	if vc == 0 then return
-
-	draw_font_char
-	va += v0
-
-	i := draw_text_instruction_addr_no_sound
-	load v1
-	v1 += vd #+1
-	v0 += vf
-	i := draw_text_instruction_addr_no_sound
-	save v1
 
 	jump draw_text_loop

@@ -21,12 +21,12 @@
 
 	va := 54
 	vb := 10
-	i := text_galya
-	draw_text_no_sound
+	i := text_day
+	draw_text
 
 	va := 54
 	vb := 20
-	i := text_ninja
-	draw_text_no_sound
+	i := text_title
+	draw_text
 
 	return
