@@ -15,5 +15,3 @@
 		dispatch_call
 		day_increment
 	again
-
-	loop again
