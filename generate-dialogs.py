@@ -91,13 +91,34 @@ def clear():
 	call('panel_draw')
 
 dialog('kesha', 1)
+head(1, 'fish')
+text(' o o O O')
+text('  .   O . O')
+text('   O o O')
+
+clear()
+head(2, 'professor')
+text('Yes, I understand, sir')
+text('I can handle it')
+
+clear()
+head(1, 'fish')
+text('    o o o O')
+text('')
+head(2, 'professor')
+text('Yes, of course')
+text('Good bye, sir', 90)
+
+call('day_intertitle')
+clear()
+
 head(1, 'kesha')
 text("Ugh.. My head hurts..")
-text("I need a drink..")
-text("There's some vodka")
+text("Just one fix")
+text("Ok, what do we have here?")
+
 head(1, 'kesha_e')
-text("Press V (F)")
-#call('drink_vodka', arg1, arg2)
+text("Press V(F)odka")
 
 dialog('galina', 1)
 text("We really need to talk")

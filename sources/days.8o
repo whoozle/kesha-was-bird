@@ -1,19 +1,17 @@
 : day_1
-	# Day 1
-	day_intertitle
-	# Show room
-	room_draw
-
 	va := 90 sleep
 	# Kesha wakes up and want to drink
 	dialog_kesha_1
 
-: day_1_key
-	ve := key
-	if ve != 15 then jump day_1_key
+	loop
+		ve := key
+		if ve != 15 then
+	again
 
 	# Drinking VODKA animation!!! And going to sleep
 	drinking_draw
+
+	room_draw
 
 	day_increment
 	return
