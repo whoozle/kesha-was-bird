@@ -6,6 +6,9 @@
 	vb := 0
 	vc := 64
 
+	v0 := 0x7f
+	v1 := 0x3f
+
 	loop
 		va := 48
 		loop
@@ -13,10 +16,12 @@
 			sprite va vb 0
 			va += 16
 			i += vc
-			if va < 128 then
+			va &= v0
+			if va != 0 then
 		again
 		vb += 16
-		if vb < 64 then
+		vb &= v1
+		if vb != 0 then
 	again
 
 	va := 56
