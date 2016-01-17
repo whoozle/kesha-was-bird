@@ -15,7 +15,7 @@ $(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
 		./generate-font.py assets/font/5.font font 4000 $(PREFIX)
 
-$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/splash.png
+$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/splash.png assets/drinking.png
 		@echo -n > $@
 		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 >> $@
 		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 >> $@
@@ -31,6 +31,7 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
 		./generate-texture.py assets/splash.png splash 2 16 >> $@
+		./generate-texture.py assets/drinking.png drinking 2 16 >> $@
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
@@ -52,6 +53,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat sources/call_galina.8o >> $@
 		cat sources/call_ninja.8o >> $@
 		cat sources/splash.8o >> $@
+		cat sources/drinking.8o >> $@
 		cat sources/audio.8o >> $@
 		cat sources/game-logic.8o >> $@
 		cat sources/days.8o >> $@
