@@ -106,7 +106,7 @@ def clear():
 
 dialog('kesha', 1)
 head(1, 'fish')
-text(' o o O O')
+text(' o o O O   . . o O o')
 text('  .   O . O')
 text('   O o O')
 
@@ -117,7 +117,7 @@ text('I can handle it')
 
 clear()
 head(1, 'fish')
-text('    o o o O')
+text('    o o o O . . o .')
 text('')
 head(2, 'professor')
 text('Yes, of course')
@@ -301,8 +301,8 @@ _source += '\treturn\n\n'
 prefix = args.prefix
 with open(os.path.join(prefix, 'dialogs.8o'), 'w') as f:
 	_source = """\
-:const dialog_line_1_x 28
-:const dialog_line_2_x 26
+:const dialog_line_1_x 27
+:const dialog_line_2_x 27
 :const dialog_line_3_x 10
 :const dialog_line_4_x 10
 
