@@ -7,7 +7,7 @@ import struct
 parser = argparse.ArgumentParser(description='Convert audio.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
-parser.add_argument('-e', '--encoding', help = 'encoder : [pdm|pwd]', default='pdm')
+parser.add_argument('-e', '--encoding', help = 'encoder : [pdm|pwd]', default='pwm')
 parser.add_argument('-o', '--output', help = 'dump audio as wav file')
 args = parser.parse_args()
 
