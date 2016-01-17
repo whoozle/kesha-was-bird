@@ -249,6 +249,7 @@ text('if lab_opened then kesha_dies')
 call('glitch_voice_next')
 
 dialog('no_answer', 1)
+call('audio_invalid_number')
 head(1, 'kesha')
 text("Hmm.. No answer", 60)
 

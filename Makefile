@@ -14,7 +14,7 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		./generate-texture.py assets/heads/disabled.png disabled 2 16 >> $@
 		./generate-texture.py assets/heads/fish.png fish 2 16 >> $@
 
-$(PREFIX)/dtmf.8o: Makefile generate-dtmf.py
+$(PREFIX)/dtmf.8o: Makefile ./generate-dtmf.py
 		./generate-dtmf.py > $@
 
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font

@@ -1,3 +1,16 @@
+: audio_invalid_number
+	va := 16
+	vb := 16
+	audio_play_dtmf
+	va := 17
+	vb := 23
+	audio_play_dtmf
+	va := 18
+	vb := 23
+	audio_play_dtmf
+	va := 30
+	jump sleep
+
 : call_invalid
 	v0 := random 0x07
 	v0 >>= v0

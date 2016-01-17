@@ -89,6 +89,7 @@
 		va := key
 		if va >= 10 then jump lab_enter_key_loop
 		lab_update_stats
+		vb := 10
 		audio_play_dtmf
 
 		v0 := vd

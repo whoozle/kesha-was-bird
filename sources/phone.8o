@@ -180,6 +180,7 @@
 	phone_dial_digit
 	va := vd
 	vd := v0
+	vb := 10
 	audio_play_dtmf
 	phone_draw_number
 	if vd == 1 then jump phone_loop_poll_key
