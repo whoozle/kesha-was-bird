@@ -1,5 +1,10 @@
-: call_invalid_1
-	jump dialog_no_answer_1
+: call_invalid
+	v0 := random 0x07
+	v0 >>= v0
+	if vf == 1 then jump dialog_no_answer_1
 
-: call_invalid_2
-	return
+	if v0 == 1 then jump dialog_no_answer_2
+	if v0 == 2 then jump dialog_no_answer_3
+	if v0 == 3 then jump dialog_no_answer_4
+
+	jump dialog_no_answer_1

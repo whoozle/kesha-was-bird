@@ -45,6 +45,4 @@
 	jump dispatch_invalid_number
 
 : dispatch_invalid_number
-	v0 := random 1
-	if v0 == 0 then jump call_invalid_1
-	jump call_invalid_2
+	jump call_invalid
