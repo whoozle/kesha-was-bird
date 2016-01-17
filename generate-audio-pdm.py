@@ -7,6 +7,7 @@ import struct
 parser = argparse.ArgumentParser(description='Convert audio.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
+parser.add_argument('-e', '--encoding', help = 'encoder : [pdm|pwd]', default='pdm')
 parser.add_argument('-o', '--output', help = 'dump audio as wav file')
 args = parser.parse_args()
 
@@ -29,6 +30,10 @@ source = ""
 source += ": audio_%s\n" %args.name
 
 data = bytes()
+enc = args.encoding
+
+qe = 0
+
 for i in xrange(0, n):
 	buf = []
 
@@ -37,15 +42,22 @@ for i in xrange(0, n):
 
 	x = value / 32768.0
 	assert x >= -1 and x <= 1
-	qe = 0
 
-	if x >= qe:
+	if enc == 'pdm':
+		out = x >= qe
+	elif enc == 'pwm':
+		out = x >= 0
+	else:
+		raise Exception("unknown encoding " + enc)
+
+	if out:
 		byte |= (0x80 >> bit)
 		y = 1
 		data += struct.pack('<h', 16384)
 	else:
 		y = -1
 		data += struct.pack('<h', -16384)
+
 	qe = y - x + qe
 
 	bit += 1
