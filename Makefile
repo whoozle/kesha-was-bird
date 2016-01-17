@@ -39,7 +39,7 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
 
-$(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
+$(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
 		./generate-text.py $(PREFIX) 5000 assets/en.json $(PREFIX)/dialogs.json
 
 game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
