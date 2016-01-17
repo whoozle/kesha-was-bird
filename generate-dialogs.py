@@ -110,8 +110,10 @@ text('Yes, of course')
 text('Good bye, sir', 90)
 
 call('day_intertitle')
-clear()
+call('room_draw')
+sleep(60)
 
+clear()
 head(1, 'kesha')
 text("Ugh.. My head hurts..")
 text("Just one fix")

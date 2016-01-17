@@ -11,8 +11,6 @@
 	# Drinking VODKA animation!!! And going to sleep
 	drinking_draw
 
-	room_draw
-
 	day_increment
 	return
 
