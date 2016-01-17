@@ -9,6 +9,7 @@ args = parser.parse_args()
 _dialog, _dialog_idx = 0, 0
 _heads = None
 _draw_heads = set()
+_sleeps = set()
 _source = ''
 _heads_source = ''
 _first_day = True
@@ -53,12 +54,18 @@ def head(idx, name):
 	pass
 
 def sleep(delay):
-	global _source
+	global _source, _sleeps, _heads_source
 	if delay > 0:
-		_source += """
-	va := {delay}
-	sleep
+		if delay not in _sleeps:
+			_sleeps.add(delay)
+			_heads_source += """\
+: sleep_{delay}
+		va := {delay}
+		sleep
+""".format(delay = delay)
 
+		_source += """\
+	sleep_{delay}
 """.format(delay = delay)
 
 def text(text, delay = 60):
