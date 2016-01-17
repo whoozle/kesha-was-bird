@@ -1,0 +1,17 @@
+: glitch_fill
+	vd := 120
+	loop
+		i := glitch_fill
+		i += vd
+		va := random 0x7f
+		vb := random 0x3f
+		sprite va vb 4
+
+		i := audio_phone_ring
+		audio_play_sync
+
+		vd += -1
+		if vd != 0 then
+	again
+
+	return

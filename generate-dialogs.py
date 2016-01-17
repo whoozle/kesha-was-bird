@@ -191,6 +191,7 @@ text('va := dialog_line_1_x', 0)
 text('vb := dialog_line_1_y', 0)
 text('vc := text_dialog_kesha_1_1', 0)
 text('draw_text')
+call('glitch_fill')
 
 clear()
 head(1, 'kesha')

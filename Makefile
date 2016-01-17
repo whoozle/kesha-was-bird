@@ -53,6 +53,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat sources/phone.8o >> $@
 		cat sources/dispatch_call.8o >> $@
 		cat sources/call_galina.8o >> $@
+		cat sources/call_glitch.8o >> $@
 		cat sources/call_ninja.8o >> $@
 		cat sources/splash.8o >> $@
 		cat sources/drinking.8o >> $@
