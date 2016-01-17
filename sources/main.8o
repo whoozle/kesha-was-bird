@@ -2,6 +2,9 @@
 	hires
 	plane 3
 
+	jump main_skip
+
+	splash_draw
 	day_1
 	day_2
 
