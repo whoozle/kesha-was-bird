@@ -167,6 +167,11 @@ head(1, 'ninja')
 text("I need to infiltrate", 0)
 text("PROFESSOR'S lab")
 text("And you my only key")
+#head(1, 'ninja_kesha')
+#text("I am your father", 0)
+#text("STEPAN")
+#head(2, 'kesha_o')
+#text("WTF!!! It is not true", 0)
 
 
 dialog('ninja', 99)
