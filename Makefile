@@ -70,5 +70,8 @@ game.bin: game.8o
 xclip: game.8o
 	cat game.8o | xclip
 
+pbcopy: game.8o
+	cat game.8o | pbcopy
+
 clean:
 		rm -f game.bin game.8o .compiled/*
