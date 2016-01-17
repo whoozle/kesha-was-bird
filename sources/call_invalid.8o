@@ -3,6 +3,7 @@
 	v0 >>= v0
 	if vf == 1 then jump dialog_no_answer_1
 
+	if v0 == 0 then jump dialog_no_answer_5
 	if v0 == 1 then jump dialog_no_answer_2
 	if v0 == 2 then jump dialog_no_answer_3
 	if v0 == 3 then jump dialog_no_answer_4
