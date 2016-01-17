@@ -4,8 +4,6 @@ import argparse
 import wave
 import struct
 
-from fractions import gcd
-
 parser = argparse.ArgumentParser(description='Convert audio.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
