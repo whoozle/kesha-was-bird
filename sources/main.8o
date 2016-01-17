@@ -2,11 +2,6 @@
 	hires
 	plane 3
 
-	notepad_draw
-	va := 90 sleep
-	#jump main_skip
-
-	splash_draw
 	day_1
 	day_2
 

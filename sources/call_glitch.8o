@@ -18,7 +18,7 @@
 :next glitch_fill_height
 		sprite va vb 0
 
-		i := audio_phone_ring
+		i := long audio_phone_ring
 		audio_play_sync
 
 		vd += -1

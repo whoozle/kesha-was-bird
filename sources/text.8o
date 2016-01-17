@@ -37,7 +37,7 @@
 	i := draw_text_instruction_addr
 	save v1
 
-	i := audio_phone_ring
+	i := long audio_phone_ring
 	audio_play_sync
 
 	jump draw_text_loop
