@@ -45,7 +45,8 @@ $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/di
 		./generate-text.py $(PREFIX) 5000 assets/en.json $(PREFIX)/dialogs.json
 
 game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
-		cat $(PREFIX)/texts.8o > $@
+		cat sources/main.8o > $@
+		cat $(PREFIX)/texts.8o >> $@
 		cat $(PREFIX)/font.8o >> $@
 		cat $(PREFIX)/dialogs.8o >> $@
 		cat sources/utils.8o >> $@
@@ -66,7 +67,6 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat sources/game-logic.8o >> $@
 		cat sources/days.8o >> $@
 		cat sources/lab.8o >> $@
-		cat sources/main.8o >> $@
 		echo ":org 0x1000" >> $@
 		cat sources/audio_data.8o >> $@
 		cat $(PREFIX)/tiles.8o >> $@
