@@ -79,6 +79,9 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 game.bin: game.8o
 	./octo/octo game.8o $@
 
+game.hex: game.bin ./generate-hex.py
+	./generate-hex.py game.bin $@
+
 xclip: game.8o
 	cat game.8o | xclip
 
