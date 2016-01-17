@@ -52,7 +52,16 @@ def head(idx, name):
 		_source += '\theads_draw_%s_%d\n' %(name, idx) #erase old head
 	pass
 
-def text(text, sleep = 30):
+def sleep(delay):
+	global _source
+	if delay > 0:
+		_source += """
+	va := {delay}
+	sleep
+
+""".format(delay = delay)
+
+def text(text, delay = 30):
 	global _source, _texts, _dialog, _dialog_idx, _line, _text
 	id = 'dialog_%s_%d_%d' %(_dialog, _dialog_idx, _text)
 
@@ -63,12 +72,7 @@ def text(text, sleep = 30):
 	draw_text
 
 """.format(line = _line, id = id)
-	if sleep > 0:
-		_source += """
-	va := {sleep}
-	sleep
-
-""".format(sleep = sleep)
+	sleep(delay)
 
 	_line += 1
 	_text += 1
