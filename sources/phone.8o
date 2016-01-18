@@ -81,9 +81,11 @@
 
 : phone_call_dial_effect
 	phone_draw_number
-	i := long audio_phone_ring
-	vf := 30
-	audio_play_sync_vf
+
+	va := 19
+	vb := 30
+	audio_play_dtmf
+
 	phone_draw_number
 	va := 20
 	sleep
