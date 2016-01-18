@@ -221,7 +221,7 @@ text('And EXTRACT THE KEY')
 text('Catch you later, man')
 clear()
 
-dialog('PETS', 1)
+dialog('pets', 1)
 #head(1, 'pets')
 head(1, 'kesha')
 text('Hello, I\'d like to', 0)
