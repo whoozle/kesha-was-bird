@@ -1,6 +1,28 @@
 : splash_draw
 	clear
 	plane 3
+
+	va := 27
+	vb := 20
+	vc := text_title_warning_1
+	draw_text
+#	:breakpoint t1
+
+	va := 6
+	vb := 30
+	vc := text_title_warning_2
+	draw_text
+#	:breakpoint t2
+
+	va := 33
+	vb := 40
+	vc := text_title_warning_3
+	draw_text
+#	:breakpoint t3
+
+	vf := key
+	clear
+
 	i := long tile_splash_data
 
 	draw_fullscreen_tile
