@@ -20,9 +20,8 @@ $(PREFIX)/dtmf.8o: Makefile ./generate-dtmf.py
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
 		./generate-font.py assets/font/5.font font 4000 $(PREFIX)
 
-$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/splash.png assets/notepad.png
-		./generate-texture.py assets/tiles/frame24x24.png frame 2 8 > $@
-		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 >> $@
+$(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/*.png
+		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 > $@
 		./generate-texture.py assets/phone/phone_0a.png phone_0a 2 16 >> $@
 		./generate-texture.py assets/phone/phone_0b.png phone_0b 2 16 >> $@
 		./generate-texture.py assets/tiles/bed.png bed 2 16 >> $@
@@ -35,6 +34,7 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
 		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
 		./generate-texture.py assets/splash.png splash 2 16 >> $@
+		./generate-texture.py assets/frame.png frame 2 16 >> $@
 		./generate-texture.py assets/notepad.png notepad 2 16 >> $@
 		./generate-texture.py assets/drinking.png drinking 2 16 >> $@
 
