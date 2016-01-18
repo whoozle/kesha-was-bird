@@ -44,6 +44,7 @@
 
 : dispatch_call_7_3
 	if v2 == 8 then jump dispatch_call_7_3_8
+	if v2 == 7 then jump dispatch_call_7_3_7
 	jump dispatch_invalid_number
 
 : dispatch_call_8_5
@@ -60,6 +61,10 @@
 
 : dispatch_call_3_4_7
 	if v3 == 4 then jump dialog_no_answer_5
+	jump dispatch_invalid_number
+
+: dispatch_call_7_3_7
+	if v3 == 8 then jump call_pets
 	jump dispatch_invalid_number
 
 : dispatch_call_7_3_8
