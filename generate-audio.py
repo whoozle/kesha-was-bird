@@ -95,7 +95,7 @@ size /= 16 #loop count
 print ": audio_%s_size\n\t0x%02x 0x%02x\n%s"  %(args.name, size & 0xff, size >> 8, source)
 
 if args.output:
-	out = wave.open('out.wav', 'w')
+	out = wave.open(args.output, 'w')
 	out.setnchannels(1)
 	out.setsampwidth(2)
 	out.setframerate(wav.getframerate())
