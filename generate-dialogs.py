@@ -99,6 +99,10 @@ def call(name, *args):
 	_source += '\n'.join(["\t%s := %s" %(reg, arg) for reg, arg in zip(regs, args)])
 	_source += '\n\t%s\n\n' %name
 
+def skip_line():
+	global _line
+	_line += 1
+
 def clear():
 	clear_state()
 	call('panel_draw')
@@ -233,6 +237,11 @@ head(1, 'kesha')
 text('Hello, I\'d like to', 0)
 text('report stray dog in', 0)
 text('Lab district area')
+clear()
+head(1, 'pets')
+text('Ok, we will handle it')
+skip_line()
+head(2, 'kesha')
 text('Thank you, bye...')
 
 dialog('galina', 6)
@@ -252,7 +261,7 @@ text('Hello, could you tell me', 0)
 text('if that stray dog had any', 0)
 text('number on her collar')
 clear()
-#head(1, 'pets')
+head(1, 'pets')
 text('Let me see....')
 text('Well, yes, it says: ')
 text('eight plus five star three')
