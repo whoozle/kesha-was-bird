@@ -9,6 +9,7 @@
 	load va - va
 	if v0 == 1 then jump dispatch_call_1
 	if v0 == 3 then jump dispatch_call_3
+	if v0 == 7 then jump dispatch_call_7
 	if v0 == 8 then jump dispatch_call_8
 	jump dispatch_invalid_number
 
@@ -19,6 +20,10 @@
 
 : dispatch_call_3
 	if v1 == 4 then jump dispatch_call_3_4
+	jump dispatch_invalid_number
+
+: dispatch_call_7
+	if v1 == 3 then jump dispatch_call_7_3
 	jump dispatch_invalid_number
 
 : dispatch_call_8
@@ -37,6 +42,10 @@
 	if v2 == 7 then jump dispatch_call_3_4_7
 	jump dispatch_invalid_number
 
+: dispatch_call_7_3
+	if v2 == 8 then jump dispatch_call_7_3_8
+	jump dispatch_invalid_number
+
 : dispatch_call_8_5
 	if v2 == 5 then jump dispatch_call_8_5_5
 	jump dispatch_invalid_number
@@ -51,6 +60,10 @@
 
 : dispatch_call_3_4_7
 	if v3 == 4 then jump dialog_no_answer_5
+	jump dispatch_invalid_number
+
+: dispatch_call_7_3_8
+	if v3 == 7 then jump call_pets
 	jump dispatch_invalid_number
 
 : dispatch_call_8_5_5

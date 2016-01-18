@@ -1,0 +1,2 @@
+: call_pets
+	jump dialog_pets_1
