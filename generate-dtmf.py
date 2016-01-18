@@ -24,6 +24,7 @@ def mix(a, b):
 cols = (pulse(1209), pulse(1336), pulse(1477), pulse(1633))
 rows = (pulse(697), pulse(770), pulse(852), pulse(941))
 rosit = (pulse(913), pulse(1428), pulse(1776))
+dial_tone = mix(pulse(350), pulse(440))
 
 mapping = (
 	1, 2, 3, 12,
@@ -61,5 +62,7 @@ for row in xrange(0, 4):
 		#print tone
 		generate(tone)
 
-for tone in rosit:
+for tone in rosit: #16, 17, 18
 	generate(tone)
+
+generate(dial_tone) #19
