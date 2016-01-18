@@ -251,9 +251,10 @@ text('Yes I\'ll pick you up', 0)
 text('at the lab')
 
 dialog('ninja', 3)
+head(1, 'ninja')
 text('Well, Galina is safe now')
 text('Call PETS and ask them if', 0)
-text('she had any code on her collar')
+text('she had any code on her collar?')
 
 dialog('pets', 2)
 head(1, 'kesha')

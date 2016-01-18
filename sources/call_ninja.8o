@@ -1,2 +1,5 @@
 : call_ninja
+	i := pets_got_galina
+	load v0
+	if v0 != 0 then jump dialog_ninja_3
 	jump dialog_ninja_1
