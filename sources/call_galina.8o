@@ -24,5 +24,18 @@
 	jump dialog_galina_5
 
 : call_galina_5
-	jump dialog_no_answer_1
+	i := pets_got_galina
+	load v0
+	if v0 != 0 then jump dialog_no_answer_1
 
+	i := pets_called
+	load v0
+	if v0 == 0 then jump dialog_no_answer_1
+	dialog_galina_6
+
+	# PETS CATCH GALINA CUTSCENE
+
+	i := pets_got_galina
+	v0 := 1
+	save v0
+	return
