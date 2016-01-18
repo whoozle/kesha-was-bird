@@ -221,6 +221,15 @@ text('And EXTRACT THE KEY')
 text('Catch you later, man')
 clear()
 
+dialog('PETS', 1)
+#head(1, 'pets')
+head(1, 'kesha')
+text('Hello, I\'d like to', 0)
+text('report stray dog in', 0)
+text('Lab district area')
+text('Thank you, bye...')
+
+
 #head(1, 'ninja_kesha')
 #text("I am your father", 0)
 #text("STEPAN")
