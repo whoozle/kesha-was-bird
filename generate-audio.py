@@ -8,6 +8,7 @@ parser = argparse.ArgumentParser(description='Convert audio.')
 parser.add_argument('source', help='input file')
 parser.add_argument('name', help='name')
 parser.add_argument('-e', '--encoding', help = 'encoder : [pdm|pwd]', default='pwm')
+parser.add_argument('-c', '--cutoff', help = 'cutoff value', default=0.1, type=float)
 parser.add_argument('-o', '--output', help = 'dump audio as wav file')
 args = parser.parse_args()
 
@@ -22,10 +23,6 @@ if wav.getframerate() != 4000:
 
 frames = wav.readframes(n)
 
-offset = 0
-size = 0
-bit, byte = 0, 0
-
 source = ""
 source += ": audio_%s\n" %args.name
 
@@ -33,6 +30,21 @@ data = bytes()
 enc = args.encoding
 
 qe = 0
+peak = 0
+
+offset = 0
+for i in xrange(0, n):
+	value, = struct.unpack('<h', frames[offset: offset + 2]) if offset < len(frames) else (0,)
+	offset += 2
+	if value > peak:
+		peak = value
+	elif value < -peak:
+		peak = -value
+
+offset = 0
+size = 0
+bit, byte = 0, 0
+cutoff = args.cutoff
 
 for i in xrange(0, n):
 	buf = []
@@ -40,13 +52,13 @@ for i in xrange(0, n):
 	value, = struct.unpack('<h', frames[offset: offset + 2]) if offset < len(frames) else (0,)
 	offset += 2
 
-	x = value / 32768.0
+	x = 1.0 * value / peak
 	assert x >= -1 and x <= 1
 
 	if enc == 'pdm':
 		out = x >= qe
 	elif enc == 'pwm':
-		out = x >= 0
+		out = x >= cutoff
 	else:
 		raise Exception("unknown encoding " + enc)
 
