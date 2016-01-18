@@ -229,6 +229,11 @@ text('report stray dog in', 0)
 text('Lab district area')
 text('Thank you, bye...')
 
+dialog('galina', 6)
+head(1, 'kesha')
+text('Hi, can we meet today?')
+text('Yes I\'ll pick you up', 0)
+text('at the lab')
 
 #head(1, 'ninja_kesha')
 #text("I am your father", 0)
