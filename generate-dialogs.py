@@ -166,7 +166,7 @@ clear()
 head(1, 'professor')
 text('Excuse me for my', 0)
 text('interruption, lovebirds...')
-text('I need you', 0)
+text('Galina, I need you', 0)
 text('RIGHT NOW!!!')
 
 dialog('galina', 4)

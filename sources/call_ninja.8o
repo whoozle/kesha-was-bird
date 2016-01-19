@@ -3,3 +3,7 @@
 	load v0
 	if v0 != 0 then jump dialog_ninja_3
 	jump dialog_ninja_1
+
+: ninja_show_banner
+	i := long tile_banner_ninja_data
+	jump draw_fullscreen_tile
