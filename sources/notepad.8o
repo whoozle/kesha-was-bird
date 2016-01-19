@@ -29,14 +29,22 @@
 	vc := text_note_galya
 	draw_text_ns
 
-	va := 64
-	vb := 20
-	vc := text_note_ninja
-	draw_text_ns
+	i := galina_calls
+	load v0
+	if v0 >= 3 begin #ninja appeared
+		va := 64
+		vb += 8
+		vc := text_note_ninja
+		draw_text_ns
+	end
 
-	va := 64
-	vb := 30
-	vc := text_note_secret_lab
-	draw_text_ns
+	i := ninja_called
+	load v0
+	if v0 != 0 begin
+		va := 64
+		vb += 8
+		vc := text_note_pets
+		draw_text_ns
+	end
 
 	return
