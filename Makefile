@@ -46,7 +46,15 @@ $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
 		./generate-text.py $(PREFIX) 5000 assets/en.json $(PREFIX)/dialogs.json
 
-game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o assets/* assets/*/* sources/*.8o generate-texture.py
+$(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
+ifeq ($(strip $(AUDIO)),)
+		cp -f sources/splash_audio_null.8o $@
+else
+		./generate-audio.py assets/sounds/track3.wav splash >> $@
+endif
+
+
+game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o $(PREFIX)/audio.8o assets/* assets/*/* sources/*.8o generate-texture.py
 		cat sources/main.8o > $@
 		cat $(PREFIX)/texts.8o >> $@
 		cat $(PREFIX)/font.8o >> $@
@@ -77,7 +85,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
 		cat $(PREFIX)/texts_data.8o >> $@
-		cat sources/splash_audio.8o >> $@
+		cat $(PREFIX)/audio.8o >> $@
 
 game.bin: game.8o
 	./octo/octo game.8o $@
