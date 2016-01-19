@@ -46,10 +46,11 @@ $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
 		./generate-text.py $(PREFIX) 5000 assets/en.json $(PREFIX)/dialogs.json
 
-$(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
 ifeq ($(strip $(AUDIO)),)
+$(PREFIX)/audio.8o: Makefile sources/splash_audio_null.8o
 		cp -f sources/splash_audio_null.8o $@
 else
+$(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
 		./generate-audio.py assets/sounds/track3.wav splash >> $@
 endif
 
