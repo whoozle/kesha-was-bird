@@ -35,3 +35,19 @@
 	audio_play_stream
 	va := 60
 	jump sleep
+
+: glitch_count
+	0
+
+: call_glitch
+	day_increment
+	day_intertitle
+	i := glitch_count
+	load v0
+	if v0 == 0 begin
+		v0 := 1
+		i := glitch_count
+		save v0
+		jump dialog_glitch_1
+	end
+	jump dialog_glitch_2

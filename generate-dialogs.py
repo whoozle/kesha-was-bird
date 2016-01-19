@@ -224,7 +224,7 @@ text('Galina is our agent too')
 text('So we need to find her')
 text('And EXTRACT THE KEY')
 text('Catch you later, man')
-clear()
+call('call_glitch')
 
 dialog('ninja', 2)
 text('Hi, today professor is away')
