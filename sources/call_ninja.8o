@@ -5,5 +5,16 @@
 	jump dialog_ninja_1
 
 : ninja_show_banner
+	clear
 	i := long tile_banner_ninja_data
-	jump draw_fullscreen_tile
+	draw_fullscreen_tile
+
+	sleep_60
+	va := 33
+	vb := 30
+	vc := text_ninja
+	draw_text
+	:breakpoint ninja
+	#play short music sample?
+	va := 180
+	sleep

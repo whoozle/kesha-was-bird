@@ -181,8 +181,8 @@ clear()
 head(1, 'ninja')
 text('Pardon me')
 text('I\'d like to help you')
-text('Call me, 1337') #leet :D
-text('N I N J A')
+text('Call me, 1337', 120) #leet :D
+call('ninja_show_banner')
 
 dialog('galina', 5)
 head(1, 'kesha_o')

@@ -8,5 +8,8 @@
 	"day": "DAY ",
 	"note_galya": "Galya - 1113",
 	"note_ninja": "Ninja - 1337",
-	"note_secret_lab": "Sikret - 8555"
+	"note_secret_lab": "Sikret - 8555",
+
+	"ninja" : "N I N J A",
+	"professor" : "P R O F E S S O R"
 }
