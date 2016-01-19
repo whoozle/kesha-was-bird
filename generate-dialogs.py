@@ -168,6 +168,7 @@ text('Excuse me for my', 0)
 text('interruption, lovebirds...')
 text('Galina, I need you', 0)
 text('RIGHT NOW!!!')
+call('professor_show_banner')
 
 dialog('galina', 4)
 head(1, 'kesha_o')

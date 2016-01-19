@@ -40,6 +40,7 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 		./generate-texture.py assets/drinking.png drinking 2 16 >> $@
 		./generate-texture.py assets/room.png room 2 16 >> $@
 		./generate-texture.py assets/big_pics/ninja.png banner_ninja 2 16 >> $@
+		./generate-texture.py assets/big_pics/professor.png banner_professor 2 16 >> $@
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)

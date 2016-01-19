@@ -39,3 +39,10 @@
 	v0 := 1
 	save v0
 	return
+
+: professor_show_banner
+	va := 30
+	vb := 56
+	vc := text_professor
+	i := long tile_banner_professor_data
+	jump draw_banner
