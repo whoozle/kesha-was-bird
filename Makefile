@@ -104,6 +104,9 @@ game.hex: game.bin ./generate-hex.py
 xclip: game.8o
 	cat game.8o | xclip
 
+xclip-hex: game.hex
+	cat game.hex | xclip
+
 pbcopy: game.8o
 	cat game.8o | pbcopy
 
