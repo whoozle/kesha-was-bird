@@ -201,7 +201,7 @@ text("my calls, why?")
 
 head(2, 'ninja')
 text("Sorry, I have no choice")
-text("I wanted to help you")
+text("I just want to help you")
 
 clear()
 head(1, 'ninja')
@@ -228,7 +228,7 @@ clear()
 
 dialog('ninja', 2)
 text('Hi, today professor is away')
-text('Let\'s try to save Galina')
+text('Let\'s try to SAVE Galina')
 text('Call PETS number, they will')
 text('take care of her')
 
