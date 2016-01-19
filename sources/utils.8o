@@ -6,3 +6,17 @@
 		if vf != 0 then
 	again
 	return
+
+# i = banner address, va, vb, vc == text
+: draw_banner
+	clear
+	draw_fullscreen_tile
+
+	vd := va
+	sleep_60
+	va := vd
+	draw_text
+
+	#play short music sample?
+	va := 180
+	jump sleep
