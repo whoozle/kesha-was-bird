@@ -21,6 +21,12 @@ $(PREFIX)/dtmf.8o: Makefile ./generate-dtmf.py
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
 		./generate-font.py assets/font/5.font font 5000 $(PREFIX)
 
+$(PREFIX)/banners.8o: Makefile ./generate-texture.py assets/big_pics/*
+		./generate-texture.py assets/big_pics/ninja.png banner_ninja 2 16 > $@
+		./generate-texture.py assets/big_pics/professor.png banner_professor 2 16 >> $@
+		./generate-texture.py assets/big_pics/galina.png banner_galina 2 16 >> $@
+		./generate-texture.py assets/big_pics/prison.png banner_prison 2 16 >> $@
+
 $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/*.png
 		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 > $@
 		./generate-texture.py assets/phone/phone_0a.png phone_0a 2 16 >> $@
@@ -39,8 +45,6 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 		./generate-texture.py assets/notepad.png notepad 2 16 >> $@
 		./generate-texture.py assets/drinking.png drinking 2 16 >> $@
 		./generate-texture.py assets/room.png room 2 16 >> $@
-		./generate-texture.py assets/big_pics/ninja.png banner_ninja 2 16 >> $@
-		./generate-texture.py assets/big_pics/professor.png banner_professor 2 16 >> $@
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
@@ -57,7 +61,7 @@ $(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
 endif
 
 
-game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/dtmf.8o $(PREFIX)/audio.8o assets/* assets/*/* sources/*.8o generate-texture.py
+game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/banners.8o $(PREFIX)/dtmf.8o $(PREFIX)/audio.8o assets/* assets/*/* sources/*.8o generate-texture.py
 		cat sources/main.8o > $@
 		cat $(PREFIX)/texts.8o >> $@
 		cat $(PREFIX)/font.8o >> $@
@@ -88,6 +92,7 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
 		cat $(PREFIX)/texts_data.8o >> $@
+		cat $(PREFIX)/banners.8o >> $@
 		cat $(PREFIX)/audio.8o >> $@
 
 game.bin: game.8o
