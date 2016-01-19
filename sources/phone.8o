@@ -102,7 +102,10 @@
 
 : phone_call
 	clear
+
 	phone_clear_number
+
+	notepad_draw
 
 	va := phone_display_x
 	vb := phone_display_y
