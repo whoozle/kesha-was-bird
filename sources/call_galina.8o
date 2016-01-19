@@ -33,7 +33,7 @@
 	if v0 == 0 then jump dialog_no_answer_1
 	dialog_galina_6
 
-	# PETS CATCH GALINA CUTSCENE
+	galina_show_banner
 
 	i := pets_got_galina
 	v0 := 1
@@ -46,3 +46,14 @@
 	vc := text_professor
 	i := long tile_banner_professor_data
 	jump draw_banner
+
+: galina_show_banner
+	va := 2
+	vb := 2
+	vc := text_treachery
+	i := long tile_banner_galina_data
+	draw_banner
+	i := long tile_banner_prison_data
+	draw_fullscreen_tile
+	va := 120
+	jump sleep
