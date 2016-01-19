@@ -19,7 +19,7 @@ $(PREFIX)/dtmf.8o: Makefile ./generate-dtmf.py
 		./generate-dtmf.py > $@
 
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
-		./generate-font.py assets/font/5.font font 4000 $(PREFIX)
+		./generate-font.py assets/font/5.font font 5000 $(PREFIX)
 
 $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/*.png
 		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 > $@
@@ -45,7 +45,7 @@ $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
 
 $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
-		./generate-text.py $(PREFIX) 5000 assets/en.json $(PREFIX)/dialogs.json
+		./generate-text.py $(PREFIX) 6000 assets/en.json $(PREFIX)/dialogs.json
 
 ifeq ($(strip $(AUDIO)),)
 $(PREFIX)/audio.8o: Makefile sources/splash_audio_null.8o
