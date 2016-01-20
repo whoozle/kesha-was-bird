@@ -18,6 +18,4 @@
 
 	#play short music sample?
 
-: sleep_180
-	va := 180
-	jump sleep
+	jump sleep_180

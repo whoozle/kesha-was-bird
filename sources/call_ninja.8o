@@ -17,3 +17,7 @@
 	vb := 30
 	vc := text_ninja
 	jump draw_banner
+
+: ninja_show_eraser
+	i := long tile_banner_memory_eraser_data
+	jump draw_fullscreen_tile
