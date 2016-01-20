@@ -98,7 +98,7 @@ game.bin: game.8o
 game.hex: game.bin ./generate-hex.py
 	./generate-hex.py game.bin $@
 
-xclip: game.8o
+xclip: game.bin #check validity
 	cat game.8o | xclip
 
 xclip-hex: game.hex
