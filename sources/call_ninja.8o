@@ -58,5 +58,14 @@
 		v0 += -1
 		if v0 != 0 then
 	again
+
+	v0 := 30
+	loop
+		scroll-up 4
+		i := long ninja_fight
+		audio_play_sync
+		v0 += -1
+		if v0 != 0 then
+	again
 	clear
 	return
