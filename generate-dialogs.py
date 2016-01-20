@@ -343,8 +343,8 @@ text("  O o  .  .")
 dialog('lab_security', 1)
 head(1, 'lab')
 text("WELCOME TO EXTRA", 0)
-text("SECURE LABORATORY")
-text("ENTER PIN")
+text("SECURE LABORATORY", 30)
+text("ENTER PIN", 0)
 
 import os.path
 import json
