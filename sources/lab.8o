@@ -87,7 +87,7 @@
 	loop
 	: lab_enter_key_loop
 		va := key
-		if va >= 10 then jump lab_enter_key_loop
+		if va >= 10 then return
 		lab_update_stats
 		vb := 10
 		audio_play_dtmf
@@ -163,5 +163,5 @@
 	jump lab_display_cows_loop
 
 : lab_enter_pin_exit
-	va := 120 sleep
-	return
+	va := 180 sleep
+	jump lab_enter_pin
