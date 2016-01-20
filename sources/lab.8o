@@ -115,6 +115,9 @@
 
 	i := lab_stats_bulls
 	load v0
+
+	if v0 == 4 then jump ninja_fight #finish
+
 	if v0 == 0 then jump lab_display_cows
 	v0 += -1
 	i := lab_stats_bulls
