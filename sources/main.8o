@@ -2,6 +2,8 @@
 	hires
 	plane 3
 
+	ninja_fight
+	loop again
 	jump main_skip
 
 	splash_draw

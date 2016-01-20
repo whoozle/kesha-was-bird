@@ -28,3 +28,20 @@
 	vb := 54
 	vc := text_fday_device
 	jump draw_banner
+
+: ninja_fight
+	dialog_ninja_4
+	loop
+		dialog_ninja_5
+		v0 := key
+		if v0 == 1 begin
+			i := long tile_banner_ninja_data
+			draw_fullscreen_tile
+			sleep_120
+			dialog_ninja_66
+		end
+		if v0 != 2 then
+	again
+	#2 - next
+
+	return
