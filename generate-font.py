@@ -74,10 +74,6 @@ def generate(name, file, addr, font_height = 5, space_width = 3):
 	source += "\n\n"
 	source += ": data_%s_index\n%s\n\n" %(name, index_source)
 	source += "#glyphs: %d, size: %d\n\n" %(glyph, len(font_data))
-	if cmin < 32:
-		raise Exception("cmin must be >= 32")
-	cmin -= 31
-	cmax -= 31
 	header = """
 : draw_{name}_char_error
 	v0 := {space_width}
