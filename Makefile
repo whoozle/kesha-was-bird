@@ -30,18 +30,7 @@ $(PREFIX)/banners.8o: Makefile ./generate-texture.py assets/big_pics/*
 		./generate-texture.py assets/big_pics/galina_pests.png banner_galina_pests 2 16 >> $@
 
 $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/*.png
-		./generate-texture.py assets/phone/phone_button.png phone_button 2 16 > $@
-		./generate-texture.py assets/phone/phone_0a.png phone_0a 2 16 >> $@
-		./generate-texture.py assets/phone/phone_0b.png phone_0b 2 16 >> $@
-		./generate-texture.py assets/tiles/bed.png bed 2 16 >> $@
-		./generate-texture.py assets/tiles/sink.png sink 2 16 >> $@
-		./generate-texture.py assets/tiles/wall.png wall 2 8 >> $@
-		./generate-texture.py assets/tiles/up_door1.png up_door1 2 8 >> $@
-		./generate-texture.py assets/tiles/up_door2.png up_door2 2 8 >> $@
-		./generate-texture.py assets/tiles/wc.png wc 2 16 >> $@
-		./generate-texture.py assets/tiles/bottle_v.png bottle_v 2 8 >> $@
-		./generate-texture.py assets/tiles/bottle_h.png bottle_h 2 8 >> $@
-		./generate-texture.py assets/tiles/letter.png letter 2 8 >> $@
+		./generate-texture.py assets/tiles/letter.png letter 2 8 > $@
 		./generate-texture.py assets/splash.png splash 2 16 >> $@
 		./generate-texture.py assets/frame.png frame 2 16 >> $@
 		./generate-texture.py assets/notepad.png notepad 2 16 >> $@
