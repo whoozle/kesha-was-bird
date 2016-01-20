@@ -21,3 +21,10 @@
 : ninja_show_eraser
 	i := long tile_banner_memory_eraser_data
 	jump draw_fullscreen_tile
+
+: ninja_show_fday_device
+	i := long tile_banner_fday_device_data
+	va := 30
+	vb := 54
+	vc := text_fday_device
+	jump draw_banner
