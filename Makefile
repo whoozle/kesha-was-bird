@@ -19,7 +19,7 @@ $(PREFIX)/dtmf.8o: Makefile ./generate-dtmf.py
 		./generate-dtmf.py > $@
 
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
-		./generate-font.py assets/font/5.font font f000 $(PREFIX)
+		./generate-font.py assets/font/5.font font 8000 $(PREFIX)
 
 $(PREFIX)/banners.8o: Makefile ./generate-texture.py assets/big_pics/*
 		./generate-texture.py assets/big_pics/drinking.png drinking 2 16 > $@
@@ -43,7 +43,7 @@ $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
 
 $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
-		./generate-text.py $(PREFIX) e000 assets/en.json $(PREFIX)/dialogs.json
+		./generate-text.py $(PREFIX) 8800 assets/en.json $(PREFIX)/dialogs.json
 
 ifeq ($(strip $(AUDIO)),)
 $(PREFIX)/audio.8o: Makefile sources/splash_audio_null.8o
@@ -54,7 +54,7 @@ $(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
 endif
 
 $(PREFIX)/signature.8o: Makefile ./generate-string.py
-		./generate-string.py --right-align=65512 "Brought to you by Whoozle & Gazay ©2016" > $@
+		./generate-string.py --right-align=40000 "Brought to you by Whoozle & Gazay ©2016" > $@
 
 game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/banners.8o $(PREFIX)/dtmf.8o $(PREFIX)/audio.8o $(PREFIX)/signature.8o assets/* assets/*/* sources/*.8o generate-texture.py
 		cat sources/main.8o > $@
