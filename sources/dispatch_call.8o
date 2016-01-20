@@ -72,7 +72,7 @@
 	jump dispatch_invalid_number
 
 : dispatch_call_8_5_5
-	if v3 == 5 then jump lab_enter_pin
+	if v3 == 5 then jump call_lab
 	jump dispatch_invalid_number
 
 : dispatch_invalid_number

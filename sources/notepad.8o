@@ -22,4 +22,13 @@
 		draw_text_ns
 	end
 
+	i := lab_called
+	load v0
+	if v0 != 0 begin
+		va := 64
+		vb += 8
+		vc := text_note_lab
+		draw_text_ns
+	end
+
 	return

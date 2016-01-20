@@ -1,0 +1,8 @@
+: lab_called
+	0
+
+: call_lab
+	i := lab_called
+	v0 := 1
+	save v0
+	jump lab_enter_pin
