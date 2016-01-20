@@ -2,7 +2,6 @@
 	hires
 	plane 3
 
-	galina_show_banner
 	jump main_skip
 
 	splash_draw
