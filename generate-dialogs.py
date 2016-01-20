@@ -91,11 +91,13 @@ def text(text, delay = 60):
 	_text += 1
 	_texts[id] = text
 
-def call(name, *args):
+def call(name, *args, **kw):
 	global _source
 	if len(args) > 4:
 		raise Exception("only 4 arguments supported")
 	regs = ['va', 'vb', 'vc', 'vd']
+	if kw:
+		_source += '\n'.join(["\t%s := %s" %(reg, arg) for reg, arg in kw.iteritems()])
 	_source += '\n'.join(["\t%s := %s" %(reg, arg) for reg, arg in zip(regs, args)])
 	_source += '\n\t%s\n\n' %name
 
