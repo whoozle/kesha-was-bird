@@ -12,7 +12,6 @@ return value in v0, temp in vf
 
 ##Release Checklist
 
-- subtract font min from text (hid)
 - add splash music
 - build game.hex
 - fix palette, remove buzzer color
