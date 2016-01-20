@@ -1,8 +1,6 @@
 : drinking_draw
-	clear
-	plane 3
-	i := long tile_drinking_data
 
+	i := long tile_drinking_data
 	draw_fullscreen_tile
 
 	va := 45 sleep

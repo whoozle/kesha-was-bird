@@ -1,5 +1,3 @@
 : room_draw
-	clear
-
 	i := long tile_room_data
 	jump draw_fullscreen_tile

@@ -9,7 +9,6 @@
 
 # i = banner address, va, vb, vc == text
 : draw_banner
-	clear
 	draw_fullscreen_tile
 
 	vd := va

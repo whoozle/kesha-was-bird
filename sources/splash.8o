@@ -21,10 +21,8 @@
 #	:breakpoint t3
 
 	vf := key
-	clear
 
 	i := long tile_splash_data
-
 	draw_fullscreen_tile
 
 	va := 24

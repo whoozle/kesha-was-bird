@@ -48,7 +48,6 @@
 	jump draw_banner
 
 : galina_show_banner
-	clear
 	i := long tile_banner_galina_pests_data
 	draw_fullscreen_tile
 	sleep_180

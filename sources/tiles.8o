@@ -40,6 +40,8 @@
 	v3 := 0x3f
 	v4 := 64
 
+	clear
+
 	loop
 		v0 := 0
 		loop
