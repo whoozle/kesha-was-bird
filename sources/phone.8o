@@ -1,21 +1,6 @@
-:const phone_x 10
-
-:const phone_display_x 8
-:const phone_col_0 7
-:const phone_col_1 19
-:const phone_col_2 31
-:const phone_button_col_0 9
-:const phone_button_col_1 21
-:const phone_button_col_2 33
-
-:const phone_display_y 8
-:const phone_row_0 25
-:const phone_row_1 37
-:const phone_row_2 49
-
-:const phone_number_x 11
-:const phone_number_y 14
-:const phone_number_step 7
+:const phone_number_x 12
+:const phone_number_y 10
+:const phone_number_step 8
 
 : phone_number
 : phone_number_0
@@ -101,77 +86,12 @@
 	return
 
 : phone_call
-	clear
-
 	phone_clear_number
 
+	i := long tile_phone_screen_data
+	draw_fullscreen_tile
+
 	notepad_draw
-
-	va := phone_display_x
-	vb := phone_display_y
-	i := long tile_phone_0a_data
-	sprite va vb 0
-
-	va += 16
-	i := long tile_phone_0b_data
-	sprite va vb 0
-
-	va := phone_col_0
-	vb := phone_row_0
-	i := long tile_phone_button_data
-	sprite va vb 0
-	va := phone_col_1
-	sprite va vb 0
-	va := phone_col_2
-	sprite va vb 0
-	va := phone_button_col_0
-	vb += 2
-	vc := 0x31
-	draw_font_char
-	va := phone_button_col_1
-	vc := 0x32
-	draw_font_char
-	va := phone_button_col_2
-	vc := 0x33
-	draw_font_char
-
-	va := phone_col_0
-	vb := phone_row_1
-	i := long tile_phone_button_data
-	sprite va vb 0
-	va := phone_col_1
-	sprite va vb 0
-	va := phone_col_2
-	sprite va vb 0
-	va := phone_button_col_0
-	vb += 2
-	vc := 0x34
-	draw_font_char
-	va := phone_button_col_1
-	vc := 0x35
-	draw_font_char
-	va := phone_button_col_2
-	vc := 0x36
-	draw_font_char
-
-	va := phone_col_0
-	vb := phone_row_2
-	i := long tile_phone_button_data
-	sprite va vb 0
-	va := phone_col_1
-	sprite va vb 0
-	va := phone_col_2
-	sprite va vb 0
-	va := phone_button_col_0
-	vb += 2
-	vc := 0x37
-	draw_font_char
-	va := phone_button_col_1
-	vc := 0x38
-	draw_font_char
-	va := phone_button_col_2
-	vc := 0x39
-	draw_font_char
 
 	phone_draw_number
 

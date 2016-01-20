@@ -1,29 +1,4 @@
 : notepad_draw
-	clear
-	plane 3
-	i := long tile_notepad_data
-
-	vb := 0
-	vc := 64
-
-	v0 := 0x7f
-	v1 := 0x3f
-
-	loop
-		va := 48
-		loop
-			#:breakpoint blit
-			sprite va vb 0
-			va += 16
-			i += vc
-			va &= v0
-			if va != 0 then
-		again
-		vb += 16
-		vb &= v1
-		if vb != 0 then
-	again
-
 	va := 64
 	vb := 10
 	vc := text_note_galya
