@@ -22,7 +22,8 @@ $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/
 		./generate-font.py assets/font/5.font font f000 $(PREFIX)
 
 $(PREFIX)/banners.8o: Makefile ./generate-texture.py assets/big_pics/*
-		./generate-texture.py assets/big_pics/fday_devise.png banner_fday_device 2 16 > $@
+		./generate-texture.py assets/big_pics/drinking.png drinking 2 16 > $@
+		./generate-texture.py assets/big_pics/fday_devise.png banner_fday_device 2 16 >> $@
 		./generate-texture.py assets/big_pics/fish.png banner_fish 2 16 >> $@
 		./generate-texture.py assets/big_pics/galina.png banner_galina 2 16 >> $@
 		./generate-texture.py assets/big_pics/galina_pests.png banner_galina_pests 2 16 >> $@
@@ -37,7 +38,6 @@ $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/*
 		./generate-texture.py assets/splash.png splash 2 16 >> $@
 		./generate-texture.py assets/frame.png frame 2 16 >> $@
 		./generate-texture.py assets/notepad.png notepad 2 16 >> $@
-		./generate-texture.py assets/drinking.png drinking 2 16 >> $@
 		./generate-texture.py assets/room.png room 2 16 >> $@
 
 $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
