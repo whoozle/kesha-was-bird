@@ -12,8 +12,8 @@
 
 : main_skip
 	loop
-		day_intertitle
 		phone_call
 		dispatch_call
 		day_increment
+		day_intertitle
 	again
