@@ -17,6 +17,15 @@ return value in v0, temp in vf
 - build game.hex
 - fix palette, remove buzzer color
 
+##Colors
+
+BG	#59755E
+FG1	#B8CD9E
+FG2	#ED656B
+BL	#55989E
+BZ	#000000
+SL	#000000
+
 #Credits
 
 ##Art
