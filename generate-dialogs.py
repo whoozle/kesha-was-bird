@@ -233,8 +233,6 @@ clear()
 head(1, 'ninja')
 text('Later, man')
 
-call('call_glitch')
-
 dialog('ninja', 2)
 text('Hi, today professor is away')
 text('Let\'s try to SAVE Galina')
