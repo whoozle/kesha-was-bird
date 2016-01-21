@@ -43,10 +43,10 @@
 : shake_left_right
 	v0 := 60
 	loop
-		scroll-left 4
+		scroll-left
 		i := ninja_fight
 		audio_play_sync
-		scroll-right 4
+		scroll-right
 		i := ninja_fight
 		audio_play_sync
 		v0 += -1
