@@ -248,7 +248,7 @@ call('set_flag', i = 'pets_plan')
 
 dialog('spam', 1)
 text('Any problems with SPAM?')
-text('call 0-SPAM and we will', 30)
+text('Call 0-SPAM and we will', 30)
 text('not send you anything')
 text('    PROMISE')
 
