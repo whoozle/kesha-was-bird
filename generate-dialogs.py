@@ -134,12 +134,10 @@ sleep(60)
 
 clear()
 head(1, 'kesha')
-text("Ugh.. My head hurts..")
-text("...just one fix")
-text("Ok, what do we have here?")
-
-head(1, 'kesha_e')
-text("Press V(F)odka")
+text("What a strange dream...")
+text("What happened? I can't", 0)
+text("remember anything...")
+text("......")
 
 dialog('galina', 1)
 text("We really need to talk")

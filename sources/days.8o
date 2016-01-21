@@ -1,15 +1,15 @@
 : day_1
-	va := 90 sleep
-	# Kesha wakes up and want to drink
+#	va := 90 sleep
+#	# Kesha wakes up and want to drink
 	dialog_kesha_1
 
-	loop
-		ve := key
-		if ve != 15 then
-	again
-
-	# Drinking VODKA animation!!! And going to sleep
-	drinking_draw
+#	loop
+#		ve := key
+#		if ve != 15 then
+#	again
+#
+#	# Drinking VODKA animation!!! And going to sleep
+#	drinking_draw
 
 	day_increment
 	return
