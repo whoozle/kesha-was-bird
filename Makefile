@@ -98,14 +98,11 @@ game.bin: game.8o
 game.hex: game.bin ./generate-hex.py
 	./generate-hex.py game.bin $@
 
-xclip: game.bin #check validity
-	cat game.8o | xclip
-
-xclip.hex: game.hex
+xclip: game.hex
 	cat game.hex | xclip
 
-pbcopy: game.8o
-	cat game.8o | pbcopy
+pbcopy: game.hex
+	cat game.hex | pbcopy
 
 clean:
 		rm -f game.bin game.8o .compiled/*
