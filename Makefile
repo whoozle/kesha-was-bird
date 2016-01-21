@@ -118,4 +118,4 @@ pbcopy: game.hex
 	cat game.hex | pbcopy
 
 clean:
-		rm -f game.bin game.8o .compiled/*
+		rm -f game.bin game.8o game.hex .compiled/*
