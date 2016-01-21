@@ -16,8 +16,7 @@
 	load v0
 	if v0 == 0 begin
 		i := pets_called
-		v0 := 1
-		save v0
+		set_flag
 		jump dialog_pets_2
 	end
 	jump dialog_pets_3
