@@ -299,7 +299,7 @@ clear()
 head(1, 'pets')
 text('Let me see....')
 text('Well, yes, it says: ')
-text('eight plus five star three')
+text('eight plus five star three', 150)
 
 dialog('ninja', 4)
 sleep(30)
