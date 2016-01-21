@@ -1,6 +1,5 @@
 : splash_draw
 	clear
-	plane 3
 
 	va := 27
 	vb := 20
