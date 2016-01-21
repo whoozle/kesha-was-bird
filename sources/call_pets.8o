@@ -4,7 +4,14 @@
 : pets_got_galina
 	0
 
+: pets_plan
+	0
+
 : call_pets
+	i := pets_plan
+	load v0
+	if v0 == 0 then jump dialog_pets_1
+
 	i := pets_got_galina
 	load v0
 	if v0 == 0 begin
