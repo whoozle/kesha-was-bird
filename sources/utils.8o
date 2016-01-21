@@ -18,7 +18,8 @@
 
 	#play short music sample?
 
-	jump sleep_180
+	va := 240
+	jump sleep
 
 : set_flag
 	v0 := 1
