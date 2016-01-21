@@ -4,6 +4,10 @@
 	i := long audio_sword_2
 	jump audio_play_sync
 
+: planet_noise
+	i := ninja_sword
+	jump audio_play_sync
+
 : final_draw
 	i := long tile_ninja_fish_data
 	draw_fullscreen_tile
@@ -43,14 +47,17 @@
 	i := long tile_earth_1_data
 	draw_fullscreen_tile
 	shake_left_right
+	planet_noise
 
 	i := long tile_earth_2_data
 	draw_fullscreen_tile
 	shake_left_right
+	planet_noise
 
 	i := long tile_earth_3_data
 	draw_fullscreen_tile
 	shake_left_right
+	planet_noise
 
 	i := long tile_earth_4_data
 	draw_fullscreen_tile
