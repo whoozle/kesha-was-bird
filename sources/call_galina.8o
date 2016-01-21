@@ -39,8 +39,8 @@
 	jump set_flag
 
 : professor_show_banner
-	va := 30
-	vb := 56
+	va := 58
+	vb := 0
 	vc := text_professor
 	i := long tile_banner_professor_data
 	jump draw_banner
