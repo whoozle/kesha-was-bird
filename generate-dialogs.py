@@ -188,7 +188,7 @@ call('ninja_show_banner')
 
 dialog('galina', 5)
 head(2, 'cow')
-text("I don't know you might", 0)
+text("I don't know if you", 0)
 text("remember it, but you", 0)
 text("have to save me.", 90)
 text("I got the code.")
