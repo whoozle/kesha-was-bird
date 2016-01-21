@@ -12,8 +12,8 @@
 	loop
 
 	i := long tile_banner_memory_eraser_data
-	va := 20
-	vb := 58
+	va := 21
+	vb := 59
 	vc := text_credits_pro
 	credits_page
 
