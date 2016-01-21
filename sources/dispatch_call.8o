@@ -1,4 +1,6 @@
 : dispatch_call
+	check_glitch
+	if v0 != 0 then return
 
 	i := phone_number
 	load v3

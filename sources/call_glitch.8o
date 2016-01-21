@@ -40,8 +40,6 @@
 	0
 
 : call_glitch
-	day_increment
-	day_intertitle
 	i := glitch_count
 	load v0
 	if v0 == 0 begin
@@ -51,3 +49,17 @@
 		jump dialog_glitch_1
 	end
 	jump dialog_glitch_2
+
+: check_glitch
+	i := ninja_called
+	load v0
+	if v0 == 1 begin
+		v0 += 1
+		i := ninja_called
+		save v0
+		call_glitch
+		v0 := 1
+		return
+	end
+	v0 := 0
+	return
