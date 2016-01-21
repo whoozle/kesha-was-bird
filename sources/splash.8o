@@ -20,7 +20,8 @@
 	draw_text
 #	:breakpoint t3
 
-	vf := key
+#	vf := key
+	sleep_180
 
 	i := long tile_splash_data
 	draw_fullscreen_tile
