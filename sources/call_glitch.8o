@@ -1,5 +1,5 @@
 : glitch_fill
-	vd := 60
+	vd := 90
 	loop
 		v0 := random 0x0f
 		v1 := 0xb0
