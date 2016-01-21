@@ -12,6 +12,7 @@
 #	drinking_draw
 
 	day_increment
+	day_intertitle
 	return
 
 : day_2
@@ -24,4 +25,5 @@
 
 	va := 60 sleep
 	day_increment
+	day_intertitle
 	return
