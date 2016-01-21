@@ -1,3 +1,32 @@
+: credits_page
+	draw_fullscreen_tile
+	draw_text_ns
+
+	i := long audio_splash_size
+	load va - vb
+	i := long audio_splash
+	jump audio_play_stream
+
 : credits_draw
 
-loop again
+	loop
+
+	i := long tile_banner_memory_eraser_data
+	va := 20
+	vb := 58
+	vc := text_credits_pro
+	credits_page
+
+	va := 0
+	vb := 50
+	i := long tile_banner_professor_data
+	vc := text_credits_art
+	credits_page
+
+	i := long tile_earth_4_data
+	va := 10
+	vb := 58
+	vc := text_credits_music
+	credits_page
+
+	again

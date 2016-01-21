@@ -17,5 +17,9 @@
 	"professor" : "P R O F E S S O R",
 	"treachery": "T R E A C H E R Y",
 	"fday_device": "F - D A Y   D E V I C E",
-	"the_end": "T H E   E N D"
+	"the_end": "T H E   E N D",
+
+	"credits_art": "ART BY GAZAY",
+	"credits_pro": "GAME BY WHOOZLE&GAZAY",
+	"credits_music": "MUSIC&SFX BY WHOOZLE"
 }
