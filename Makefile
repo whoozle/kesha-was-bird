@@ -33,6 +33,11 @@ $(PREFIX)/banners.8o: Makefile ./generate-texture.py assets/big_pics/*
 		./generate-texture.py assets/big_pics/ninja_kills_kesha.png ninja_kills_kesha 2 16 >> $@
 		./generate-texture.py assets/big_pics/ninja_kills_kesha_2.png ninja_kills_kesha_2 2 16 >> $@
 		./generate-texture.py assets/big_pics/ninja_kills_kesha_3.png ninja_kills_kesha_3 2 16 >> $@
+		./generate-texture.py assets/big_pics/fish_army.png fish_army 2 16 >> $@
+		./generate-texture.py assets/big_pics/earth.png earth_1 2 16 >> $@
+		./generate-texture.py assets/big_pics/earth_2.png earth_2 2 16 >> $@
+		./generate-texture.py assets/big_pics/earth_3.png earth_3 2 16 >> $@
+		./generate-texture.py assets/big_pics/earth_4.png earth_4 2 16 >> $@
 
 $(PREFIX)/tiles.8o: Makefile ./generate-texture.py assets/tiles/* assets/phone/* assets/*.png
 		./generate-texture.py assets/tiles/letter.png letter 2 8 > $@
@@ -44,10 +49,10 @@ $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json: Makefile generate-dialogs.py
 		./generate-dialogs.py $(PREFIX)
 
 $(PREFIX)/font.8o $(PREFIX)/font-data.8o: Makefile generate-font.py assets/font/5.font
-		./generate-font.py assets/font/5.font font a000 $(PREFIX)
+		./generate-font.py assets/font/5.font font 1000 $(PREFIX)
 
 $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o: Makefile assets/en.json $(PREFIX)/dialogs.8o $(PREFIX)/dialogs.json generate-text.py
-		./generate-text.py $(PREFIX) a800 assets/en.json $(PREFIX)/dialogs.json
+		./generate-text.py $(PREFIX) 1800 assets/en.json $(PREFIX)/dialogs.json
 
 ifeq ($(strip $(AUDIO)),)
 $(PREFIX)/audio.8o: Makefile sources/splash_audio_null.8o
@@ -58,7 +63,7 @@ $(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
 endif
 
 $(PREFIX)/signature.8o: Makefile ./generate-string.py
-		./generate-string.py --right-align=46000 "Brought to you by Whoozle & Gazay FROM COW WITH LOVE ©2016" > $@
+		./generate-string.py --right-align=61000 "Brought to you by Whoozle & Gazay FROM COW WITH LOVE ©2016" > $@
 
 game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/banners.8o $(PREFIX)/dtmf.8o $(PREFIX)/audio.8o $(PREFIX)/signature.8o assets/* assets/*/* sources/*.8o generate-texture.py
 		cat sources/main.8o > $@
@@ -87,16 +92,15 @@ game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o 
 		cat sources/days.8o >> $@
 		cat sources/lab.8o >> $@
 		cat sources/credits.8o >> $@
-		echo ":org 0x1000" >> $@
+		cat $(PREFIX)/font_data.8o >> $@
+		cat $(PREFIX)/texts_data.8o >> $@
 		cat sources/audio_data.8o >> $@
 		cat $(PREFIX)/tiles.8o >> $@
 		cat $(PREFIX)/heads.8o >> $@
 		cat $(PREFIX)/dtmf.8o >> $@
 		cat $(PREFIX)/banners.8o >> $@
-		cat $(PREFIX)/signature.8o >> $@
-		cat $(PREFIX)/font_data.8o >> $@
-		cat $(PREFIX)/texts_data.8o >> $@
 		cat $(PREFIX)/audio.8o >> $@
+		cat $(PREFIX)/signature.8o >> $@
 
 game.bin: game.8o
 	./octo/octo game.8o $@
