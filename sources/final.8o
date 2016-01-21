@@ -68,6 +68,8 @@
 	vb := 29
 	vc := 63 #?
 	draw_font_char
+	i := long audio_text_beep
+	audio_play_sync
 
 	sleep_60
 	vd := 100
@@ -76,7 +78,7 @@
 		vb := random 0x3f
 		vc := 63
 		draw_font_char
-		i := final_draw #fixme
+		i := long audio_text_beep
 		audio_play_sync
 		vd += -1
 		if vd != 0 then
