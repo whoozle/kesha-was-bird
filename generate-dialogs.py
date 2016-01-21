@@ -220,7 +220,7 @@ text('We erased your memory', 0)
 text('to trick professor into', 0)
 text('hiring you as janitor')
 call('ninja_show_eraser')
-sleep(180)
+sleep(240)
 clear()
 
 head(1, 'ninja')
