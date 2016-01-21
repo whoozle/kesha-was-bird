@@ -1,0 +1,3 @@
+: dispatch_event
+	v0 := 0
+	return
