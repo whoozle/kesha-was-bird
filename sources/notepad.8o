@@ -13,7 +13,7 @@
 		draw_text_ns
 	end
 
-	i := ninja_called
+	i := pets_spam_shown
 	load v0
 	if v0 != 0 begin
 		va := 64

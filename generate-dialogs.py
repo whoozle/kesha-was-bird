@@ -239,6 +239,12 @@ text('Let\'s try to SAVE Galina')
 text('Call PETS number, they will')
 text('take care of her')
 
+dialog('spam', 1)
+text('SPAMSPAMSPAMSPAM')
+text('Any problems with PESTS?')
+text('or PETS?')
+text('call 0-PETS    or PEST')
+
 dialog('pets', 1)
 #head(1, 'pets')
 head(1, 'kesha')
