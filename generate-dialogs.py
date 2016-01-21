@@ -152,7 +152,8 @@ head(1, 'kesha_o')
 text("We need to talk")
 head(2, '')
 head(1, 'kesha_e')
-text("I'll have a drink first") #remove galina head here
+text("I'll have a drink first")
+call('drinking_draw')
 
 dialog('galina', 3)
 head(1, 'kesha_o')

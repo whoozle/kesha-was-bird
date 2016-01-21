@@ -3,6 +3,6 @@
 	i := long tile_drinking_data
 	draw_fullscreen_tile
 
-	va := 45 sleep
+	va := 90 sleep
 
 	return
