@@ -56,9 +56,8 @@
 		i := glitch_2_shown
 		load v0
 		if v0 == 0 begin
-			v0 := 1
 			i := glitch_2_shown
-			save v0
+			set_flag
 			dialog_glitch_2
 			v0 := 1
 			return

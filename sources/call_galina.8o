@@ -36,9 +36,7 @@
 	galina_show_banner
 
 	i := pets_got_galina
-	v0 := 1
-	save v0
-	return
+	jump set_flag
 
 : professor_show_banner
 	va := 30

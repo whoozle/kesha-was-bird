@@ -8,9 +8,8 @@
 	i := spam_spam_shown
 	load v0
 	if v0 == 0 begin
-		v0 := 1
 		i := spam_spam_shown
-		save v0
+		set_flag
 
 		room_with_letter
 		dialog_spam_1
@@ -21,9 +20,8 @@
 	i := pets_spam_shown
 	load v0
 	if v0 == 0 begin
-		v0 := 1
 		i := pets_spam_shown
-		save v0
+		set_flag
 
 		room_with_letter
 		dialog_spam_2

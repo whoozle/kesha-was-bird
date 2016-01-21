@@ -19,3 +19,8 @@
 	#play short music sample?
 
 	jump sleep_180
+
+: set_flag
+	v0 := 1
+	save v0
+	return

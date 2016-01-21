@@ -2,9 +2,8 @@
 	0
 
 : call_ninja
-	v0 := 1
 	i := ninja_called
-	save v0
+	set_flag
 
 	i := pets_got_galina
 	load v0

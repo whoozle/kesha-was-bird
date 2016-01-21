@@ -3,6 +3,5 @@
 
 : call_lab
 	i := lab_called
-	v0 := 1
-	save v0
+	set_flag
 	jump lab_enter_pin
