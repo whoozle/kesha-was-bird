@@ -36,19 +36,8 @@
 	va := 60
 	jump sleep
 
-: glitch_count
+: glitch_2_shown
 	0
-
-: call_glitch
-	i := glitch_count
-	load v0
-	if v0 == 0 begin
-		v0 := 1
-		i := glitch_count
-		save v0
-		jump dialog_glitch_1
-	end
-	jump dialog_glitch_2
 
 : check_glitch
 	i := ninja_called
@@ -57,9 +46,23 @@
 		v0 += 1
 		i := ninja_called
 		save v0
-		call_glitch
+		dialog_glitch_1
 		v0 := 1
 		return
+	end
+	i := pets_got_galina
+	load v0
+	if v0 != 0 begin
+		i := glitch_2_shown
+		load v0
+		if v0 == 0 begin
+			v0 := 1
+			i := glitch_2_shown
+			save v0
+			dialog_glitch_2
+			v0 := 1
+			return
+		end
 	end
 	v0 := 0
 	return
