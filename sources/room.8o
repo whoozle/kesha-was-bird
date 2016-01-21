@@ -1,3 +1,4 @@
 : room_draw
 	i := long tile_room_data
-	jump draw_fullscreen_tile
+	draw_fullscreen_tile
+	jump sleep_60
