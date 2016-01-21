@@ -27,7 +27,7 @@
 	load vc - vc
 	if vc == 0 then return
 
-	draw_font_char
+	_draw_font_char
 	va += v0
 
 	i := draw_text_instruction_addr
@@ -57,7 +57,7 @@
 	load vc - vc
 	if vc == 0 then return
 
-	draw_font_char
+	_draw_font_char
 	va += v0
 
 	i := draw_text_ns_instruction_addr

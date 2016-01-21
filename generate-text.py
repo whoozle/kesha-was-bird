@@ -25,7 +25,7 @@ for source in args.sources:
 		header += ":const text_%s %d\n" %(key, len(offsets))
 		offsets.append(len(data))
 		for ch in value:
-			data.append(ord(ch))
+			data.append(ord(ch) - 31)
 		data.append(0)
 
 source = ":org 0x%04x\n" %(addr)

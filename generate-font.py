@@ -44,14 +44,14 @@ def generate(name, file, addr, font_height = 5, space_width = 3):
 			font[char] = (height, width, descent, rows, shadows)
 
 		#print font
-		chars = [ord(x) for x in font.keys()]
+		chars = [ord(x) - 31 for x in font.keys()]
 		cmin, cmax = min(chars), max(chars)
 
 		glyph = 0
 		font_data = []
 		index_source = ""
 		for ch in xrange(cmin, cmax + 1):
-			key = chr(ch)
+			key = chr(ch + 31)
 			if key in font:
 				height, width, descent, rows, shadow = font[key]
 				offset = len(font_data)
@@ -79,7 +79,11 @@ def generate(name, file, addr, font_height = 5, space_width = 3):
 	v0 := {space_width}
 	return
 
-: draw_{name}_char
+: draw_font_char
+	vf := 31
+	vc -= vf
+
+: _draw_{name}_char
 	if vc < {min} then jump draw_{name}_char_error
 	if vc > {max} then jump draw_{name}_char_error
 
