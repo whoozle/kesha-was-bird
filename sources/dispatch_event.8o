@@ -1,6 +1,9 @@
 : pets_spam_shown
 	0
 
+: spam_spam_shown
+	0
+
 : dispatch_event
 	v0 := 0
 	return
