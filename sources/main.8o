@@ -2,8 +2,6 @@
 	hires
 	plane 3
 
-	ninja_fight
-	loop again
 	jump main_skip
 
 	splash_draw
@@ -12,8 +10,11 @@
 
 : main_skip
 	loop
+		dispatch_event
+		if v0 != 0 then jump main_next_day
 		phone_call
 		dispatch_call
+: main_next_day
 		day_increment
 		day_intertitle
 	again
