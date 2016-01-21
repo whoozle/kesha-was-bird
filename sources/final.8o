@@ -1,15 +1,25 @@
+: ninja_sword
+	i := long audio_sword_1
+	audio_play_sync
+	i := long audio_sword_2
+	jump audio_play_sync
+
 : final_draw
 	i := long tile_ninja_fish_data
 	draw_fullscreen_tile
+	ninja_sword
 	sleep_60
 	i := long tile_ninja_kills_kesha_data
 	draw_fullscreen_tile
+	ninja_sword
 	sleep_60
 	i := long tile_ninja_kills_kesha_2_data
 	draw_fullscreen_tile
+	ninja_sword
 	sleep_60
 	i := long tile_ninja_kills_kesha_3_data
 	draw_fullscreen_tile
+	ninja_sword
 	sleep_180
 
 	i := long tile_fish_army_data
