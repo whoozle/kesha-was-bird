@@ -2,3 +2,22 @@
 	i := long tile_room_data
 	draw_fullscreen_tile
 	jump sleep_60
+
+: roow_with_letter
+	room_draw
+
+	v0 := 80
+	v1 := 30
+	i := long tile_letter_data
+
+	# Letter slides under the door
+	loop
+		sprite v0 v1 8
+		va := 2 sleep
+		if v1 != 49 then sprite v0 v1 8
+		v1 += 1
+		if v1 != 50 then
+	again
+
+	va := 90
+	jump sleep
