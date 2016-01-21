@@ -29,7 +29,7 @@
 # MISSILE LAUNCHED
 	i := long tile_earth_1_data
 	draw_fullscreen_tile
-	shake_up_down
+	shake_left_right
 
 	i := long tile_earth_2_data
 	draw_fullscreen_tile
@@ -37,7 +37,7 @@
 
 	i := long tile_earth_3_data
 	draw_fullscreen_tile
-	shake_up_down
+	shake_left_right
 
 	i := long tile_earth_4_data
 	draw_fullscreen_tile
