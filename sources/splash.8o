@@ -28,7 +28,7 @@
 
 	va := 24
 	vb := 54
-	vc := text_title
+	vc := text_splash_title
 	draw_text
 
 	loop
