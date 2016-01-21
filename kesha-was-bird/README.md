@@ -32,3 +32,4 @@ Please don't hesitate to contact me if you have any further questions:
 vladimir.menshakov@gmail.com
 
 Please write me if you want to take a peek into the source code.
+We plan to release full source code to github a little bit later.
