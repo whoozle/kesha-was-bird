@@ -28,7 +28,7 @@
 	load v0
 	if v0 != 0 then jump dialog_no_answer_1
 
-	i := pets_plan
+	i := pets_called #works after the plan only
 	load v0
 	if v0 == 0 then jump dialog_no_answer_1
 	dialog_galina_6
