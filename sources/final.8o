@@ -1,0 +1,56 @@
+: final_draw
+	i := long tile_ninja_fish_data
+	draw_fullscreen_tile
+	sleep_60
+	i := long tile_ninja_kills_kesha_data
+	draw_fullscreen_tile
+	sleep_60
+	i := long tile_ninja_kills_kesha_2_data
+	draw_fullscreen_tile
+	sleep_60
+	i := long tile_ninja_kills_kesha_3_data
+	draw_fullscreen_tile
+	sleep_180
+
+	i := long tile_banner_fish_data
+	draw_fullscreen_tile
+
+	shake_up_down
+
+	v0 := 30
+	loop
+		scroll-up 4
+		i := long ninja_fight
+		audio_play_sync
+		v0 += -1
+		if v0 != 0 then
+	again
+
+	clear
+	sleep_60
+	va := 38
+	vb := 30
+	vc := text_the_end
+	draw_text
+
+	sleep_180
+	va := 89
+	vb := 29
+	vc := 63 #?
+	draw_font_char
+
+	sleep_60
+	vd := 100
+	loop
+		va := random 0x7f
+		vb := random 0x3f
+		vc := 63
+		draw_font_char
+		i := final_draw #fixme
+		audio_play_sync
+		vd += -1
+		if vd != 0 then
+	again
+
+	credits_draw
+	return
