@@ -5,5 +5,31 @@
 	0
 
 : dispatch_event
+	i := spam_spam_shown
+	load v0
+	if v0 == 0 begin
+		v0 := 1
+		i := spam_spam_shown
+		save v0
+
+		room_with_letter
+		dialog_spam_1
+		v0 := 0
+		return
+	end
+
+	i := pets_spam_shown
+	load v0
+	if v0 == 0 begin
+		v0 := 1
+		i := pets_spam_shown
+		save v0
+
+		room_with_letter
+		dialog_spam_2
+		v0 := 0
+		return
+	end
+
 	v0 := 0
 	return

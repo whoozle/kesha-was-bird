@@ -3,7 +3,7 @@
 	draw_fullscreen_tile
 	jump sleep_60
 
-: roow_with_letter
+: room_with_letter
 	room_draw
 
 	v0 := 80

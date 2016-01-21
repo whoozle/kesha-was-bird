@@ -10,11 +10,12 @@
 
 : main_skip
 	loop
-		dispatch_event
-		if v0 != 0 then jump main_next_day
 		phone_call
 		dispatch_call
 : main_next_day
 		day_increment
 		day_intertitle
+
+		dispatch_event
+		if v0 != 0 then jump main_next_day
 	again
