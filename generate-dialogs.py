@@ -126,7 +126,7 @@ text('    o o o O . . o .')
 text('')
 head(2, 'professor')
 text('Yes, of course')
-text('Good bye, sir', 90)
+text('Good-bye, sir', 90)
 
 call('day_intertitle')
 call('room_draw')
