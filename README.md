@@ -13,7 +13,6 @@ return value in v0, temp in vf
 ##Release Checklist
 
 - test game at 1000 i/f
-- add splash video if we have enough time
 - add splash music
 - build game.hex
 - fix palette, remove buzzer color
