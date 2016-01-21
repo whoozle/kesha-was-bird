@@ -3,12 +3,17 @@
 
 : call_ninja
 	i := ninja_called
+	load va - va
+	i := ninja_called
 	set_flag
 
 	i := pets_got_galina
 	load v0
 	if v0 != 0 then jump dialog_ninja_3
-	jump dialog_ninja_1
+
+	if va == 0 then jump dialog_ninja_1
+
+	jump dialog_ninja_2
 
 : ninja_show_banner
 	i := long tile_banner_ninja_data
