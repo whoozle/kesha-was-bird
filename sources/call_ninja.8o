@@ -48,6 +48,8 @@
 	again
 	#2 - next
 
+: ninja_fight_final
+
 	i := long tile_banner_fish_data
 	draw_fullscreen_tile
 
@@ -72,4 +74,19 @@
 		if v0 != 0 then
 	again
 	clear
+
+
+	i := long tile_ninja_fish_data
+	draw_fullscreen_tile
+	sleep_180
+	i := long tile_ninja_kills_kesha_data
+	draw_fullscreen_tile
+	sleep_180
+	i := long tile_ninja_kills_kesha_2_data
+	draw_fullscreen_tile
+	sleep_180
+	i := long tile_ninja_kills_kesha_3_data
+	draw_fullscreen_tile
+	sleep_180
+	credits_draw
 	return
