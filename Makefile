@@ -54,7 +54,7 @@ $(PREFIX)/audio.8o: Makefile ./generate-audio.py assets/sounds/*
 endif
 
 $(PREFIX)/signature.8o: Makefile ./generate-string.py
-		./generate-string.py --right-align=40000 "Brought to you by Whoozle & Gazay ©2016" > $@
+		./generate-string.py --right-align=40000 "Brought to you by Whoozle & Gazay FROM COW WITH LOVE ©2016" > $@
 
 game.8o: Makefile $(PREFIX)/heads.8o $(PREFIX)/texts.8o $(PREFIX)/texts_data.8o $(PREFIX)/font.8o $(PREFIX)/tiles.8o $(PREFIX)/banners.8o $(PREFIX)/dtmf.8o $(PREFIX)/audio.8o $(PREFIX)/signature.8o assets/* assets/*/* sources/*.8o generate-texture.py
 		cat sources/main.8o > $@
