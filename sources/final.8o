@@ -12,9 +12,12 @@
 	draw_fullscreen_tile
 	sleep_180
 
+	i := long tile_fish_army_data
+	draw_fullscreen_tile
+	shake_up_down
+
 	i := long tile_banner_fish_data
 	draw_fullscreen_tile
-
 	shake_up_down
 
 	v0 := 30
