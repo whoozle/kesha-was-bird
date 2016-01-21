@@ -13,6 +13,15 @@
 		draw_text_ns
 	end
 
+	i := spam_spam_shown
+	load v0
+	if v0 != 0 begin
+		va := 64
+		vb += 8
+		vc := text_note_spam
+		draw_text_ns
+	end
+
 	i := pets_spam_shown
 	load v0
 	if v0 != 0 begin
