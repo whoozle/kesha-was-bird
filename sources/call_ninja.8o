@@ -94,6 +94,23 @@
 	draw_text
 
 	sleep_180
+	va := 89
+	vb := 29
+	vc := 63 #?
+	draw_font_char
+
+	sleep_60
+	vd := 100
+	loop
+		va := random 0x7f
+		vb := random 0x3f
+		vc := 63
+		draw_font_char
+		i := ninja_fight_final
+		audio_play_sync
+		vd += -1
+		if vd != 0 then
+	again
 
 	credits_draw
 	return
