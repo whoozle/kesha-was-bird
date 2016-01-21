@@ -312,7 +312,7 @@ clear()
 head(1, 'ninja')
 text('STOP RIGHT THERE!!')
 text("Now with F-DAY device")
-text("I can rule all the fish", 0)
+text("I can rule all the fishes", 0)
 text("in the world!", 180)
 
 dialog('ninja', 5)
