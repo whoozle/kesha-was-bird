@@ -19,6 +19,14 @@
 	draw_text
 #	:breakpoint t3
 
+	sleep_60
+
+	va := 37
+	vb := 50
+	vc := text_title_warning_4
+	draw_text
+#	:breakpoint t4
+
 #	vf := key
 	sleep_180
 
