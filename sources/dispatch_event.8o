@@ -31,5 +31,12 @@
 		return
 	end
 
+#random spam every ~1/8 day
+	v0 := random 0x07
+	if v0 == 3 begin
+		room_with_letter
+		dialog_spam_1
+	end
+
 	v0 := 0
 	return
