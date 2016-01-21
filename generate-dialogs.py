@@ -200,7 +200,7 @@ text("my calls, why?")
 
 head(2, 'ninja')
 text("Sorry, I have no choice")
-text("I just want to help you")
+text("I want to help you")
 
 clear()
 head(1, 'ninja')
@@ -225,9 +225,14 @@ clear()
 
 head(1, 'ninja')
 text('Galina is our agent too')
-text('So we need to find her')
-text('And EXTRACT THE KEY')
-text('Catch you later, man')
+text('So we need to find her,')
+text('EXTRACT THE KEY')
+text('And stop the F-DAY')
+clear()
+
+head(1, 'ninja')
+text('Later, man')
+
 call('call_glitch')
 
 dialog('ninja', 2)
