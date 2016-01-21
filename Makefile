@@ -101,7 +101,7 @@ game.hex: game.bin ./generate-hex.py
 xclip: game.bin #check validity
 	cat game.8o | xclip
 
-xclip-hex: game.hex
+xclip.hex: game.hex
 	cat game.hex | xclip
 
 pbcopy: game.8o
