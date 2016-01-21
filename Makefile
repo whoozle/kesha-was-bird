@@ -7,9 +7,9 @@ $(PREFIX)/heads.8o: Makefile assets/heads/* generate-texture.py
 		./generate-texture.py assets/heads/kesha_v2_open.png kesha_o 2 16 >> $@
 		./generate-texture.py assets/heads/kesha_v2_excited.png kesha_e 2 16 >> $@
 		./generate-texture.py assets/heads/squirrel_2.png cow 2 16 >> $@
-		./generate-texture.py assets/heads/professor.png professor_old 2 16 >> $@
+#		./generate-texture.py assets/heads/professor.png professor_old 2 16 >> $@
 		./generate-texture.py assets/heads/professor2.png professor 2 16 >> $@
-		./generate-texture.py assets/heads/ninja.png ninja_old 2 16 >> $@
+#		./generate-texture.py assets/heads/ninja.png ninja_old 2 16 >> $@
 		./generate-texture.py assets/heads/ninja2.png ninja 2 16 >> $@
 		./generate-texture.py assets/heads/ninja_kesha.png ninja_kesha 2 16 >> $@
 		./generate-texture.py assets/heads/lab.png lab 2 16 >> $@
