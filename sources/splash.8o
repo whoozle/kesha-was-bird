@@ -41,4 +41,14 @@
 		if v0 -key then
 	again
 
-	return
+	clear
+
+	sleep_120
+
+	va := 31
+	vb := 30
+	vc := text_title
+
+	draw_text
+
+	jump sleep_120
