@@ -187,13 +187,11 @@ text('Call me, 1337', 120) #leet :D
 call('ninja_show_banner')
 
 dialog('galina', 5)
-head(1, 'kesha_o')
-text("Hi, it's Kesha")
 head(2, 'cow')
-text("Quick, you need to find me")
-text("I will explain", 0)
-text("everything later")
-
+text("I don't know you might", 30)
+text("remember it, but you", 30)
+text("have to save me.")
+text("I got the code.")
 
 dialog('ninja', 1)
 head(1, 'kesha_o')
