@@ -23,7 +23,7 @@
 	v0 := 30
 	loop
 		scroll-up 4
-		i := long ninja_fight
+		i := long audio_noise
 		audio_play_sync
 		v0 += -1
 		if v0 != 0 then

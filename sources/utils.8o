@@ -29,10 +29,10 @@
 	v0 := 60
 	loop
 		scroll-up 4
-		i := ninja_fight
+		i := long audio_noise
 		audio_play_sync
 		scroll-down 4
-		i := ninja_fight
+		i := long audio_noise
 		audio_play_sync
 		v0 += -1
 		if v0 != 0 then
@@ -44,10 +44,10 @@
 	v0 := 60
 	loop
 		scroll-left
-		i := ninja_fight
+		i := long audio_noise
 		audio_play_sync
 		scroll-right
-		i := ninja_fight
+		i := long audio_noise
 		audio_play_sync
 		v0 += -1
 		if v0 != 0 then
