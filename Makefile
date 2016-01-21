@@ -29,6 +29,7 @@ $(PREFIX)/banners.8o: Makefile ./generate-texture.py assets/big_pics/*
 		./generate-texture.py assets/big_pics/phone_notepad.png phone_screen 2 16 >> $@
 		./generate-texture.py assets/big_pics/prison.png banner_prison 2 16 >> $@
 		./generate-texture.py assets/big_pics/professor.png banner_professor 2 16 >> $@
+		./generate-texture.py assets/big_pics/ninja_fish.png ninja_fish 2 16 >> $@
 		./generate-texture.py assets/big_pics/ninja_kills_kesha.png ninja_kills_kesha 2 16 >> $@
 		./generate-texture.py assets/big_pics/ninja_kills_kesha_2.png ninja_kills_kesha_2 2 16 >> $@
 		./generate-texture.py assets/big_pics/ninja_kills_kesha_3.png ninja_kills_kesha_3 2 16 >> $@
